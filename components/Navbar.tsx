@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { NAV_LINKS } from "@/lib/constants";
+import { BRAND, NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -24,7 +24,7 @@ export function Navbar() {
     >
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-3 sm:h-20 sm:px-6 lg:px-10">
         <Link href="/" className="font-serif text-base text-[#0B1F3A] sm:text-xl">
-          Global Workforce
+          {BRAND.brandName}
         </Link>
         <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((item) => (

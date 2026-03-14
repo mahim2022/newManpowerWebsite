@@ -2,8 +2,8 @@ const RECRUITMENT_LICENSE_NUMBER =
   process.env.NEXT_PUBLIC_RECRUITMENT_LICENSE_NUMBER?.trim() || "RL-1842";
 
 export const BRAND = {
-  brandName: "Global Workforce Bangladesh",
-  licensedCompanyName: "Global Workforce Recruitment Services Ltd.",
+  brandName: "Summit Hire",
+  licensedCompanyName: "Janani Overseas Recruiting Agency Ltd.",
   licenseNumber: RECRUITMENT_LICENSE_NUMBER,
   websiteUrl: "https://www.globalworkforcebd.com",
   phone: "+880 2 4100 2451",

@@ -34,7 +34,7 @@ export function Footer() {
       </div>
       <div className="mx-auto mt-12 w-full max-w-7xl border-t border-white/15 px-6 pt-6 text-xs text-white/70 lg:px-10">
         <p>
-          {BRAND.brandName} is a trading name of {BRAND.licensedCompanyName}, Government License No: {BRAND.licenseNumber}.
+          {BRAND.brandName}. A brand of {BRAND.licensedCompanyName}. Government License No: {BRAND.licenseNumber}.
         </p>
       </div>
     </footer>

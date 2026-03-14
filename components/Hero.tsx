@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 type HeroProps = {
   heading: string;
@@ -6,14 +7,33 @@ type HeroProps = {
 };
 
 export function Hero({ heading, supportingText }: HeroProps) {
+  const heroImages = [
+    {
+      src: "/images/bangladeshi-workers-abroad.jpg",
+      alt: "Bangladeshi migrant labourers working abroad",
+      className: "aspect-[16/10]",
+    },
+    {
+      src: "/images/travelling-abroad-bangladesh.jpg",
+      alt: "Bangladeshi migrant workers at airport before travelling abroad",
+      className: "aspect-[16/10]",
+    },
+    {
+      src: "/images/visa-line-queue.jpg",
+      alt: "People lining up for visa or passport control",
+      className: "aspect-[16/10]",
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden pb-20 pt-32 md:pb-24 md:pt-40">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-16 top-20 h-64 w-64 rounded-full bg-[#0B1F3A]/5 blur-3xl" />
         <div className="absolute right-0 top-0 h-80 w-80 rounded-full bg-[#C6A969]/10 blur-3xl" />
       </div>
-      <div className="relative mx-auto grid w-full max-w-7xl items-end gap-10 px-6 lg:grid-cols-12 lg:gap-12 lg:px-10">
-        <div className="lg:col-span-8">
+      <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-10">
+        <div className="grid items-end gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-8">
           <p className="mb-6 text-xs font-semibold uppercase tracking-[0.24em] text-[#0B1F3A]/70">International Workforce Recruitment</p>
           <h1 className="font-serif text-4xl leading-tight text-[#0B1F3A] sm:text-5xl md:text-6xl">{heading}</h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-700 md:mt-8 md:text-lg md:leading-9">{supportingText}</p>
@@ -34,14 +54,37 @@ export function Hero({ heading, supportingText }: HeroProps) {
           <p className="mt-4 text-xs leading-6 text-neutral-500">
             No-obligation consultation. Employer requirements are reviewed confidentially.
           </p>
+          </div>
+          <div className="lg:col-span-4">
+            <div className="rounded-sm border border-[#0B1F3A]/10 bg-white/90 p-6 shadow-[0_20px_50px_rgba(11,31,58,0.08)] sm:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Verification Points</p>
+              <ul className="mt-6 space-y-4 text-sm text-neutral-700">
+                <li>Government licensed agency operations</li>
+                <li>Documented recruitment process</li>
+                <li>Multi-country deployment experience</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div className="rounded-sm border border-[#0B1F3A]/10 bg-white/90 p-6 shadow-[0_20px_50px_rgba(11,31,58,0.08)] sm:p-8 lg:col-span-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Verification Points</p>
-          <ul className="mt-6 space-y-4 text-sm text-neutral-700">
-            <li>Government licensed agency operations</li>
-            <li>Documented recruitment process</li>
-            <li>Multi-country deployment experience</li>
-          </ul>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {heroImages.map((image, index) => (
+            <article
+              key={image.src}
+              className="group relative overflow-hidden rounded-sm border border-[#0B1F3A]/10 bg-white/90 shadow-[0_18px_40px_rgba(11,31,58,0.10)]"
+            >
+              <div className={`relative ${image.className}`}>
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  priority={index === 0}
+                />
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

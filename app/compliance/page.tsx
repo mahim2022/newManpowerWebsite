@@ -32,7 +32,7 @@ export default function CompliancePage() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Legal Disclosure</p>
             <p className="mt-4 font-serif text-4xl text-white">{BRAND.licenseNumber}</p>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-white/85">
-              {BRAND.brandName} is a trading name of {BRAND.licensedCompanyName}. License and company records are maintained for employer verification.
+              {BRAND.brandName}. A brand of {BRAND.licensedCompanyName}. License and company records are maintained for employer verification.
             </p>
           </article>
           {COMPLIANCE_PROOFS.map((proof) => (
