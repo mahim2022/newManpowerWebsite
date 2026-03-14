@@ -39,6 +39,7 @@ export default function Home() {
         eyebrow="Trust Signals"
         title="Built for Employer Due Diligence"
         subtitle="Core verification signals employers review before appointing a recruitment partner."
+        spacing="lead"
       >
         <TrustStats items={TRUST_STATS} />
       </SectionWrapper>
@@ -48,6 +49,7 @@ export default function Home() {
         eyebrow="Services"
         title="Structured Service Scope"
         subtitle="Service modules designed to reduce execution risk from sourcing through deployment."
+        spacing="compact"
       >
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {SERVICES.map((service) => (
@@ -61,6 +63,7 @@ export default function Home() {
         eyebrow="Industries"
         title="Industries We Support"
         subtitle="Sector-aligned recruitment for workforce-intensive operations."
+        spacing="compact"
       >
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {INDUSTRIES.map((industry) => (
@@ -76,6 +79,7 @@ export default function Home() {
         eyebrow="Process"
         title="Transparent Recruitment Timeline"
         subtitle="Defined operational stages from consultation to deployment."
+        spacing="compact"
       >
         <ProcessTimeline steps={PROCESS_STEPS} />
       </SectionWrapper>
@@ -87,6 +91,7 @@ export default function Home() {
         subtitle={SITE_COPY.complianceBody}
         className="bg-[#0B1F3A]"
         dark
+        spacing="compact"
       >
         <div className="grid gap-6 md:grid-cols-2">
           <article className="rounded-sm border border-white/20 bg-white/5 p-8 md:col-span-2">
@@ -110,6 +115,7 @@ export default function Home() {
         eyebrow="Testimonials"
         title="Employer Confidence in Execution"
         subtitle="Employer feedback on process control, communication quality, and compliance confidence."
+        spacing="compact"
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {TESTIMONIALS.map((item) => (

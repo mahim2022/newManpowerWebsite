@@ -11,6 +11,7 @@ type SectionWrapperProps = {
   className?: string;
   innerClassName?: string;
   dark?: boolean;
+  spacing?: "default" | "compact" | "lead";
 };
 
 export function SectionWrapper({
@@ -22,13 +23,17 @@ export function SectionWrapper({
   className,
   innerClassName,
   dark = false,
+  spacing = "default",
 }: SectionWrapperProps) {
+  const sectionSpacing = spacing === "lead" ? "pb-16 pt-12 md:pb-20 md:pt-16" : spacing === "compact" ? "py-16 md:py-20" : "py-20 md:py-24";
+  const headerSpacing = spacing === "default" ? "mb-10 max-w-3xl space-y-4 md:mb-12" : "mb-8 max-w-3xl space-y-4 md:mb-10";
+
   return (
-    <section id={id} className={cn("py-20 md:py-24", className)}>
+    <section id={id} className={cn(sectionSpacing, className)}>
       <div className={cn("mx-auto w-full max-w-7xl px-6 lg:px-10", innerClassName)}>
         <RevealOnScroll>
           {(eyebrow || title || subtitle) && (
-            <header className="mb-10 max-w-3xl space-y-4 md:mb-12">
+            <header className={headerSpacing}>
               {eyebrow ? (
                 <p
                   className={cn(

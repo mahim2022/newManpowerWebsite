@@ -26,18 +26,18 @@ export function Hero({ heading, supportingText }: HeroProps) {
   ];
 
   return (
-    <section className="relative overflow-hidden pb-20 pt-32 md:pb-24 md:pt-40">
+    <section className="relative overflow-hidden pb-16 pt-24 md:pb-20 md:pt-28">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-16 top-20 h-64 w-64 rounded-full bg-[#0B1F3A]/5 blur-3xl" />
         <div className="absolute right-0 top-0 h-80 w-80 rounded-full bg-[#C6A969]/10 blur-3xl" />
       </div>
       <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-10">
-        <div className="grid items-end gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className="grid items-end gap-8 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-8">
           <p className="mb-6 text-xs font-semibold uppercase tracking-[0.24em] text-[#0B1F3A]/70">International Workforce Recruitment</p>
           <h1 className="font-serif text-4xl leading-tight text-[#0B1F3A] sm:text-5xl md:text-6xl">{heading}</h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-700 md:mt-8 md:text-lg md:leading-9">{supportingText}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
+          <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:gap-4">
             <Link
               href="/contact"
               className="w-full rounded-sm bg-[#0B1F3A] px-7 py-3.5 text-center text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg sm:w-auto"
@@ -67,7 +67,7 @@ export function Hero({ heading, supportingText }: HeroProps) {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:mt-12 md:grid-cols-2 lg:grid-cols-3">
           {heroImages.map((image, index) => (
             <article
               key={image.src}
