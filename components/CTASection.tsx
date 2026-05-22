@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ContactMethods } from "@/components/ContactMethods";
 
 type CTASectionProps = {
   title: string;
@@ -26,6 +27,7 @@ export function CTASection({ title, description }: CTASectionProps) {
               Review Compliance Framework
             </Link>
           </div>
+          <ContactMethods dark className="mt-6 max-w-4xl" />
           <p className="mt-3 text-xs text-white/70">Most employer inquiries receive an initial response within one working day.</p>
         </div>
       </div>

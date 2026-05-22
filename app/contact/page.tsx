@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { InquiryForm } from "@/components/InquiryForm";
+import { ContactMethods } from "@/components/ContactMethods";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { SITE_COPY } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -33,6 +34,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         subtitle="Provide your requirement details and our team will reply with a structured recruitment pathway, expected timeline, and compliance steps."
       >
         <p className="mb-6 text-sm leading-7 text-neutral-600">{SITE_COPY.contactTrustNote}</p>
+        <ContactMethods className="mb-8 max-w-4xl" />
         {params.status === "success" ? (
           <div className="mb-6 rounded-sm border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm text-emerald-800">
             Inquiry submitted successfully. Our team will contact you shortly.
@@ -45,7 +47,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         ) : null}
         {params.status === "error" ? (
           <div className="mb-6 rounded-sm border border-rose-200 bg-rose-50 px-5 py-4 text-sm text-rose-800">
-            We could not submit your inquiry at this moment. Please try again or contact us by email.
+            We could not submit your inquiry at this moment. Please try again or contact us by phone, WhatsApp, or email.
           </div>
         ) : null}
         <InquiryForm action={submitInquiry} />

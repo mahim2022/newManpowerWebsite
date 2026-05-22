@@ -34,8 +34,9 @@ Copy-Item .\SEO_PLAYBOOK_COMBINED.md -Destination C:\path\to\new\repo\
 2. Set environment variables in `.env` or Vercel/host settings:
 - `NEXT_PUBLIC_SITE_URL=https://bangladeshlaboursupply.page`
 - `NEXT_PUBLIC_COMPANY_NAME=Bangladesh Labour Supply`
-- `NEXT_PUBLIC_CONTACT_EMAIL=inquiries@bangladeshlaboursupply.page`
-- `NEXT_PUBLIC_CONTACT_PHONE=+1-555-555-5555`
+- `NEXT_PUBLIC_CONTACT_EMAIL=naimulmushfiq98@gmail.com`
+- `NEXT_PUBLIC_CONTACT_PHONE=+601166773501`
+- `NEXT_PUBLIC_WHATSAPP_NUMBER=+8801625069703`
 - Optionally: `NEXT_PUBLIC_LOGO_URL` and `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`
 
 3. Create or copy the following quick helpers:

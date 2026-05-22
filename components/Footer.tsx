@@ -27,8 +27,26 @@ export function Footer() {
         </div>
         <address className="space-y-2 text-sm not-italic text-white/85">
           <h4 className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#C6A969]">Contact</h4>
-          <p>{BRAND.phone}</p>
-          <p>{BRAND.email}</p>
+          <p>
+            <a className="transition-colors duration-200 hover:text-[#C6A969]" href={`tel:${BRAND.phone.replace(/\s+/g, "")}`}>
+              Phone: {BRAND.phone}
+            </a>
+          </p>
+          <p>
+            <a
+              className="transition-colors duration-200 hover:text-[#C6A969]"
+              href={`https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              WhatsApp: {BRAND.whatsapp}
+            </a>
+          </p>
+          <p>
+            <a className="transition-colors duration-200 hover:text-[#C6A969]" href={`mailto:${BRAND.email}`}>
+              Email: {BRAND.email}
+            </a>
+          </p>
           <p>{BRAND.address}</p>
         </address>
       </div>

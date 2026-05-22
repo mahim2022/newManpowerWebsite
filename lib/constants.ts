@@ -6,8 +6,9 @@ export const BRAND = {
   licensedCompanyName: "Janani Overseas Recruiting Agency Ltd.",
   licenseNumber: RECRUITMENT_LICENSE_NUMBER,
   websiteUrl: "https://bangladeshlaboursupply.page",
-  phone: "+880 2 4100 2451",
-  email: "inquiries@bangladeshlaboursupply.page",
+  phone: "+601166773501",
+  whatsapp: "+8801625069703",
+  email: "naimulmushfiq98@gmail.com",
   address: "Level 8, Gulshan Avenue, Dhaka 1212, Bangladesh",
 };
 
