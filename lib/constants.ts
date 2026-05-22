@@ -2,12 +2,12 @@ const RECRUITMENT_LICENSE_NUMBER =
   process.env.NEXT_PUBLIC_RECRUITMENT_LICENSE_NUMBER?.trim() || "RL-1842";
 
 export const BRAND = {
-  brandName: "Summit Hire",
+  brandName: "Bangladesh Labour Supply",
   licensedCompanyName: "Janani Overseas Recruiting Agency Ltd.",
   licenseNumber: RECRUITMENT_LICENSE_NUMBER,
-  websiteUrl: "https://www.globalworkforcebd.com",
+  websiteUrl: "https://bangladeshlaboursupply.page",
   phone: "+880 2 4100 2451",
-  email: "inquiries@globalworkforcebd.com",
+  email: "inquiries@bangladeshlaboursupply.page",
   address: "Level 8, Gulshan Avenue, Dhaka 1212, Bangladesh",
 };
 

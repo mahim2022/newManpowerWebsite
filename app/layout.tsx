@@ -18,11 +18,11 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL(BRAND.websiteUrl),
-  title: "Summit Hire | Licensed International Recruitment",
+  title: "Bangladesh Labour Supply | Licensed International Recruitment",
   description:
-    "Licensed Bangladesh manpower recruitment agency supporting international employers with compliant and structured overseas hiring.",
+    "Trusted Bangladesh manpower recruitment for international employers — compliant hiring, verified candidates, and disciplined deployment coordination.",
   openGraph: {
-    title: "Summit Hire | Licensed International Recruitment",
+    title: "Bangladesh Labour Supply | Licensed International Recruitment",
     description:
       "Structured international manpower recruitment for employers requiring compliance, documentation control, and reliable deployment.",
     url: BRAND.websiteUrl,
