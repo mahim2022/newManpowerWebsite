@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ContactMethods } from "@/components/ContactMethods";
 
 type HeroProps = {
   heading: string;
@@ -52,7 +51,6 @@ export function Hero({ heading, supportingText }: HeroProps) {
               View Recruitment Process
             </Link>
           </div>
-          <ContactMethods className="mt-6 max-w-3xl" />
           <p className="mt-4 text-xs leading-6 text-neutral-500">
             No-obligation consultation. Employer requirements are reviewed confidentially.
           </p>
