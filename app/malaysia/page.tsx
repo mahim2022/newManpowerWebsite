@@ -185,6 +185,28 @@ export default function MalaysiaPage() {
       </SectionWrapper>
 
       <SectionWrapper
+        eyebrow="Quota support"
+        title="Malaysia foreign worker quota guidance for employers"
+        subtitle="If your business needs to understand the quota and hiring pathway for foreign workers in Malaysia, this guide explains what employers usually prepare, how the process works, and where recruitment support fits in."
+      >
+        <div className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 shadow-[0_18px_40px_rgba(11,31,58,0.04)]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Related guide</p>
+          <h3 className="mt-4 font-serif text-3xl text-[#0B1F3A]">Malaysia foreign worker quota application for employers</h3>
+          <p className="mt-3 text-base leading-8 text-neutral-700">
+            Employers planning manpower supply to Malaysia often need a clearer view of hiring categories, documentation requirements, and how quota-based worker sourcing fits into the broader recruitment cycle.
+          </p>
+          <div className="mt-6">
+            <a
+              href="/malaysia/foreign-worker-quota"
+              className="inline-flex items-center justify-center rounded-sm bg-[#0B1F3A] px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Read the quota guide
+            </a>
+          </div>
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper
         eyebrow="Process"
         title="How our Malaysia recruitment process works"
         subtitle="We follow a practical recruitment model designed for employers who want dependable hiring outcomes without communication gaps."
