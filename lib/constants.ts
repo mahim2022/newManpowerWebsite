@@ -5,7 +5,7 @@ export const BRAND = {
   brandName: "Bangladesh Labour Supply",
   licensedCompanyName: "Janani Overseas Recruiting Agency Ltd.",
   licenseNumber: RECRUITMENT_LICENSE_NUMBER,
-  websiteUrl: "https://bangladeshlaboursupply.page",
+  websiteUrl: "https://www.recruitfrombangladesh.me",
   phone: "+601166773501",
   whatsapp: "+8801625069703",
   email: "naimulmushfiq98@gmail.com",
