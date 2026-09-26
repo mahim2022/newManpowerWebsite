@@ -9,16 +9,17 @@ type PageMetadataInput = {
 };
 
 export function buildPageMetadata({ title, description, path, keywords }: PageMetadataInput): Metadata {
+  const canonicalUrl = `${BRAND.websiteUrl}${path}`;
   const metadata: Metadata & { keywords?: string[] } = {
     title,
     description,
     alternates: {
-      canonical: path,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title,
       description,
-      url: `${BRAND.websiteUrl}${path}`,
+      url: canonicalUrl,
       siteName: BRAND.brandName,
       type: "website",
     },
