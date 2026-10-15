@@ -329,9 +329,8 @@ export default function ApplicationApprovalProcessPage() {
       </SectionWrapper>
 
       <CTASection
-        heading="Ready to Start Your Foreign Worker Application?"
-        body="Our team specializes in guiding Malaysian employers through the entire Section 60K approval process. We ensure your documentation is complete, compliant, and positioned for quick approval."
-        cta={{ label: "Start Application Process", href: "/contact" }}
+        title="Ready to Start Your Foreign Worker Application?"
+        description="Our team specializes in guiding Malaysian employers through the entire Section 60K approval process. We ensure your documentation is complete, compliant, and positioned for quick approval."
       />
     </>
   );

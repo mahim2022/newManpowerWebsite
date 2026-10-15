@@ -450,9 +450,8 @@ export default function HowToApplyPage() {
       </SectionWrapper>
 
       <CTASection
-        heading="Need Expert Guidance Through Your Application?"
-        body="Our team has successfully guided hundreds of Malaysian employers through Section 60K approval. We'll handle document verification, submission, and coordination with JTKSM to get your approval faster."
-        cta={{ label: "Get Application Support", href: "/contact" }}
+        title="Need Expert Guidance Through Your Application?"
+        description="Our team has successfully guided hundreds of Malaysian employers through Section 60K approval. We'll handle document verification, submission, and coordination with JTKSM to get your approval faster."
       />
     </>
   );

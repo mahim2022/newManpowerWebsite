@@ -483,9 +483,8 @@ export default function RequiredDocumentsPage() {
       </SectionWrapper>
 
       <CTASection
-        heading="Need Help Preparing Your Document Package?"
-        body="Our team specializes in Malaysian foreign worker applications. We'll review your documents, identify gaps, and ensure your application meets all JTKSM requirements for fast approval."
-        cta={{ label: "Get Document Review", href: "/contact" }}
+        title="Need Help Preparing Your Document Package?"
+        description="Our team specializes in Malaysian foreign worker applications. We'll review your documents, identify gaps, and ensure your application meets all JTKSM requirements for fast approval."
       />
     </>
   );
