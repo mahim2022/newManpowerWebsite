@@ -289,6 +289,36 @@ export default function MalaysiaPage() {
       </SectionWrapper>
 
       <SectionWrapper
+        eyebrow="Employer resources"
+        title="Foreign Worker Approval: Complete Guide for Malaysian Companies"
+        subtitle="Step-by-step guides to navigating Section 60K approval, required documentation, and the application process."
+      >
+        <div className="grid gap-6 md:grid-cols-3">
+          <a href="/malaysia/application-approval-process" className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Legal requirements</p>
+            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Section 60K Approval Process</h3>
+            <p className="mt-3 text-sm leading-6 text-neutral-700">
+              Understand the 6-step approval process, eligibility requirements, and how to position your application for fast approval.
+            </p>
+          </a>
+          <a href="/malaysia/required-documents" className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Documentation</p>
+            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Documents by Sector</h3>
+            <p className="mt-3 text-sm leading-6 text-neutral-700">
+              Detailed checklists for all Malaysian industry sectors. Know exactly which documents your company needs to prepare.
+            </p>
+          </a>
+          <a href="/malaysia/how-to-apply" className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Step-by-step guide</p>
+            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">How to Apply</h3>
+            <p className="mt-3 text-sm leading-6 text-neutral-700">
+              15-step practical guide from initial eligibility checks through final approval and worker deployment.
+            </p>
+          </a>
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper
         eyebrow="FAQ"
         title="Frequently asked questions about hiring workers from Bangladesh for Malaysia"
       >
