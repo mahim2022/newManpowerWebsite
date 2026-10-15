@@ -6,7 +6,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Malaysia Recruitment Agency from Bangladesh | Manpower Supply for Malaysian Employers",
+  title: "Malaysia Recruitment Agency | Bangladesh Manpower Supply",
   description:
     "Trusted Malaysia recruitment agency from Bangladesh for employers seeking compliant manpower supply, skilled workers, labourers, and verified candidate deployment to Malaysia.",
   path: "/malaysia",

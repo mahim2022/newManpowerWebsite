@@ -20,7 +20,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Licensed Bangladesh Recruitment Agency for International Employers",
+  title: "Bangladesh Recruitment Agency | International Employers",
   description:
     "Verify legal licensing, process discipline, and international deployment capability before initiating recruitment consultation.",
   path: "/",

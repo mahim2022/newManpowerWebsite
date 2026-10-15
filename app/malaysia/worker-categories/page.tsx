@@ -5,7 +5,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Malaysia Worker Categories from Bangladesh | Construction, Labour, Manufacturing",
+  title: "Malaysia Worker Categories | Labour & Construction",
   description:
     "Explore Malaysia worker categories from Bangladesh, including construction workers, general labourers, manufacturing staff, security personnel, cleaning staff, and hospitality workers.",
   path: "/malaysia/worker-categories",
