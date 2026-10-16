@@ -7,7 +7,7 @@ import { buildBreadcrumbSchema } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Compliance and Legal Transparency",
   description:
-    "Review government license disclosure, ethical recruitment commitments, and legal process controls used in our international manpower recruitment operations.",
+    "Transparent compliance, licensing, and ethical recruitment for Bangladesh manpower supply and hiring oversight.",
   path: "/compliance",
 });
 

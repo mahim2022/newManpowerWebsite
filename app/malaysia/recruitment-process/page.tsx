@@ -7,7 +7,7 @@ import { buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Malaysia Recruitment Process | How Employers Hire Workers",
   description:
-    "Learn the Malaysia recruitment process from Bangladesh, including sourcing, screening, documentation, visa coordination, and deployment for Malaysian employers.",
+    "Malaysia recruitment process from Bangladesh: sourcing, screening, documentation, and deployment support for employers.",
   path: "/malaysia/recruitment-process",
   keywords: [
     "Malaysia recruitment process from Bangladesh",

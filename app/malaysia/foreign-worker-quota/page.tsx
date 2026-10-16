@@ -7,7 +7,7 @@ import { buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Foreign Worker Quota in Malaysia | Application Guide",
   description:
-    "A practical guide for Malaysian employers on foreign worker quota applications, hiring requirements, documentation, and how to coordinate recruitment support from Bangladesh.",
+    "Malaysia foreign worker quota guide: employer requirements, documentation, hiring steps, and recruitment support.",
   path: "/malaysia/foreign-worker-quota",
   keywords: [
     "Malaysia foreign worker quota",
