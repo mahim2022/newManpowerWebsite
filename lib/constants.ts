@@ -1,11 +1,35 @@
 const RECRUITMENT_LICENSE_NUMBER =
   process.env.NEXT_PUBLIC_RECRUITMENT_LICENSE_NUMBER?.trim() || "RL-1842";
 
+export const PREFERRED_CANONICAL_URL = "https://www.recruitfrombangladesh.me";
+
+export function normalizeCanonicalUrl(url: string): string {
+  const rawValue = (url || PREFERRED_CANONICAL_URL).trim();
+
+  try {
+    const candidate = rawValue.startsWith("http://") || rawValue.startsWith("https://") ? rawValue : `https://${rawValue}`;
+    const parsed = new URL(candidate);
+    const preferredHost = new URL(PREFERRED_CANONICAL_URL).hostname.toLowerCase();
+
+    const pathname = parsed.pathname === "/" ? "" : parsed.pathname.replace(/\/+$/, "");
+    const search = parsed.search || "";
+    const hash = parsed.hash || "";
+
+    return `${parsed.protocol}//${preferredHost}${pathname}${search}${hash}`.replace(/\/$/, "") || PREFERRED_CANONICAL_URL;
+  } catch {
+    return PREFERRED_CANONICAL_URL;
+  }
+}
+
+export function dedupeCanonicalUrls(urls: string[]): string[] {
+  return [...new Set(urls.map((url) => normalizeCanonicalUrl(url)))];
+}
+
 export const BRAND = {
   brandName: "Bangladesh Labour Supply",
   licensedCompanyName: "Janani Overseas Recruiting Agency Ltd.",
   licenseNumber: RECRUITMENT_LICENSE_NUMBER,
-  websiteUrl: "https://www.recruitfrombangladesh.me",
+  websiteUrl: normalizeCanonicalUrl(process.env.NEXT_PUBLIC_SITE_URL || PREFERRED_CANONICAL_URL),
   phone: "+601166773501",
   whatsapp: "+8801625069703",
   email: "naimulmushfiq98@gmail.com",

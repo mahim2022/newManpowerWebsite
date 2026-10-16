@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BRAND } from "@/lib/constants";
+import { BRAND, normalizeCanonicalUrl } from "@/lib/constants";
 
 type PageMetadataInput = {
   title: string;
@@ -9,7 +9,7 @@ type PageMetadataInput = {
 };
 
 export function buildPageMetadata({ title, description, path, keywords }: PageMetadataInput): Metadata {
-  const canonicalUrl = `${BRAND.websiteUrl}${path}`;
+  const canonicalUrl = normalizeCanonicalUrl(`${BRAND.websiteUrl}${path}`);
   const metadata: Metadata & { keywords?: string[] } = {
     title,
     description,

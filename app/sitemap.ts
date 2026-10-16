@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { BRAND, NAV_LINKS } from "@/lib/constants";
+import { BRAND, NAV_LINKS, normalizeCanonicalUrl } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = BRAND.websiteUrl;
@@ -57,12 +57,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   NAV_LINKS.forEach((link) => {
     routes.push({
-      url: `${baseUrl}${link.href}`,
+      url: normalizeCanonicalUrl(`${baseUrl}${link.href}`),
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     });
   });
 
-  return routes;
+  const uniqueRoutes = new Map<string, MetadataRoute.Sitemap[0]>();
+
+  routes.forEach((route) => {
+    const canonicalUrl = normalizeCanonicalUrl(route.url);
+    if (!uniqueRoutes.has(canonicalUrl)) {
+      uniqueRoutes.set(canonicalUrl, { ...route, url: canonicalUrl });
+    }
+  });
+
+  return [...uniqueRoutes.values()];
 }

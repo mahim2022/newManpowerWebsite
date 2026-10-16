@@ -1,4 +1,4 @@
-import { BRAND } from "@/lib/constants";
+import { BRAND, normalizeCanonicalUrl } from "@/lib/constants";
 
 export default function robots() {
   return {
@@ -8,6 +8,6 @@ export default function robots() {
         allow: "/",
       },
     ],
-    sitemap: `${BRAND.websiteUrl}/sitemap.xml`,
+    sitemap: `${normalizeCanonicalUrl(BRAND.websiteUrl)}/sitemap.xml`,
   };
 }
