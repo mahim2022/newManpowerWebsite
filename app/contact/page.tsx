@@ -27,6 +27,9 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <h1 className="mx-auto max-w-7xl px-6 pt-10 text-3xl font-bold tracking-tight text-[#0B1F3A] md:text-5xl lg:px-10">
+        Hire Workers from Bangladesh
+      </h1>
       <SectionWrapper
         eyebrow="Contact"
         title="Request Recruitment Consultation"

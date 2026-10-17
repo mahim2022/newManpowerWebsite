@@ -20,6 +20,9 @@ export default function IndustriesPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <h1 className="mx-auto max-w-7xl px-6 pt-10 text-3xl font-bold tracking-tight text-[#0B1F3A] md:text-5xl lg:px-10">
+        Labour Supply for Construction and Manufacturing
+      </h1>
       <SectionWrapper
         eyebrow="Industries"
         title="Sector-Focused Workforce Support"

@@ -21,6 +21,9 @@ export default function CaseStudiesPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <h1 className="mx-auto max-w-7xl px-6 pt-10 text-3xl font-bold tracking-tight text-[#0B1F3A] md:text-5xl lg:px-10">
+        Recruitment Case Studies and Client Feedback
+      </h1>
       <SectionWrapper
         eyebrow="Case Studies"
         title="Employer Feedback from International Recruitment Engagements"
