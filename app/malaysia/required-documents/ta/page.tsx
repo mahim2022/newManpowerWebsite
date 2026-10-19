@@ -1,7 +1,10 @@
+
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CTASection } from "@/components/CTASection";
+import { SectionWrapper } from "@/components/SectionWrapper";
 import React from "react";
-
+import { buildBreadcrumbSchema } from "@/lib/seo";
 
 export default function RequiredDocumentsTa() {
   const breadcrumbSchema = buildBreadcrumbSchema([

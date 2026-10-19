@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CTASection } from "@/components/CTASection";
+import { SectionWrapper } from "@/components/SectionWrapper";
 import React from "react";
 import { buildPageMetadata } from "@/lib/metadata";
+import { buildBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "所需文件 — 马来西亚外籍工人申请",
@@ -11,6 +14,20 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function RequiredDocumentsZh() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Malaysia", path: "/malaysia" },
+    { name: "所需文件", path: "/malaysia/required-documents" },
+  ]);
+
+  const docs = [
+    "公司注册证书（SSM）",
+    "经审计的财务报表 / 3 个月银行对账单",
+    "PERKESO 缴费记录（最近 3 个月）",
+    "本地及外籍员工示例雇佣合同",
+    "如适用：行业特定执照（CIDB、MOTAC 等）",
+  ];
+
   return (
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />

@@ -1,63 +1,97 @@
 import type { Metadata } from "next";
-
-
-export default function HireFromBangladeshMs() {
-  return (
-    <main>
-      <h1>Bagaimana Mengupah Pekerja dari Bangladesh — Bahasa Melayu</h1>
-      <p>Kandungan Bahasa Melayu akan datang. Lihat versi Bahasa Inggeris:</p>
-      <p>
-        <Link href="/malaysia/how-to-hire-workers-from-bangladesh">English — /malaysia/how-to-hire-workers-from-bangladesh</Link>
-      </p>
-    </main>
-  );
-}
 import Link from "next/link";
 import React from "react";
-import { SectionWrapper } from "@/components/SectionWrapper";
 import { CTASection } from "@/components/CTASection";
-import { buildBreadcrumbSchema } from "@/lib/seo";
+import { SectionWrapper } from "@/components/SectionWrapper";
+import { buildPageMetadata } from "@/lib/metadata";
+import { buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo";
 
-export default function HireFromBangladeshMs() {
+export const metadata: Metadata = buildPageMetadata({
+  title: "Bagaimana Mengupah Pekerja dari Bangladesh | Malaysia",
+  description: "Panduan praktikal bagi majikan di Malaysia yang ingin mengupah pekerja dari Bangladesh：sumber, saringan, dokumen dan sokongan penempatan。",
+  path: "/malaysia/how-to-hire-workers-from-bangladesh/ms",
+  keywords: ["mengupah dari Bangladesh", "pekerja Bangladesh ke Malaysia"],
+});
+
+const hiringChecklist = [
+  "Tentukan peranan, bilangan pekerja dan syarat kerja",
+  "Sahkan kategori pekerja dan kesesuaian tugas",
+  "Pilih calon melalui proses saringan berpendokumentasi",
+  "Sediakan dokumentasi dan rekod pematuhan",
+  "Susun perancangan akhir penempatan dan komunikasi majikan",
+];
+
+const faqItems = [
+  {
+    question: "Apakah yang diperlukan untuk mengupah dari Bangladesh?",
+    answer: "Keperluan yang jelas, spesifikasi peranan, proses saringan calon dan rakan pengambilan yang boleh mengurus dokumentasi dan penempatan。",
+  },
+  {
+    question: "Bolehkah majikan di Malaysia terus mengupah dari Bangladesh?",
+    answer: "Boleh, dengan proses pengambilan yang terstruktur termasuk sumber, saringan dan pematuhan。",
+  },
+  {
+    question: "Kategori pekerjaan biasa?",
+    answer: "Pembinaan, pembuatan, pembersihan, keselamatan, logistik dan sokongan hospitaliti。",
+  },
+];
+
+export default function HireFromBangladeshMsPage() {
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: "Home", path: "/" },
     { name: "Malaysia", path: "/malaysia" },
     { name: "Bagaimana Mengupah", path: "/malaysia/how-to-hire-workers-from-bangladesh" },
   ]);
-
-  const checklist = [
-    "Tentukan peranan dan syarat kerja dengan jelas",
-    "Sahkan kategori pekerja dan keperluan tapak",
-    "Pra-saring calon berdasarkan pengalaman dan kebolehan kerja",
-    "Sediakan dokumen yang diperlukan untuk pengesahan dan visa",
-    "Rancang logistik mobilisasi dan penerimaan pekerja"
-  ];
+  const faqSchema = buildFaqSchema(faqItems);
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <SectionWrapper eyebrow="Panduan Pengambilan" title="Bagaimana Mengupah Pekerja dari Bangladesh untuk Malaysia" spacing="lead">
-        <p className="mb-6 text-sm leading-7 text-neutral-700">Panduan ringkas ini membantu majikan merancang pengambilan dari Bangladesh secara patuh, termasuk pra-saringan, pengesahan dokumen dan koordinasi penghantaran.</p>
+        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Checklist Majikan</p>
+            <h1 className="mt-5 font-serif text-4xl leading-tight text-[#0B1F3A] md:text-5xl">Cara mengupah pekerja dari Bangladesh ke Malaysia</h1>
+            <p className="mt-5 text-base leading-8 text-neutral-700">Majikan perlu memulakan dengan menentukan keperluan tenaga kerja, mengesahkan kesesuaian jawatan dan memilih rakan pengambilan yang boleh menguruskan proses dengan teratur。</p>
+          </article>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          <div>
-            <h3 className="mb-3 font-semibold">Checklist Majikan</h3>
-            <ul className="list-disc ml-6 space-y-2 text-sm text-neutral-700">
-              {checklist.map((c) => (
-                <li key={c}>{c}</li>
-              ))}
+          <article className="rounded-sm border border-[#0B1F3A]/10 bg-[#0B1F3A] p-8 text-white">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Perkara penting</p>
+            <ul className="mt-5 space-y-3 text-sm text-white/90">
+              <li>• Spesifikasi peranan yang jelas</li>
+              <li>• Kualiti penilaian calon</li>
+              <li>• Disiplin dokumen</li>
+              <li>• Komunikasi telus</li>
             </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-3 font-semibold">Proses Operasi</h3>
-            <p className="text-sm text-neutral-700">Kami bekerja dengan rakan kongsi berlesen untuk sumber, saringan, pemeriksaan latar dan susunan perjalanan. Pastikan anda menyediakan butiran penginapan dan penerimaan di tapak.</p>
-            <p className="mt-4 text-sm text-neutral-700">Rujuk juga <Link href="/malaysia/application-approval-process/ms" className="text-blue-600">Proses Kelulusan</Link> dan <Link href="/malaysia/required-documents/ms" className="text-blue-600">Dokumen Diperlukan</Link>.</p>
-          </div>
+          </article>
         </div>
       </SectionWrapper>
 
-      <CTASection title="Mula pengambilan" description="Kongsi peranan dan kuota; kami akan sediakan rancangan sumber dan anggaran masa mobilisasi." />
+      <SectionWrapper eyebrow="Checklist" title="Senarai pemeriksaan pengambilan">
+        <div className="space-y-4">
+          {hiringChecklist.map((item, index) => (
+            <article key={item} className="flex gap-4 rounded-sm border border-[#0B1F3A]/10 bg-white p-5">
+              <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-[#0B1F3A] text-sm font-semibold text-white">{index + 1}</div>
+              <p className="text-base leading-7 text-neutral-700">{item}</p>
+            </article>
+          ))}
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper eyebrow="FAQ" title="Soalan ringkas untuk majikan Malaysia">
+        <div className="space-y-4">
+          {faqItems.map((item) => (
+            <article key={item.question} className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
+              <h3 className="text-lg font-semibold text-[#0B1F3A]">{item.question}</h3>
+              <p className="mt-3 text-sm leading-7 text-neutral-700">{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      </SectionWrapper>
+
+      <CTASection title="Discuss your Malaysia hiring requirement" description="If you need workers from Bangladesh for Malaysia, we can help you review the role requirements, candidate sourcing approach, and deployment pathway." />
     </>
   );
+}

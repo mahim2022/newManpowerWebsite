@@ -1,7 +1,25 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
+import { CTASection } from "@/components/CTASection";
+import { SectionWrapper } from "@/components/SectionWrapper";
+import { buildPageMetadata } from "@/lib/metadata";
+import { buildBreadcrumbSchema } from "@/lib/seo";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "கட்டுமான வேலைவாளர்கள் — மலேஷியா | பங்களாதேஷ் வளம்",
+  description: "பணிக்குத் தேர்ந்தெடுக்கப்படும் கட்டுமான வேலைவாளர்களுக்கான வழிகாட்டி மற்றும் நிர்வாக ஆதரவு. ",
+  path: "/malaysia/construction-workers/ta",
+  keywords: ["construction workers Malaysia", "பணியாளர்கள் பங்களாதேஷ்"],
+});
 
 export default function ConstructionWorkersTa() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Malaysia", path: "/malaysia" },
+    { name: "Construction Workers", path: "/malaysia/construction-workers" },
+  ]);
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
