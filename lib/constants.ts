@@ -34,6 +34,10 @@ export const BRAND = {
   whatsapp: "+8801625069703",
   email: "naimulmushfiq98@gmail.com",
   address: "Level 8, Gulshan Avenue, Dhaka 1212, Bangladesh",
+  addressMapUrl: "https://maps.google.com/?q=Level+8,+Gulshan+Avenue,+Dhaka+1212,+Bangladesh",
+  businessHours: "Mon - Sat • 9:00 AM - 6:30 PM (GMT+6)",
+  linkedinUrl: "https://www.linkedin.com/company/janani-overseas-recruiting-agency-ltd/",
+  whatsappMessage: "Hello, I need manpower recruitment support. Please contact me with candidate availability, compliance, and deployment timelines.",
 };
 
 export const NAV_LINKS = [
