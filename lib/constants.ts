@@ -40,14 +40,23 @@ export const BRAND = {
   whatsappMessage: "Hello, I need manpower recruitment support. Please contact me with candidate availability, compliance, and deployment timelines.",
 };
 
+export const MALAYSIA_SUBMENU_LINKS = [
+  { label: "Overview", href: "/malaysia" },
+  { label: "Required Documents", href: "/malaysia/required-documents" },
+  { label: "Application & Approval", href: "/malaysia/application-approval-process" },
+  { label: "How to Apply", href: "/malaysia/how-to-apply" },
+  { label: "Recruitment Process", href: "/malaysia/recruitment-process" },
+  { label: "How to Hire Workers", href: "/malaysia/how-to-hire-workers-from-bangladesh" },
+  { label: "Foreign Worker Quota", href: "/malaysia/foreign-worker-quota" },
+  { label: "Worker Categories", href: "/malaysia/worker-categories" },
+  { label: "Construction Workers", href: "/malaysia/construction-workers" },
+  { label: "Skilled Workers", href: "/malaysia/skilled-workers" },
+];
+
 export const NAV_LINKS = [
-  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Malaysia", href: "/malaysia" },
+  { label: "Malaysia", href: "/malaysia", children: MALAYSIA_SUBMENU_LINKS },
   { label: "Industries", href: "/industries" },
-  { label: "Process", href: "/process" },
-  { label: "Compliance", href: "/compliance" },
-  { label: "Case Studies", href: "/case-studies" },
   { label: "Contact", href: "/contact" },
 ];
 

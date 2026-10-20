@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { BRAND } from "@/lib/constants";
@@ -87,6 +88,63 @@ const malaysiaKeywords = [
   "Malaysia labour recruitment agency",
 ];
 
+const malaysiaGuideLinks = [
+  {
+    title: "Required documents by sector",
+    category: "Checklist",
+    description: "Review the exact documentation employers typically need to prepare before applying for foreign worker approval in Malaysia.",
+    href: "/malaysia/required-documents",
+  },
+  {
+    title: "Section 60K approval process",
+    category: "Legal & compliance",
+    description: "Understand the employer approval pathway, eligibility rules, and the step-by-step framework for hiring foreign workers in Malaysia.",
+    href: "/malaysia/application-approval-process",
+  },
+  {
+    title: "How to apply for foreign worker approval",
+    category: "Practical guide",
+    description: "Follow a clear application roadmap from eligibility checks to final submission and review.",
+    href: "/malaysia/how-to-apply",
+  },
+  {
+    title: "Malaysia recruitment process",
+    category: "Workflow",
+    description: "See how sourcing, screening, documentation, and deployment coordination work from Bangladesh to Malaysia.",
+    href: "/malaysia/recruitment-process",
+  },
+  {
+    title: "How to hire workers from Bangladesh",
+    category: "Hiring guide",
+    description: "Learn the practical model for sourcing and managing workers from Bangladesh for Malaysian employers.",
+    href: "/malaysia/how-to-hire-workers-from-bangladesh",
+  },
+  {
+    title: "Foreign worker quota guide",
+    category: "Quota support",
+    description: "Explore the quota process and how worker demand is aligned with the broader hiring and approval journey.",
+    href: "/malaysia/foreign-worker-quota",
+  },
+  {
+    title: "Worker categories",
+    category: "Overview",
+    description: "Review the common workforce groups employers hire for in Malaysia and which roles are most in demand.",
+    href: "/malaysia/worker-categories",
+  },
+  {
+    title: "Construction workers for Malaysia",
+    category: "Sector focus",
+    description: "Browse the construction labour pathway and how project-based hiring is structured for Malaysian employers.",
+    href: "/malaysia/construction-workers",
+  },
+  {
+    title: "Skilled workers in Malaysia",
+    category: "Sector focus",
+    description: "Understand how skilled personnel recruitment is handled and where this fits within the wider Malaysia hiring model.",
+    href: "/malaysia/skilled-workers",
+  },
+];
+
 export default function MalaysiaPage() {
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: "Home", path: "/" },
@@ -140,6 +198,30 @@ export default function MalaysiaPage() {
               ))}
             </div>
           </article>
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper
+        eyebrow="Quick access"
+        title="Malaysia hiring essentials"
+        subtitle="Start here for the pages employers look for most often when planning worker approval, documentation, and application steps."
+      >
+        <div className="sticky top-20 z-20 mb-2 rounded-sm border border-[#C6A969]/60 bg-[#FFF7E3] p-3 shadow-[0_12px_26px_rgba(11,31,58,0.08)]">
+          <div className="flex flex-col gap-3 lg:flex-row lg:flex-wrap">
+            {malaysiaGuideLinks.slice(0, 3).map((guide) => (
+              <Link
+                key={guide.href}
+                href={guide.href}
+                className="inline-flex flex-1 min-w-[220px] items-center justify-between rounded-sm border border-[#0B1F3A]/10 bg-white px-4 py-3 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-[#0B1F3A]/30"
+              >
+                <span>
+                  <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C6A969]">{guide.category}</span>
+                  <span className="mt-1 block text-sm font-semibold text-[#0B1F3A]">{guide.title}</span>
+                </span>
+                <span className="ml-3 text-base font-bold text-[#0B1F3A]">→</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </SectionWrapper>
 
@@ -289,32 +371,24 @@ export default function MalaysiaPage() {
       </SectionWrapper>
 
       <SectionWrapper
-        eyebrow="Employer resources"
-        title="Foreign Worker Approval: Complete Guide for Malaysian Companies"
-        subtitle="Step-by-step guides to navigating Section 60K approval, required documentation, and the application process."
+        eyebrow="Malaysia hiring hub"
+        title="Browse every Malaysia hiring guide in one place"
+        subtitle="Start with the article that matches your need, then continue through the full hiring sequence from approval and documents to recruitment and deployment."
       >
-        <div className="grid gap-6 md:grid-cols-3">
-          <a href="/malaysia/application-approval-process" className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Legal requirements</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Section 60K Approval Process</h3>
-            <p className="mt-3 text-sm leading-6 text-neutral-700">
-              Understand the 6-step approval process, eligibility requirements, and how to position your application for fast approval.
-            </p>
-          </a>
-          <a href="/malaysia/required-documents" className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Documentation</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Documents by Sector</h3>
-            <p className="mt-3 text-sm leading-6 text-neutral-700">
-              Detailed checklists for all Malaysian industry sectors. Know exactly which documents your company needs to prepare.
-            </p>
-          </a>
-          <a href="/malaysia/how-to-apply" className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Step-by-step guide</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">How to Apply</h3>
-            <p className="mt-3 text-sm leading-6 text-neutral-700">
-              15-step practical guide from initial eligibility checks through final approval and worker deployment.
-            </p>
-          </a>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {malaysiaGuideLinks.map((guide) => (
+            <article key={guide.href} className="group flex h-full flex-col rounded-sm border border-[#0B1F3A]/10 bg-white p-6 shadow-[0_12px_28px_rgba(11,31,58,0.04)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(11,31,58,0.08)]">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C6A969]">{guide.category}</span>
+                <span className="text-xs font-medium text-[#0B1F3A]">Read article</span>
+              </div>
+              <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">{guide.title}</h3>
+              <p className="mt-3 flex-1 text-sm leading-7 text-neutral-700">{guide.description}</p>
+              <Link href={guide.href} className="mt-5 inline-flex items-center text-sm font-semibold text-[#0B1F3A] underline underline-offset-4">
+                Open guide
+              </Link>
+            </article>
+          ))}
         </div>
       </SectionWrapper>
 
@@ -329,30 +403,6 @@ export default function MalaysiaPage() {
               <p className="mt-3 text-sm leading-7 text-neutral-700">{item.answer}</p>
             </article>
           ))}
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        eyebrow="Related Malaysia pages"
-        title="Explore the full Malaysia hiring cluster"
-      >
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          <a href="/malaysia/recruitment-process" className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Process</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Malaysia recruitment process</h3>
-          </a>
-          <a href="/malaysia/how-to-hire-workers-from-bangladesh" className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Guide</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">How to hire workers</h3>
-          </a>
-          <a href="/malaysia/worker-categories" className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Categories</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Worker categories</h3>
-          </a>
-          <a href="/malaysia/construction-workers" className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Specialist page</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Construction workers</h3>
-          </a>
         </div>
       </SectionWrapper>
 
