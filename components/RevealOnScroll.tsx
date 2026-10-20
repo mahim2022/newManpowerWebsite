@@ -10,7 +10,9 @@ type RevealOnScrollProps = {
 
 export function RevealOnScroll({ children, className }: RevealOnScrollProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [visible, setVisible] = useState(false);
+  // Start visible by default to avoid content remaining hidden
+  // if client JS or IntersectionObserver fails during hydration.
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     if (!ref.current) return;
