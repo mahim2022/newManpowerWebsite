@@ -18,13 +18,13 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL(BRAND.websiteUrl),
-  title: "Bangladesh Labour Supply | Licensed International Recruitment",
+  title: "Bangladesh Labour Supply | Global Recruitment Network",
   description:
-    "Trusted Bangladesh manpower recruitment for international employers — compliant hiring, verified candidates, and disciplined deployment coordination.",
+    "A coordinated network of licensed Bangladesh recruitment agencies for international employers seeking workforce sourcing and deployment support across Europe, Canada, Australia, the Middle East, Southeast Asia, and other markets.",
   openGraph: {
-    title: "Bangladesh Labour Supply | Licensed International Recruitment",
+    title: "Bangladesh Labour Supply | Global Recruitment Network",
     description:
-      "Structured international manpower recruitment for employers requiring compliance, documentation control, and reliable deployment.",
+      "Connect with licensed Bangladesh recruiting agencies through one coordinated partner network for international workforce needs.",
     url: BRAND.websiteUrl,
     siteName: BRAND.brandName,
     type: "website",
@@ -44,7 +44,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfairDisplay.variable} bg-[#FAFAFA] text-neutral-800 antialiased`}>
+      <body className={`${inter.variable} ${playfairDisplay.variable} bg-[#F8F6F0] text-neutral-800 antialiased`}>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>

@@ -1,5 +1,6 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { DESTINATION_REGIONS, PARTNER_AGENCIES } from "@/lib/constants";
 
 type HeroProps = {
   heading: string;
@@ -7,84 +8,80 @@ type HeroProps = {
 };
 
 export function Hero({ heading, supportingText }: HeroProps) {
-  const heroImages = [
-    {
-      src: "/images/bangladeshi-workers-abroad.jpg",
-      alt: "Bangladeshi migrant labourers working abroad",
-      className: "aspect-[16/10]",
-    },
-    {
-      src: "/images/travelling-abroad-bangladesh.jpg",
-      alt: "Bangladeshi migrant workers at airport before travelling abroad",
-      className: "aspect-[16/10]",
-    },
-    {
-      src: "/images/visa-line-queue.jpg",
-      alt: "People lining up for visa or passport control",
-      className: "aspect-[16/10]",
-    },
-  ];
-
   return (
-    <section className="relative overflow-hidden pb-16 pt-24 md:pb-20 md:pt-28">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-16 top-20 h-64 w-64 rounded-full bg-[#0B1F3A]/5 blur-3xl" />
-        <div className="absolute right-0 top-0 h-80 w-80 rounded-full bg-[#C6A969]/10 blur-3xl" />
-      </div>
-      <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-10">
-        <div className="grid items-end gap-8 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-8">
-          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.24em] text-[#0B1F3A]/70">International Workforce Recruitment</p>
-          <h1 className="font-serif text-4xl leading-tight text-[#0B1F3A] sm:text-5xl md:text-6xl">{heading}</h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-700 md:mt-8 md:text-lg md:leading-9">{supportingText}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:gap-4">
+    <section className="relative isolate overflow-hidden bg-[#0B1F3A] text-white">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_75%_5%,rgba(198,169,105,0.2),transparent_34%),linear-gradient(125deg,#0B1F3A_10%,#102c4c_70%,#153b54)]" />
+      <div className="absolute -right-28 top-20 -z-10 h-96 w-96 rounded-full border border-white/10" />
+      <div className="absolute -right-12 top-36 -z-10 h-64 w-64 rounded-full border border-white/10" />
+
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 pb-20 pt-28 sm:pt-32 lg:grid-cols-[1.06fr_0.94fr] lg:gap-16 lg:px-10 lg:pb-24">
+        <div className="relative z-10">
+          <p className="mb-6 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-[#E2CB91]">
+            <span className="h-px w-8 bg-[#C6A969]" />
+            Bangladesh recruitment network · International employers
+          </p>
+          <h1 className="max-w-3xl font-serif text-4xl leading-[1.08] text-white sm:text-5xl md:text-6xl lg:text-[4.35rem]">
+            {heading}
+          </h1>
+          <p className="mt-7 max-w-2xl text-base leading-8 text-white/75 md:text-lg md:leading-9">
+            {supportingText}
+          </p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/contact"
-              className="w-full rounded-sm bg-[#0B1F3A] px-7 py-3.5 text-center text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg sm:w-auto"
+              className="rounded-sm bg-[#D8BC77] px-7 py-4 text-center text-sm font-semibold text-[#0B1F3A] shadow-[0_12px_32px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:bg-[#E6D39E]"
             >
-              Request Consultation
+              Discuss your workforce needs
             </Link>
             <Link
-              href="/process"
-              className="w-full rounded-sm border border-[#0B1F3A]/20 px-6 py-3 text-center text-sm font-medium text-[#0B1F3A] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#0B1F3A]/40 sm:w-auto"
+              href="#agency-network"
+              className="rounded-sm border border-white/25 px-7 py-4 text-center text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/5"
             >
-              View Recruitment Process
+              Meet our licensed partners
             </Link>
           </div>
-          <p className="mt-4 text-xs leading-6 text-neutral-500">
-            No-obligation consultation. Employer requirements are reviewed confidentially.
-          </p>
-          </div>
-          <div className="lg:col-span-4">
-            <div className="rounded-sm border border-[#0B1F3A]/10 bg-white/90 p-6 shadow-[0_20px_50px_rgba(11,31,58,0.08)] sm:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Verification Points</p>
-              <ul className="mt-6 space-y-4 text-sm text-neutral-700">
-                <li>Government licensed agency operations</li>
-                <li>Documented recruitment process</li>
-                <li>Multi-country deployment experience</li>
-              </ul>
-            </div>
+          <div className="mt-9 flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium text-white/55">
+            {DESTINATION_REGIONS.slice(0, 4).map((region) => (
+              <span key={region} className="flex items-center gap-2">
+                <span className="h-1 w-1 rounded-full bg-[#D8BC77]" />
+                {region}
+              </span>
+            ))}
           </div>
         </div>
 
-        <div className="mt-10 grid gap-5 md:mt-12 md:grid-cols-2 lg:grid-cols-3">
-          {heroImages.map((image, index) => (
-            <article
-              key={image.src}
-              className="group relative overflow-hidden rounded-sm border border-[#0B1F3A]/10 bg-white/90 shadow-[0_18px_40px_rgba(11,31,58,0.10)]"
-            >
-              <div className={`relative ${image.className}`}>
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  priority={index === 0}
-                />
+        <div className="relative mx-auto w-full max-w-xl lg:ml-auto">
+          <div className="absolute -inset-4 rounded-[2rem] border border-white/10" />
+          <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-white/10 p-2 shadow-[0_32px_90px_rgba(0,0,0,0.3)] backdrop-blur-sm">
+            <div className="relative h-[250px] overflow-hidden rounded-xl sm:h-[320px]">
+              <Image
+                src="/images/bangladeshi-workers-abroad.jpg"
+                alt="Bangladeshi workers contributing to international projects"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 44vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071728]/90 via-[#071728]/15 to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-7">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#E2CB91]">A coordinated partner network</p>
+                <p className="mt-2 max-w-sm font-serif text-2xl leading-snug text-white sm:text-3xl">More recruitment capability, connected around your brief.</p>
               </div>
-            </article>
-          ))}
+            </div>
+            <div className="grid grid-cols-2 gap-2 p-2 pt-3">
+              {PARTNER_AGENCIES.map((agency) => (
+                <div key={agency.licenseNumber} className={`min-w-0 rounded-lg border px-3 py-3 sm:px-4 ${agency.role === "Main agency" ? "border-[#D8BC77]/50 bg-[#D8BC77]/15" : "border-white/10 bg-[#081a2d]/70"}`}>
+                  <p className="text-[8px] font-semibold uppercase tracking-[0.12em] text-[#D8BC77] sm:text-[9px]">{agency.role}</p>
+                  <p className="mt-1 truncate text-[10px] font-semibold leading-4 text-white/90 sm:text-xs">{agency.name}</p>
+                  <p className="mt-2 text-[9px] uppercase tracking-[0.14em] text-[#D8BC77] sm:text-[10px]">Licence {agency.licenseNumber}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="absolute -bottom-5 -left-5 hidden rounded-xl border border-white/15 bg-[#D8BC77] px-5 py-4 text-[#0B1F3A] shadow-xl sm:block">
+            <p className="text-2xl font-semibold leading-none">{String(PARTNER_AGENCIES.length).padStart(2, "0")}</p>
+            <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.16em]">Licensed agencies</p>
+          </div>
         </div>
       </div>
     </section>

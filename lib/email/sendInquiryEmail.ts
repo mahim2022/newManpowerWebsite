@@ -3,6 +3,7 @@ import nodemailer from "nodemailer";
 export type InquiryPayload = {
   companyName: string;
   country: string;
+  destinationCountry: string;
   industry: string;
   workerCount: number;
   hiringTimeline: string;
@@ -41,7 +42,8 @@ export async function sendInquiryEmail(payload: InquiryPayload): Promise<void> {
   const text = [
     "New recruitment consultation inquiry",
     `Company Name: ${payload.companyName}`,
-    `Country: ${payload.country}`,
+    `Business Country: ${payload.country}`,
+    `Hiring Destination: ${payload.destinationCountry}`,
     `Industry: ${payload.industry}`,
     `Number of Workers: ${payload.workerCount}`,
     `Hiring Timeline: ${payload.hiringTimeline}`,

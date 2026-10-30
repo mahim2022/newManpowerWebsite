@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BRAND, NAV_LINKS } from "@/lib/constants";
+import { BRAND, NAV_LINKS, PARTNER_AGENCIES } from "@/lib/constants";
 
 export function Footer() {
   return (
@@ -8,7 +8,7 @@ export function Footer() {
         <div className="space-y-3">
           <h3 className="font-serif text-2xl">{BRAND.brandName}</h3>
           <p className="max-w-sm text-sm leading-7 text-white/75">
-            Structured international manpower recruitment for employers requiring compliance, visibility, and disciplined execution.
+            A coordinated network connecting international employers with licensed recruitment agencies in Bangladesh.
           </p>
         </div>
         <div>
@@ -51,9 +51,13 @@ export function Footer() {
         </address>
       </div>
       <div className="mx-auto mt-12 w-full max-w-7xl border-t border-white/15 px-6 pt-6 text-xs text-white/70 lg:px-10">
-        <p>
-          {BRAND.brandName}. A brand of {BRAND.licensedCompanyName}. Government License No: {BRAND.licenseNumber}.
-        </p>
+        <p className="font-semibold text-white/80">Licensed recruitment partners</p>
+        <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
+          {PARTNER_AGENCIES.map((agency) => (
+            <span key={agency.licenseNumber}>{agency.role}: {agency.name} · Licence {agency.licenseNumber}</span>
+          ))}
+        </div>
+        <p className="mt-4">Each recruitment is handled through the named agency and remains subject to destination requirements and approvals.</p>
       </div>
     </footer>
   );

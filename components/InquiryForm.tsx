@@ -7,14 +7,18 @@ const inputClassName =
 
 export function InquiryForm({ action }: InquiryFormProps) {
   return (
-    <form action={action} className="grid gap-5 rounded-sm border border-[#0B1F3A]/10 bg-white p-6 sm:gap-6 sm:p-8 md:grid-cols-2">
+    <form action={action} className="grid gap-5 rounded-xl border border-[#0B1F3A]/10 bg-white p-6 shadow-[0_18px_50px_rgba(11,31,58,0.06)] sm:gap-6 sm:p-8 md:grid-cols-2">
       <label className="space-y-2">
         <span className="text-sm font-medium text-[#0B1F3A]">Company Name</span>
         <input name="companyName" required minLength={2} maxLength={120} autoComplete="organization" className={inputClassName} />
       </label>
       <label className="space-y-2">
-        <span className="text-sm font-medium text-[#0B1F3A]">Country</span>
-        <input name="country" required minLength={2} maxLength={56} autoComplete="country-name" className={inputClassName} />
+        <span className="text-sm font-medium text-[#0B1F3A]">Your business country</span>
+        <input name="country" required minLength={2} maxLength={56} autoComplete="country-name" placeholder="e.g., Canada" className={inputClassName} />
+      </label>
+      <label className="space-y-2">
+        <span className="text-sm font-medium text-[#0B1F3A]">Hiring destination</span>
+        <input name="destinationCountry" required minLength={2} maxLength={80} placeholder="Where will the workers be employed?" className={inputClassName} />
       </label>
       <label className="space-y-2">
         <span className="text-sm font-medium text-[#0B1F3A]">Industry</span>

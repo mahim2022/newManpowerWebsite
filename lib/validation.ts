@@ -1,6 +1,7 @@
 type InquiryInput = {
   companyName: string;
   country: string;
+  destinationCountry: string;
   industry: string;
   hiringTimeline: string;
   email: string;
@@ -15,6 +16,7 @@ const phoneRegex = /^[+()\-\s\d]{7,20}$/;
 export function validateInquiryInput(input: InquiryInput) {
   if (!input.companyName || input.companyName.length < 2 || input.companyName.length > 120) return false;
   if (!input.country || input.country.length < 2 || input.country.length > 56) return false;
+  if (!input.destinationCountry || input.destinationCountry.length < 2 || input.destinationCountry.length > 80) return false;
   if (!input.industry || input.industry.length < 2 || input.industry.length > 56) return false;
   if (!input.hiringTimeline || input.hiringTimeline.length < 2 || input.hiringTimeline.length > 80) return false;
   if (!input.email || !emailRegex.test(input.email) || input.email.length > 150) return false;

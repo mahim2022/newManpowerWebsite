@@ -1,6 +1,3 @@
-const RECRUITMENT_LICENSE_NUMBER =
-  process.env.NEXT_PUBLIC_RECRUITMENT_LICENSE_NUMBER?.trim() || "RL-1842";
-
 export const PREFERRED_CANONICAL_URL = "https://www.recruitfrombangladesh.me";
 
 export function normalizeCanonicalUrl(url: string): string {
@@ -27,8 +24,6 @@ export function dedupeCanonicalUrls(urls: string[]): string[] {
 
 export const BRAND = {
   brandName: "Bangladesh Labour Supply",
-  licensedCompanyName: "Janani Overseas Recruiting Agency Ltd.",
-  licenseNumber: RECRUITMENT_LICENSE_NUMBER,
   websiteUrl: normalizeCanonicalUrl(process.env.NEXT_PUBLIC_SITE_URL || PREFERRED_CANONICAL_URL),
   phone: "+601166773501",
   whatsapp: "+8801625069703",
@@ -37,8 +32,40 @@ export const BRAND = {
   addressMapUrl: "https://maps.google.com/?q=Level+8,+Gulshan+Avenue,+Dhaka+1212,+Bangladesh",
   businessHours: "Mon - Sat • 9:00 AM - 6:30 PM (GMT+6)",
   linkedinUrl: "https://www.linkedin.com/company/janani-overseas-recruiting-agency-ltd/",
-  whatsappMessage: "Hello, I need manpower recruitment support. Please contact me with candidate availability, compliance, and deployment timelines.",
+  whatsappMessage: "Hello, I am an employer looking to recruit workers from Bangladesh. My destination country is ____, the roles are ____, and I need approximately ____ workers. Please advise on availability and the recruitment process.",
 };
+
+export const PARTNER_AGENCIES = [
+  {
+    name: "East Bengal Overseas",
+    licenseNumber: "912",
+    role: "Main agency",
+  },
+  {
+    name: "Lokobol Limited",
+    licenseNumber: "1842",
+    role: "Recruitment partner",
+  },
+  {
+    name: "Janani Associates",
+    licenseNumber: "833",
+    role: "Recruitment partner",
+  },
+  {
+    name: "Kings Trade International Ltd.",
+    licenseNumber: "348",
+    role: "Recruitment partner",
+  },
+];
+
+export const DESTINATION_REGIONS = [
+  "Europe",
+  "Canada",
+  "Australia",
+  "Southeast Asia",
+  "Middle East",
+  "Other international markets",
+];
 
 export const MALAYSIA_SUBMENU_LINKS = [
   { label: "Overview", href: "/malaysia" },
@@ -62,13 +89,13 @@ export const NAV_LINKS = [
 
 export const TRUST_STATS = [
   {
-    label: "Government Licensed",
-    value: RECRUITMENT_LICENSE_NUMBER,
-    helperText: "Bangladesh recruitment license",
+    label: "Licensed agencies",
+    value: "04",
+    helperText: "Named licensed agencies, led by East Bengal Overseas",
   },
-  { label: "Years of Experience", value: "12+", helperText: "Cross-border hiring operations" },
-  { label: "Workers Deployed", value: "8,500+", helperText: "Placed through verified recruitment cycles" },
-  { label: "Countries Served", value: "14", helperText: "Europe, Middle East, Japan, Korea" },
+  { label: "Destination reach", value: "Global", helperText: "Multiple regions through our network" },
+  { label: "Employer support", value: "End to end", helperText: "From workforce brief to deployment coordination" },
+  { label: "Recruitment model", value: "Partner-led", helperText: "Agency matched to each hiring requirement" },
 ];
 
 export const SERVICES = [
@@ -152,22 +179,22 @@ export const TESTIMONIALS = [
 ];
 
 export const SITE_COPY = {
-  heroTitle: "Licensed Bangladesh Manpower Recruitment for International Employers",
+  heroTitle: "Bangladesh Manpower Recruitment, Built on a Stronger Network",
   heroBody:
-    "Foreign employers engage us to run verifiable recruitment cycles with documented screening, legal transparency, and disciplined deployment coordination.",
-  ctaTitle: "Request a Compliance-Led Recruitment Consultation",
+    "We connect international employers with a network of licensed Bangladesh recruitment agencies. One coordinated team supports candidate sourcing, screening, documentation, and deployment planning across multiple destinations.",
+  ctaTitle: "Request a Workforce Partnership Consultation",
   ctaBody:
-    "Share your workforce requirement and receive a structured response covering candidate pipeline approach, compliance checkpoints, and realistic mobilization timeline.",
+    "Share your recruitment requirement and receive a structured response covering candidate sourcing, licensing checks, compliance milestones, and realistic deployment planning.",
   complianceBody:
-    "Our recruitment operations are conducted under a valid Bangladesh government license with documented procedures, ethical recruitment commitments, and verifiable legal records.",
+    "Bangladesh Labour Supply coordinates employer requirements through named licensed recruitment partners. Each agency's licence remains specific to that agency, and destination recruitment is subject to applicable approvals and requirements.",
   contactTrustNote:
     "Business inquiries are reviewed within one working day by our operations team with a clear next-step recommendation.",
 };
 
 export const COMPLIANCE_PROOFS = [
   {
-    title: "Government License",
-    detail: `Recruitment operations conducted under Bangladesh government license ${RECRUITMENT_LICENSE_NUMBER}.`,
+    title: "Agency-specific licensing",
+    detail: "Each named recruitment partner operates under its own recruiting licence. We identify the agency responsible for a recruitment assignment.",
   },
   {
     title: "Contract Transparency",

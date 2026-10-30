@@ -7,9 +7,9 @@ import { buildBreadcrumbSchema } from "@/lib/seo";
 import { submitInquiry } from "./actions";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Request Recruitment Consultation",
+  title: "Hire Workers from Bangladesh | Employer Consultation",
   description:
-    "Submit your hiring requirement to receive a structured recruitment roadmap, compliance requirements, and deployment timeline.",
+    "Discuss hiring Bangladeshi workers with our licensed agency network. Submit your business country, destination, roles, and headcount for a coordinated recruitment response.",
   path: "/contact",
 });
 
@@ -29,12 +29,12 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <h1 className="mx-auto max-w-7xl px-6 pt-10 text-3xl font-bold tracking-tight text-[#0B1F3A] md:text-5xl lg:px-10">
-        Hire Workers from Bangladesh
+        Recruit Bangladeshi Workers for International Hiring
       </h1>
       <SectionWrapper
         eyebrow="Contact"
-        title="Request Recruitment Consultation"
-        subtitle="Provide your requirement details and our team will reply with a structured recruitment pathway, expected timeline, and compliance steps."
+        title="Tell us what your team needs"
+        subtitle="Share your business location, hiring destination, roles, and headcount. Our team will route your enquiry through the relevant licensed recruitment partner."
       >
         <div className="mb-10 grid gap-5 lg:grid-cols-3">
           <div className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 shadow-sm">

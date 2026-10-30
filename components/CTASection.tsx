@@ -9,13 +9,15 @@ export function CTASection({ title, description }: CTASectionProps) {
   return (
     <section className="py-16 md:py-20">
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-        <div className="rounded-sm bg-[#0B1F3A] px-6 py-10 text-white sm:px-8 md:px-14 md:py-12">
+        <div className="relative isolate overflow-hidden rounded-2xl bg-[#0B1F3A] px-6 py-10 text-white shadow-[0_30px_80px_rgba(11,31,58,0.18)] sm:px-8 md:px-14 md:py-12">
+          <div className="absolute -right-16 -top-24 -z-10 h-80 w-80 rounded-full border border-white/10 bg-[radial-gradient(circle,rgba(198,169,105,0.22),transparent_65%)]" />
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#E2CB91]">Start a conversation</p>
           <h2 className="font-serif text-3xl leading-tight md:text-5xl">{title}</h2>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-white/80 md:text-base md:leading-8">{description}</p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <Link
               href="/contact"
-              className="w-full rounded-sm bg-[#C6A969] px-6 py-3 text-center text-sm font-semibold text-[#0B1F3A] transition-all duration-200 hover:-translate-y-0.5 sm:w-auto"
+              className="w-full rounded-sm bg-[#D8BC77] px-6 py-3 text-center text-sm font-semibold text-[#0B1F3A] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E6D39E] sm:w-auto"
             >
               Request Consultation
             </Link>

@@ -1,11 +1,10 @@
-import { BRAND } from "@/lib/constants";
+import { BRAND, DESTINATION_REGIONS } from "@/lib/constants";
 
 export function buildOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: BRAND.brandName,
-    legalName: BRAND.licensedCompanyName,
     url: BRAND.websiteUrl,
     email: BRAND.email,
     telephone: BRAND.phone,
@@ -14,7 +13,6 @@ export function buildOrganizationSchema() {
       streetAddress: BRAND.address,
       addressCountry: "BD",
     },
-    identifier: BRAND.licenseNumber,
   };
 }
 
@@ -24,9 +22,9 @@ export function buildLocalBusinessSchema() {
     "@type": "ProfessionalService",
     name: BRAND.brandName,
     url: BRAND.websiteUrl,
-    areaServed: ["Europe", "Middle East", "Japan", "Korea"],
+    areaServed: DESTINATION_REGIONS,
     description:
-      "Licensed Bangladesh manpower recruitment agency supporting international employers with compliant workforce sourcing and deployment.",
+      "Bangladesh-based international manpower recruitment network connecting employers with licensed recruiting agencies for workforce sourcing and deployment coordination.",
     telephone: BRAND.phone,
     email: BRAND.email,
     address: {

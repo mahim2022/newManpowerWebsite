@@ -42,13 +42,22 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        solid ? "border-b border-[#0B1F3A]/10 bg-[#FAFAFA]/90 backdrop-blur-md" : "bg-transparent",
+        "fixed inset-x-0 top-0 z-50 border-b border-[#0B1F3A]/10 bg-[#F8F6F0]/95 shadow-[0_8px_30px_rgba(11,31,58,0.04)] backdrop-blur-xl transition-all duration-300",
+        solid && "bg-[#F8F6F0]/98 shadow-[0_8px_30px_rgba(11,31,58,0.08)]",
       )}
     >
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-3 sm:h-20 sm:px-6 lg:px-10">
-        <Link href="/" className="font-serif text-base text-[#0B1F3A] sm:text-xl">
-          {BRAND.brandName}
+        <Link href="/" className="group flex items-center gap-3 text-[#0B1F3A]">
+          <span className="grid h-9 w-9 place-items-center rounded-lg bg-[#0B1F3A] text-[#D8BC77] shadow-sm transition group-hover:-rotate-3 sm:h-10 sm:w-10" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth="1.5">
+              <circle cx="12" cy="12" r="8.5" />
+              <path d="M3.8 12h16.4M12 3.5a13 13 0 0 1 0 17M12 3.5a13 13 0 0 0 0 17M6.2 6.4c1.7 1 3.6 1.5 5.8 1.5s4.1-.5 5.8-1.5M6.2 17.6c1.7-1 3.6-1.5 5.8-1.5s4.1.5 5.8 1.5" strokeLinecap="round" />
+            </svg>
+          </span>
+          <span className="flex flex-col">
+            <span className="font-serif text-sm leading-tight sm:text-lg">{BRAND.brandName}</span>
+            <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-[0.15em] text-[#9A7C39] sm:text-[10px]">Global recruitment network</span>
+          </span>
         </Link>
         <nav ref={navRef} aria-label="Primary" className="hidden items-center gap-7 md:flex">
           {NAV_LINKS.map((item) => {
@@ -60,7 +69,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm font-medium text-neutral-700 transition-colors duration-200 hover:text-[#0B1F3A]"
+                  className="text-sm font-medium text-neutral-700 transition-colors duration-200 hover:text-[#9A7C39]"
                 >
                   {item.label}
                 </Link>
@@ -81,7 +90,7 @@ export function Navbar() {
                   aria-expanded={isOpen}
                   aria-haspopup="menu"
                   onClick={() => setOpenMenu((current) => (current === item.label ? null : item.label))}
-                  className="inline-flex items-center gap-1 text-sm font-medium text-neutral-700 transition-colors duration-200 hover:text-[#0B1F3A]"
+                  className="inline-flex items-center gap-1 text-sm font-medium text-neutral-700 transition-colors duration-200 hover:text-[#9A7C39]"
                 >
                   {item.label}
                   <svg
@@ -119,7 +128,7 @@ export function Navbar() {
         <Link
           href="/contact"
           aria-label="Request consultation"
-          className="shrink-0 whitespace-nowrap rounded-sm bg-[#C6A969] px-2.5 py-1.5 text-[11px] font-semibold text-[#0B1F3A] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg sm:px-4 sm:py-2 sm:text-sm"
+          className="shrink-0 whitespace-nowrap rounded-sm bg-[#0B1F3A] px-2.5 py-1.5 text-[11px] font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#163d5a] hover:shadow-lg sm:px-4 sm:py-2 sm:text-sm"
         >
           <span className="sm:hidden">Consultation</span>
           <span className="hidden sm:inline">Request Consultation</span>

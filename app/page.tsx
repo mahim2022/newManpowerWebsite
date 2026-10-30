@@ -9,7 +9,9 @@ import { TrustStats } from "@/components/TrustStats";
 import {
   BRAND,
   COMPLIANCE_PROOFS,
+  DESTINATION_REGIONS,
   INDUSTRIES,
+  PARTNER_AGENCIES,
   PROCESS_STEPS,
   SERVICES,
   SITE_COPY,
@@ -20,9 +22,9 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Bangladesh Recruitment Agency | International Employers",
+  title: "Bangladesh Manpower Recruitment Network | Global Employers",
   description:
-    "Verify legal licensing, process discipline, and international deployment capability before initiating recruitment consultation.",
+    "Connect with a network of licensed Bangladesh recruitment agencies for international workforce sourcing, screening, documentation, and deployment coordination across Europe, Canada, Australia, the Middle East, Southeast Asia, and other markets.",
   path: "/",
 });
 
@@ -36,12 +38,55 @@ export default function Home() {
 
       <SectionWrapper
         id="trust-signals"
-        eyebrow="Trust Signals"
-        title="Built for Employer Due Diligence"
-        subtitle="Core verification signals employers review before appointing a recruitment partner."
+        eyebrow="One coordinated network"
+        title="More capability behind every recruitment brief"
+        subtitle="Four named Bangladesh recruiting agencies work through a coordinated employer-facing network, led by East Bengal Overseas, to match each workforce requirement to the right recruitment channel."
         spacing="lead"
       >
         <TrustStats items={TRUST_STATS} />
+      </SectionWrapper>
+
+      <SectionWrapper
+        id="agency-network"
+        eyebrow="Our licensed agency network"
+        title="Four agencies. A broader recruitment network."
+        subtitle="Agency-specific licences create clear accountability while our wider recruitment partnerships help us respond to international workforce needs."
+        className="bg-white"
+        spacing="compact"
+      >
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {PARTNER_AGENCIES.map((agency, index) => (
+            <article key={agency.licenseNumber} className={`group relative overflow-hidden rounded-xl border p-7 transition duration-300 hover:-translate-y-1 sm:p-8 ${agency.role === "Main agency" ? "border-[#0B1F3A] bg-[#0B1F3A] text-white shadow-[0_24px_60px_rgba(11,31,58,0.2)]" : "border-[#0B1F3A]/10 bg-[#FBFAF6] hover:shadow-[0_24px_60px_rgba(11,31,58,0.12)]"}`}>
+              <div className={`absolute right-0 top-0 h-24 w-24 rounded-bl-full ${agency.role === "Main agency" ? "bg-[#D8BC77]/15" : "bg-[#C6A969]/10 transition group-hover:bg-[#C6A969]/20"}`} />
+              <p className={`relative text-xs font-semibold uppercase tracking-[0.2em] ${agency.role === "Main agency" ? "text-[#E2CB91]" : "text-[#9A7C39]"}`}>{agency.role} · 0{index + 1}</p>
+              <h3 className={`relative mt-7 min-h-16 font-serif text-2xl leading-snug ${agency.role === "Main agency" ? "text-white" : "text-[#0B1F3A]"}`}>{agency.name}</h3>
+              <div className={`relative mt-7 flex items-center justify-between border-t pt-5 ${agency.role === "Main agency" ? "border-white/20" : "border-[#0B1F3A]/10"}`}>
+                <span className={`text-xs font-medium uppercase tracking-[0.12em] ${agency.role === "Main agency" ? "text-white/60" : "text-neutral-500"}`}>Recruiting licence</span>
+                <span className={`rounded-full px-4 py-2 text-sm font-semibold tracking-[0.08em] ${agency.role === "Main agency" ? "bg-[#D8BC77] text-[#0B1F3A]" : "bg-[#0B1F3A] text-white"}`}>{agency.licenseNumber}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="mt-5 max-w-4xl text-xs leading-6 text-neutral-500">
+          Each licence belongs to its named agency. The responsible recruiting agency and destination-specific process are confirmed for each employer requirement.
+        </p>
+      </SectionWrapper>
+
+      <SectionWrapper
+        id="destinations"
+        eyebrow="International reach"
+        title="Recruitment support across multiple destination markets"
+        subtitle="Our agency and recruitment-partner network supports employer enquiries across established and emerging labour markets. Availability depends on the role, employer requirements, partner capability, and destination-country approvals."
+        spacing="compact"
+      >
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {DESTINATION_REGIONS.map((region, index) => (
+            <div key={region} className="flex min-h-28 flex-col justify-between rounded-lg border border-[#0B1F3A]/10 bg-white p-5 shadow-[0_8px_24px_rgba(11,31,58,0.04)]">
+              <span className="text-xs font-semibold tracking-[0.18em] text-[#B0904D]">0{index + 1}</span>
+              <span className="font-serif text-xl text-[#0B1F3A]">{region}</span>
+            </div>
+          ))}
+        </div>
       </SectionWrapper>
 
       <SectionWrapper
@@ -60,18 +105,18 @@ export default function Home() {
         <div className="mt-8 rounded-sm border border-[#0B1F3A]/10 bg-white p-6 shadow-[0_18px_40px_rgba(11,31,58,0.04)]">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#C6A969]">Malaysia manpower supply</p>
-              <h3 className="mt-3 font-serif text-3xl text-[#0B1F3A]">Malaysia recruitment agency from Bangladesh</h3>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#C6A969]">Destination hiring support</p>
+              <h3 className="mt-3 font-serif text-3xl text-[#0B1F3A]">Recruit Bangladeshi workers for Malaysia</h3>
             </div>
             <a
               href="/malaysia"
               className="inline-flex items-center justify-center rounded-sm bg-[#0B1F3A] px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
             >
-              View Malaysia page
+              Explore Malaysia hiring
             </a>
           </div>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-neutral-700 md:text-base">
-            Employers seeking Bangladesh manpower supply to Malaysia, labour supply to Malaysia, or a recruitment agency for Malaysia employers can review our dedicated page for country-specific hiring support and process clarity.
+            For Malaysia requirements, review our dedicated employer guide to the recruitment steps, worker categories, documentation, and approval process.
           </p>
         </div>
       </SectionWrapper>
@@ -145,10 +190,10 @@ export default function Home() {
       >
         <div className="grid gap-6 md:grid-cols-2">
           <article className="rounded-sm border border-white/20 bg-white/5 p-8 md:col-span-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">License Disclosure</p>
-            <p className="mt-4 font-serif text-4xl text-white">{BRAND.licenseNumber}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Clear agency accountability</p>
+            <p className="mt-4 font-serif text-4xl text-white">A network built for international hiring</p>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-white/85">
-              {BRAND.brandName}. A brand of {BRAND.licensedCompanyName}. Recruitment operations are conducted under documented legal and procedural controls.
+              {BRAND.brandName} coordinates employer enquiries across licensed recruitment partners. We identify the agency handling the recruitment and align the process to the applicable destination requirements.
             </p>
           </article>
           {COMPLIANCE_PROOFS.map((proof) => (

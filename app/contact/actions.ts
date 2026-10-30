@@ -12,6 +12,7 @@ function getString(formData: FormData, field: string) {
 export async function submitInquiry(formData: FormData) {
   const companyName = getString(formData, "companyName");
   const country = getString(formData, "country");
+  const destinationCountry = getString(formData, "destinationCountry");
   const industry = getString(formData, "industry");
   const hiringTimeline = getString(formData, "hiringTimeline");
   const email = getString(formData, "email");
@@ -22,6 +23,7 @@ export async function submitInquiry(formData: FormData) {
   const isValid = validateInquiryInput({
     companyName,
     country,
+    destinationCountry,
     industry,
     hiringTimeline,
     email,
@@ -38,6 +40,7 @@ export async function submitInquiry(formData: FormData) {
     await sendInquiryEmail({
       companyName,
       country,
+      destinationCountry,
       industry,
       workerCount: workerCount!,
       hiringTimeline,

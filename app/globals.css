@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafafa;
-  --foreground: #1f2937;
+  --background: #f8f6f0;
+  --foreground: #243244;
   --color-navy: #0b1f3a;
-  --color-gold: #c6a969;
+  --color-gold: #d8bc77;
+  --color-paper: #fbfaf6;
 }
 
 @theme inline {
@@ -18,6 +19,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
@@ -31,6 +34,20 @@ h4,
 h5,
 h6 {
   font-family: var(--font-playfair), serif;
+}
+
+::selection {
+  background: #d8bc77;
+  color: #0b1f3a;
+}
+
+:focus-visible {
+  outline: 3px solid #c6a969;
+  outline-offset: 3px;
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
 }
 
 .skip-link {
