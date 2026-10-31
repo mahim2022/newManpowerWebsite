@@ -1,5 +1,19 @@
 export const PREFERRED_CANONICAL_URL = "https://www.recruitfrombangladesh.me";
 
+// Keep available locales aligned with the translated page directories under app/.
+export const LOCALIZED_ROUTE_LANGUAGES = {
+  "/malaysia": ["ms", "zh", "ta"],
+  "/malaysia/required-documents": ["ms", "zh", "ta"],
+  "/malaysia/how-to-hire-workers-from-bangladesh": ["ms", "zh", "ta"],
+  "/malaysia/construction-workers": ["ms", "zh", "ta"],
+  "/malaysia/skilled-workers": ["ms", "zh", "ta"],
+  "/malaysia/worker-categories": ["ms", "zh", "ta"],
+  "/malaysia/how-to-apply": ["ms", "zh"],
+  "/malaysia/application-approval-process": ["ms", "zh", "ta"],
+  "/malaysia/recruitment-process": ["ms", "zh", "ta"],
+  "/malaysia/foreign-worker-quota": ["ms", "zh", "ta"],
+} as const;
+
 export function normalizeCanonicalUrl(url: string): string {
   const rawValue = (url || PREFERRED_CANONICAL_URL).trim();
 
@@ -149,7 +163,7 @@ export const PROCESS_STEPS = [
   },
   {
     title: "Visa",
-    description: "Manage submission flow and status follow-up to meet approved timelines.",
+    description: "Coordinate required visa documents and status follow-up according to destination rules and official instructions.",
   },
   {
     title: "Deployment",

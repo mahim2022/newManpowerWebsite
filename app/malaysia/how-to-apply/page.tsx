@@ -6,9 +6,9 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "How to Apply for Foreign Worker Approval in Malaysia | Step-by-Step Guide",
+  title: "Malaysia Foreign Worker Approval: How to Apply",
   description:
-    "Step-by-step guide for Malaysian companies applying for foreign worker approval under Section 60K. Learn how to prepare, submit, and track your application.",
+    "A practical guide for Malaysian employers on preparing a foreign-worker application, checking the correct route, and following up with the relevant authorities.",
   path: "/malaysia/how-to-apply",
   keywords: [
     "How to apply for foreign workers",
@@ -31,192 +31,28 @@ interface ApplicationStep {
 
 const phases: ApplicationStep[] = [
   {
-    phase: "Phase 1: Pre-Application Planning (Week 1-2)",
+    phase: "1. Confirm the hiring route and business need",
     steps: [
-      {
-        number: 1,
-        title: "Assess Your Eligibility",
-        details: [
-          "Verify your company is properly registered with SSM or relevant authority",
-          "Confirm all business licenses are current and valid",
-          "Check that PERKESO contributions are current (within last 3 months)",
-          "Determine your company size and local employee count",
-          "Estimate realistic foreign worker quota you'll request",
-        ],
-      },
-      {
-        number: 2,
-        title: "Identify Your Industry Sector",
-        details: [
-          "Confirm which primary sector your business falls under (manufacturing, construction, services, etc.)",
-          "Note any subsectors that apply (e.g., restaurant vs. hotel within services)",
-          "Identify sector-specific licensing you hold or need (e.g., CIDB for construction, MOTAC for hotels)",
-          "Determine if you need support letters or verification from industry bodies",
-        ],
-      },
-      {
-        number: 3,
-        title: "Plan Your Document Collection",
-        details: [
-          "Download sector-specific document checklist from JTKSM or use our guide",
-          "Create project timeline for gathering each document category",
-          "Assign responsibility within company for document preparation",
-          "Begin requesting documents from banks, accountants, and relevant authorities",
-        ],
-      },
+      { number: 1, title: "Identify the worker category", details: ["Confirm whether the role is a foreign-worker, domestic-worker, or expatriate category; these can follow different approval routes.", "Check current JTKSM and Immigration instructions for the category before preparing a submission."] },
+      { number: 2, title: "Check the employer and worksite details", details: ["Confirm the company is active and the business activity matches the proposed work.", "List every intended worksite and identify licences, premises, accommodation, or sector approvals that may apply."] },
+      { number: 3, title: "Write a clear workforce plan", details: ["Set out the job duties, skills, headcount, work location, working conditions, and expected start date.", "Explain how the requested roles fit the employer's real operations and keep the figures consistent with supporting records."] },
     ],
   },
   {
-    phase: "Phase 2: Document Preparation (Week 2-4)",
+    phase: "2. Prepare and submit the application",
     steps: [
-      {
-        number: 4,
-        title: "Prepare Business Registration Documents",
-        details: [
-          "Gather company registration certificate (Borang 9, 24, 49 or equivalent)",
-          "Obtain company profile issued by SSM",
-          "Collect any certificates of company name change (if applicable)",
-          "Prepare director/owner identification cards (front and back copies)",
-          "Organize Memorandum & Articles if applicable",
-        ],
-      },
-      {
-        number: 5,
-        title: "Compile Financial Documentation",
-        details: [
-          "Request audited financial statements from your accountant (current year)",
-          "Obtain 3 consecutive months of current PERKESO contribution statements",
-          "Collect 3 consecutive months of bank statements from company account",
-          "Ensure bank statements are certified/verified by bank stamps",
-          "Prepare income tax returns for current year (if required for your sector)",
-        ],
-      },
-      {
-        number: 6,
-        title: "Gather Employment Documentation",
-        details: [
-          "Prepare employment contracts for 2 local employees (basic category)",
-          "Prepare employment contracts for 2 foreign worker examples",
-          "Collect salary statements for 3 months for sample local workers",
-          "Collect salary statements for 3 months for sample foreign workers",
-          "Ensure all contracts have proper signatures and dates",
-        ],
-      },
-      {
-        number: 7,
-        title: "Obtain Sector-Specific Documentation",
-        details: [
-          "Apply for or renew sector licenses (PBT, MPOB, CIDB, MOTAC, etc.)",
-          "Request support letters from relevant government departments (agriculture, veterinary, fisheries, mining, etc.)",
-          "Obtain membership certificates from industry associations (if required)",
-          "Collect permits and approvals specific to your operations",
-          "Verify all licenses and permits are current and still valid",
-        ],
-      },
+      { number: 4, title: "Choose the correct official channel", details: ["Use the live government guidance to select the portal and process for the worker category; do not rely on an old checklist or a route used for another pass type.", "Our separate application approval guide explains the route examples currently listed by JTKSM."] },
+      { number: 5, title: "Build an employer evidence file", details: ["Gather company registration, authorized representative details, current business and sector licences, and worksite evidence.", "Add payroll, statutory contribution, accommodation, financial or audited records only where the current route requests them.", "Use the relevant authority's checklist for any sector-specific, worker, or employer evidence."] },
+      { number: 6, title: "Check the file before filing", details: ["Check names, company numbers, addresses, roles, headcount, and worksite details match across the forms and evidence.", "Make sure documents are readable, current where validity applies, and in the format requested by the portal.", "Keep a complete copy of the final submission and note the reference number."] },
+      { number: 7, title: "Submit through the stated channel", details: ["Submit using the official portal or procedure identified for your category.", "Follow the portal's instructions for declarations, fees, supporting files, and confirmation. Keep receipts and correspondence with the application record."] },
     ],
   },
   {
-    phase: "Phase 3: Document Verification & Compilation (Week 4-5)",
+    phase: "3. Respond to review and plan the next stage",
     steps: [
-      {
-        number: 8,
-        title: "Verify Document Completeness",
-        details: [
-          "Cross-reference your compiled documents against sector checklist",
-          "Confirm all original documents are present",
-          "Verify all copies have been made from originals",
-          "Check expiration dates on all licenses and permits",
-          "Ensure all bank and official documents carry proper stamps/certifications",
-        ],
-      },
-      {
-        number: 9,
-        title: "Organize Documents for Submission",
-        details: [
-          "Arrange documents in the exact order required by JTKSM (if specified)",
-          "Create submission list/table of contents showing all enclosed documents",
-          "Prepare additional copies as required (usually 2-3 sets)",
-          "Place documents in professional folder with proper labeling",
-          "Keep one complete backup set for your records",
-        ],
-      },
-      {
-        number: 10,
-        title: "Final Review Before Submission",
-        details: [
-          "Review checklist one final time against all documents",
-          "Verify no documents are missing, expired, or incomplete",
-          "Check that all documents are legible and properly formatted",
-          "Confirm director signatures on required documents",
-          "Prepare cover letter stating company details, worker categories needed, and intended deployment timeline",
-        ],
-      },
-    ],
-  },
-  {
-    phase: "Phase 4: Application Submission (Week 5-6)",
-    steps: [
-      {
-        number: 11,
-        title: "Submit Application to JTKSM",
-        details: [
-          "Contact JTKSM to confirm submission procedures and current address",
-          "Prepare formal cover letter on company letterhead with director signature",
-          "State clearly: company name, sector, number of workers requested (by category), and timeline",
-          "Include contact person details and preferred communication method",
-          "Consider hand-delivering application or using courier for tracking",
-          "Request submission receipt/reference number for tracking",
-        ],
-      },
-      {
-        number: 12,
-        title: "Track Application Status",
-        details: [
-          "Maintain submission reference number for all future correspondence",
-          "Follow up with JTKSM after 2 weeks regarding application receipt confirmation",
-          "Expect initial review comments or requests for additional documents within 3-4 weeks",
-          "Be prepared to provide clarifications or missing documents quickly",
-          "Maintain regular contact with your assigned JTKSM officer",
-        ],
-      },
-    ],
-  },
-  {
-    phase: "Phase 5: Post-Submission & Approval (Week 6-10)",
-    steps: [
-      {
-        number: 13,
-        title: "Respond to JTKSM Queries",
-        details: [
-          "Respond promptly to any document requests or clarifications",
-          "Provide additional information or documents within requested timeline",
-          "Keep copies of all correspondence with JTKSM",
-          "Be prepared for possible workplace inspection by JTKSM officers",
-          "Maintain contact with JTKSM to track approval status",
-        ],
-      },
-      {
-        number: 14,
-        title: "Receive Approval & Labour Permit",
-        details: [
-          "Upon approval, receive Labour Permit (Surat Kelulusan Permit Perburuhan)",
-          "Verify permit details: company name, worker quota, approved categories, validity period",
-          "Keep original copy of permit in safe location",
-          "Prepare copies for your recruitment partner and government records",
-          "Note permit validity date and plan for renewal if needed",
-        ],
-      },
-      {
-        number: 15,
-        title: "Begin Recruitment Process",
-        details: [
-          "With approval in hand, engage licensed recruitment agency or partner",
-          "Provide approved permit copy to recruitment partner",
-          "Specify exact worker numbers, job categories, and deployment timeline",
-          "Coordinate with partner on sourcing, screening, and documentation",
-          "Plan for receiving workers, orientation, and onboarding",
-        ],
-      },
+      { number: 8, title: "Answer requests and prepare for checks", details: ["Monitor the official account and contact channel tied to the application.", "Reply by the stated deadline, upload only the requested evidence, and keep a dated record of each response.", "Be ready to explain the actual worksite, business activity, workforce need, and any accommodation arrangements under review."] },
+      { number: 9, title: "Read each decision carefully", details: ["Check the decision letter or portal status for conditions, approved category, employer details, and any next step.", "A Section 60K decision may be one part of the wider process; confirm separately whether quota, sector-regulator, visa, or Immigration steps remain."] },
+      { number: 10, title: "Coordinate recruitment after the required approvals", details: ["Once the applicable approval allows recruitment to proceed, appoint a licensed recruitment partner and agree the roles, candidate criteria, costs, and responsibilities in writing.", "Coordinate candidate selection, worker documentation, medical or immigration steps, travel, arrival, and employer onboarding according to the current rules."] },
     ],
   },
 ];
@@ -235,16 +71,14 @@ export default function HowToApplyPage() {
       <SectionWrapper
         eyebrow="Application Guide"
         title="How to Apply for Foreign Worker Approval in Malaysia"
-        subtitle="15-step practical guide for Malaysian companies navigating the Section 60K approval process from start to finish."
+        titleAs="h1"
+        subtitle="A practical preparation guide for Malaysian employers. The correct portal, documents, and approvals depend on the worker category and current government instructions."
         spacing="lead"
       >
         <div className="mb-8 rounded-lg bg-blue-50 p-6">
-          <p className="mb-3 text-sm font-semibold text-neutral-900">Typical Timeline:</p>
-          <p className="flex items-center gap-2 text-sm text-neutral-700">
-            <span className="text-blue-600">📅</span>
-            <span>
-              <strong>6-10 weeks</strong> from document preparation to approval (varies based on completeness and responsiveness)
-            </span>
+          <p className="mb-2 font-semibold text-neutral-900">Plan for each approval stage separately</p>
+          <p className="text-sm leading-7 text-neutral-700">
+            There is no single end-to-end timeline that applies to every employer and worker category. JTKSM's client charter lists a 14-day service target for its part of the foreign-worker employment application after receipt; this is not a promise of approval or a timeline for quota, sector-regulator, visa, or Immigration stages. <a className="font-medium text-blue-700 underline" href="https://jtksm.gov.my/en/corporate-profile/profile/clients-charter" target="_blank" rel="noreferrer">Read the JTKSM client charter.</a>
           </p>
         </div>
 
@@ -283,10 +117,10 @@ export default function HowToApplyPage() {
         </div>
 
         <div className="mt-10 rounded-lg bg-amber-50 p-6">
-          <h3 className="mb-4 font-semibold text-neutral-900">Critical Success Factors</h3>
+          <h3 className="mb-4 font-semibold text-neutral-900">Prepare a clear, consistent application</h3>
           <div className="grid gap-4 md:grid-cols-2">
             <div>
-              <h4 className="mb-2 text-sm font-semibold text-neutral-900">Do This:</h4>
+              <h4 className="mb-2 text-sm font-semibold text-neutral-900">Helpful preparation</h4>
               <ul className="space-y-2 text-sm text-neutral-700">
                 <li className="flex gap-2">
                   <span className="text-green-600">✓</span>
@@ -294,11 +128,11 @@ export default function HowToApplyPage() {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-green-600">✓</span>
-                  <span>Verify every document against checklist</span>
+                  <span>Use the current route-specific checklist</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-green-600">✓</span>
-                  <span>Keep all copies certified/stamped</span>
+                  <span>Follow the portal's file format and certification instructions</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-green-600">✓</span>
@@ -311,7 +145,7 @@ export default function HowToApplyPage() {
               </ul>
             </div>
             <div>
-              <h4 className="mb-2 text-sm font-semibold text-neutral-900">Avoid This:</h4>
+              <h4 className="mb-2 text-sm font-semibold text-neutral-900">Check for these issues</h4>
               <ul className="space-y-2 text-sm text-neutral-700">
                 <li className="flex gap-2">
                   <span className="text-red-600">✗</span>
@@ -319,15 +153,15 @@ export default function HowToApplyPage() {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-red-600">✗</span>
-                  <span>Submitting incomplete or unverified copies</span>
+                  <span>Submitting documents that do not match the employer or worksite details</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-red-600">✗</span>
-                  <span>Using expired licenses or outdated records</span>
+                  <span>Using a licence or record that is no longer valid, where validity applies</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-red-600">✗</span>
-                  <span>Slow response to JTKSM inquiries</span>
+                  <span>Missing a portal notice or stated response deadline</span>
                 </li>
                 <li className="flex gap-2">
                   <span className="text-red-600">✗</span>
@@ -339,18 +173,18 @@ export default function HowToApplyPage() {
         </div>
 
         <div className="mt-8 space-y-4 rounded-lg bg-neutral-100 p-6">
-          <h3 className="font-semibold text-neutral-900">Key Documents to Request First</h3>
+          <h3 className="font-semibold text-neutral-900">Employer records to locate early</h3>
           <p className="text-sm text-neutral-700">
-            These typically take longest to obtain, so request these immediately:
+            The current route may ask for some of these. Locate them early so you can check what applies before submission:
           </p>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             {[
-              "Audited financial statements from accountant",
-              "Sector-specific licenses from authorities",
-              "Support letters from government departments",
-              "Bank statement certification from your bank",
-              "CIDB, MOTAC, or other industry certifications",
-              "Membership certificates from associations",
+              "Company registration and authorized representative details",
+              "Current business, premises, and sector licences",
+              "Worksite, operating activity, and project or service records",
+              "Payroll and statutory contribution records, if requested",
+              "Financial or audited records, if requested",
+              "Accommodation information and supporting records, if applicable",
             ].map((item, idx) => (
               <div key={idx} className="flex gap-3 rounded-lg bg-white p-3">
                 <span className="text-blue-600">→</span>
@@ -362,53 +196,53 @@ export default function HowToApplyPage() {
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <div className="rounded-lg border border-neutral-200 p-6">
-            <h4 className="mb-3 font-semibold text-neutral-900">Common Rejection Reasons</h4>
+            <h4 className="mb-3 font-semibold text-neutral-900">Issues that may delay a review</h4>
             <ul className="space-y-2 text-sm text-neutral-700">
               <li className="flex gap-2">
                 <span>1.</span>
-                <span>Incomplete or missing sector-specific documents</span>
+                <span>Missing evidence requested for the employer's specific route</span>
               </li>
               <li className="flex gap-2">
                 <span>2.</span>
-                <span>Expired business licenses or PERKESO records</span>
+                <span>Expired licences or records that do not cover the stated activity or worksite</span>
               </li>
               <li className="flex gap-2">
                 <span>3.</span>
-                <span>Unverified bank statements or photocopies</span>
+                <span>Files that are unreadable or do not follow the portal's stated format</span>
               </li>
               <li className="flex gap-2">
                 <span>4.</span>
-                <span>Missing director signatures on documents</span>
+                <span>Missing declarations, signatures, or information required by the application</span>
               </li>
               <li className="flex gap-2">
                 <span>5.</span>
-                <span>Quota request doesn't match company profile</span>
+                <span>Differences between the application, company records, and workforce plan</span>
               </li>
             </ul>
           </div>
 
           <div className="rounded-lg border border-neutral-200 p-6">
-            <h4 className="mb-3 font-semibold text-neutral-900">What Speeds Up Approval</h4>
+            <h4 className="mb-3 font-semibold text-neutral-900">What helps reviewers understand the case</h4>
             <ul className="space-y-2 text-sm text-neutral-700">
               <li className="flex gap-2">
                 <span>✓</span>
-                <span>Complete, verified documentation on first submission</span>
+                <span>Complete evidence that directly addresses the current checklist</span>
               </li>
               <li className="flex gap-2">
                 <span>✓</span>
-                <span>Quick response to JTKSM information requests</span>
+                <span>Timely, specific answers to requests for information</span>
               </li>
               <li className="flex gap-2">
                 <span>✓</span>
-                <span>Realistic worker quota matching company size</span>
+                <span>A workforce plan that matches the employer's actual operations</span>
               </li>
               <li className="flex gap-2">
                 <span>✓</span>
-                <span>Proven stable financial position</span>
+                <span>Consistent employer and worksite information across records</span>
               </li>
               <li className="flex gap-2">
                 <span>✓</span>
-                <span>Good local employment record</span>
+                <span>Records organized with a copy of each submission and response</span>
               </li>
             </ul>
           </div>
@@ -423,7 +257,7 @@ export default function HowToApplyPage() {
           >
             <h4 className="mb-2 font-semibold text-neutral-900">Document Checklists by Sector</h4>
             <p className="text-sm text-neutral-600">
-              Detailed sector-specific requirements for all Malaysian industry categories
+              Employer preparation examples by sector; confirm the current official requirements before filing
             </p>
           </Link>
 
@@ -451,7 +285,7 @@ export default function HowToApplyPage() {
 
       <CTASection
         title="Need Expert Guidance Through Your Application?"
-        description="Our team has successfully guided hundreds of Malaysian employers through Section 60K approval. We'll handle document verification, submission, and coordination with JTKSM to get your approval faster."
+        description="When you appoint us as your recruitment partner, we can help prepare and organize employer documents for the relevant government steps, including FWCMS and Immigration submissions and audited reports or company records where required. This application support is included without a separate service fee as part of the recruitment service. Authorities make the approval decisions, so we cannot promise an outcome or timeline."
       />
     </>
   );

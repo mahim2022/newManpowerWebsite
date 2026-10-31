@@ -1,34 +1,43 @@
 import type { Metadata } from "next";
-import { BRAND, normalizeCanonicalUrl } from "@/lib/constants";
+import { BRAND, LOCALIZED_ROUTE_LANGUAGES, normalizeCanonicalUrl } from "@/lib/constants";
 
 type PageMetadataInput = {
   title: string;
   description: string;
   path: string;
+  // Kept for existing page callers, but not emitted as meta keywords.
   keywords?: string[];
 };
 
-const LOCALES = ["en", "ms", "zh", "ta"];
+function cleanPath(path: string): string {
+  if (!path || path === "/") return "/";
+  return `/${path.replace(/^\/+|\/+$/g, "")}`;
+}
 
-export function buildPageMetadata({ title, description, path, keywords }: PageMetadataInput): Metadata {
-  const canonicalUrl = normalizeCanonicalUrl(`${BRAND.websiteUrl}${path}`);
+export function buildPageMetadata({ title, description, path }: PageMetadataInput): Metadata {
+  const cleanCurrentPath = cleanPath(path);
+  const canonicalUrl = normalizeCanonicalUrl(`${BRAND.websiteUrl}${cleanCurrentPath === "/" ? "" : cleanCurrentPath}`);
+  const localeMatch = cleanCurrentPath.match(/\/(ms|zh|ta)$/);
+  const basePath = localeMatch ? cleanCurrentPath.replace(/\/(ms|zh|ta)$/, "") || "/" : cleanCurrentPath;
+  const translatedLocales = LOCALIZED_ROUTE_LANGUAGES[basePath as keyof typeof LOCALIZED_ROUTE_LANGUAGES];
 
-  // derive base path without a trailing locale segment (ms|zh|ta)
-  const basePath = path.replace(/\/(ms|zh|ta)$/, "");
+  const languages: Record<string, string> | undefined = translatedLocales
+    ? {
+        en: normalizeCanonicalUrl(`${BRAND.websiteUrl}${basePath === "/" ? "" : basePath}`),
+        ...Object.fromEntries(
+          translatedLocales.map((locale) => [
+            locale,
+            normalizeCanonicalUrl(`${BRAND.websiteUrl}${basePath === "/" ? "" : basePath}/${locale}`),
+          ]),
+        ),
+        "x-default": normalizeCanonicalUrl(`${BRAND.websiteUrl}${basePath === "/" ? "" : basePath}`),
+      }
+    : undefined;
 
-  const languages: Record<string, string> = {};
-  LOCALES.forEach((loc) => {
-    const locPath = loc === "en" ? basePath : `${basePath}/${loc}`;
-    languages[loc] = normalizeCanonicalUrl(`${BRAND.websiteUrl}${locPath}`);
-  });
-
-  const metadata: Metadata & { keywords?: string[] } = {
+  const metadata: Metadata = {
     title,
     description,
-    alternates: {
-      canonical: canonicalUrl,
-      languages,
-    },
+    alternates: languages ? { canonical: canonicalUrl, languages } : { canonical: canonicalUrl },
     openGraph: {
       title,
       description,
@@ -37,10 +46,6 @@ export function buildPageMetadata({ title, description, path, keywords }: PageMe
       type: "website",
     },
   };
-
-  if (keywords && keywords.length > 0) {
-    metadata.keywords = keywords;
-  }
 
   return metadata;
 }

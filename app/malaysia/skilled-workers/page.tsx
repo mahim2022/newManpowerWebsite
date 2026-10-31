@@ -5,7 +5,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Skilled Workers for Malaysia from Bangladesh | recruitment support",
+  title: "Skilled Workers from Bangladesh for Malaysia",
   description:
     "Skilled workers for Malaysia from Bangladesh, including trade-support roles and operation-ready candidates for employer hiring requirements.",
   path: "/malaysia/skilled-workers",
@@ -31,15 +31,16 @@ export default function MalaysiaSkilledWorkersPage() {
       <SectionWrapper
         eyebrow="Skilled workforce"
         title="Skilled Workers for Malaysia from Bangladesh"
+        titleAs="h1"
         subtitle="Employers seeking skilled worker recruitment for Malaysia often require workers with practical readiness, suitable job experience, and a disciplined sourcing process."
         spacing="lead"
       >
         <div className="grid gap-6 md:grid-cols-2">
           <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Key focus</p>
-            <h1 className="mt-5 font-serif text-4xl leading-tight text-[#0B1F3A] md:text-5xl">
+            <h2 className="mt-5 font-serif text-4xl leading-tight text-[#0B1F3A] md:text-5xl">
               Skilled labour sourcing for operational hiring needs
-            </h1>
+            </h2>
             <p className="mt-5 text-base leading-8 text-neutral-700">
               Skilled workers for Malaysia are often recruited for roles where practical experience, work discipline, and role-match quality matter. We help employers source ready candidates and manage the process with clear communication.
             </p>
@@ -74,6 +75,25 @@ export default function MalaysiaSkilledWorkersPage() {
             <h3 className="font-serif text-2xl text-[#0B1F3A]">Deployment readiness</h3>
             <p className="mt-3 text-sm leading-7 text-neutral-700">The recruitment cycle is managed to improve employer visibility and smoother deployment planning.</p>
           </article>
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper eyebrow="Role brief" title="How to describe a skilled worker requirement">
+        <p className="mb-6 max-w-3xl text-sm leading-7 text-neutral-700">
+          A job title alone may not tell a recruiter what the worker must do. A short, task-based brief makes candidate screening and interviews more useful.
+        </p>
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            ["Tasks", "List the main duties, equipment, and expected output for a normal shift."],
+            ["Experience", "Describe the practical experience that matters and how the employer will assess it."],
+            ["Work conditions", "State the worksite, shift pattern, physical demands, safety requirements, and language needs."],
+            ["Evidence", "Decide what references, certificates, work samples, or trade tests are relevant to the role."],
+          ].map(([title, description]) => (
+            <article key={title} className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
+              <h3 className="font-serif text-xl text-[#0B1F3A]">{title}</h3>
+              <p className="mt-3 text-sm leading-7 text-neutral-700">{description}</p>
+            </article>
+          ))}
         </div>
       </SectionWrapper>
 

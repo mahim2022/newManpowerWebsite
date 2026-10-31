@@ -64,15 +64,16 @@ export default function MalaysiaWorkerCategoriesPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <h1 className="mx-auto max-w-7xl px-6 pt-10 text-3xl font-bold tracking-tight text-[#0B1F3A] md:text-5xl lg:px-10">
-        Malaysia Worker Categories from Bangladesh
-      </h1>
       <SectionWrapper
         eyebrow="Worker categories"
         title="Malaysia Worker Categories from Bangladesh"
+        titleAs="h1"
         subtitle="Malaysian employers often hire from Bangladesh for labour-intensive, operational, and support roles that require reliable workers and documented recruitment processes."
         spacing="lead"
       >
+        <div className="mb-8 rounded-sm border border-amber-200 bg-amber-50 p-5 text-sm leading-7 text-amber-950">
+          These are examples of employer work areas, not a statement that every role or sector is currently open to foreign-worker applications. Eligibility, quota, worker category, and required approvals can change. Confirm the applicable route with the relevant Malaysian authorities before recruiting. Domestic-worker and expatriate routes may have separate rules.
+        </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {categories.map((category) => (
             <article key={category.title} className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">

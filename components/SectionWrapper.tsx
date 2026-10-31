@@ -5,6 +5,7 @@ type SectionWrapperProps = {
   id?: string;
   eyebrow?: string;
   title?: string;
+  titleAs?: "h1" | "h2";
   subtitle?: string;
   children: ReactNode;
   className?: string;
@@ -17,6 +18,7 @@ export function SectionWrapper({
   id,
   eyebrow,
   title,
+  titleAs = "h2",
   subtitle,
   children,
   className,
@@ -26,6 +28,7 @@ export function SectionWrapper({
 }: SectionWrapperProps) {
   const sectionSpacing = spacing === "lead" ? "pb-16 pt-12 md:pb-20 md:pt-16" : spacing === "compact" ? "py-16 md:py-20" : "py-20 md:py-24";
   const headerSpacing = spacing === "default" ? "mb-10 max-w-3xl space-y-4 md:mb-12" : "mb-8 max-w-3xl space-y-4 md:mb-10";
+  const Heading = titleAs;
 
   return (
     <section id={id} className={cn(sectionSpacing, className)}>
@@ -43,14 +46,14 @@ export function SectionWrapper({
               </p>
             ) : null}
             {title ? (
-              <h2
+              <Heading
                 className={cn(
                   "font-serif text-2xl leading-tight sm:text-3xl md:text-4xl",
                   dark ? "text-[#FAFAFA]" : "text-[#0B1F3A]",
                 )}
               >
                 {title}
-              </h2>
+              </Heading>
             ) : null}
             {subtitle ? (
               <p className={cn("max-w-2xl text-sm leading-7 sm:text-base sm:leading-8", dark ? "text-white/80" : "text-neutral-700")}>

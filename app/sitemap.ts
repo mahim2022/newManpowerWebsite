@@ -1,194 +1,44 @@
 import type { MetadataRoute } from "next";
-import { BRAND, NAV_LINKS, normalizeCanonicalUrl } from "@/lib/constants";
+import { BRAND, LOCALIZED_ROUTE_LANGUAGES, normalizeCanonicalUrl } from "@/lib/constants";
+
+const ENGLISH_ROUTES = [
+  { path: "/", priority: 1 },
+  { path: "/about", priority: 0.65 },
+  { path: "/case-studies", priority: 0.6 },
+  { path: "/compliance", priority: 0.7 },
+  { path: "/contact", priority: 0.8 },
+  { path: "/industries", priority: 0.75 },
+  { path: "/malaysia", priority: 0.9 },
+  { path: "/malaysia/application-approval-process", priority: 0.9 },
+  { path: "/malaysia/construction-workers", priority: 0.75 },
+  { path: "/malaysia/foreign-worker-quota", priority: 0.8 },
+  { path: "/malaysia/how-to-apply", priority: 0.85 },
+  { path: "/malaysia/how-to-hire-workers-from-bangladesh", priority: 0.85 },
+  { path: "/malaysia/required-documents", priority: 0.85 },
+  { path: "/malaysia/recruitment-process", priority: 0.85 },
+  { path: "/malaysia/skilled-workers", priority: 0.75 },
+  { path: "/malaysia/worker-categories", priority: 0.75 },
+  { path: "/process", priority: 0.75 },
+  { path: "/services", priority: 0.8 },
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = BRAND.websiteUrl;
+  const entries: MetadataRoute.Sitemap = ENGLISH_ROUTES.map(({ path, priority }) => ({
+    url: normalizeCanonicalUrl(`${baseUrl}${path === "/" ? "" : path}`),
+    changeFrequency: "monthly",
+    priority,
+  }));
 
-  const routes: MetadataRoute.Sitemap = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/malaysia`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    // Localized Malaysia index pages (already translated)
-    {
-      url: `${baseUrl}/malaysia/ms`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/malaysia/zh`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/malaysia/ta`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/malaysia/recruitment-process`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/malaysia/how-to-hire-workers-from-bangladesh`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/malaysia/foreign-worker-quota`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/malaysia/worker-categories`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/malaysia/construction-workers`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    // Localized variants for pages we've already localized
-    {
-      url: `${baseUrl}/malaysia/construction-workers/ms`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/malaysia/construction-workers/zh`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/malaysia/construction-workers/ta`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/malaysia/skilled-workers`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/malaysia/application-approval-process`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/malaysia/application-approval-process/ms`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/malaysia/application-approval-process/zh`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/malaysia/application-approval-process/ta`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    // Localized variants for other translated pages (added)
-    {
-      url: `${baseUrl}/malaysia/skilled-workers/ms`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/malaysia/skilled-workers/zh`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/malaysia/skilled-workers/ta`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/malaysia/worker-categories/ms`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/malaysia/worker-categories/zh`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/malaysia/worker-categories/ta`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/malaysia/foreign-worker-quota/ms`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/malaysia/foreign-worker-quota/zh`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/malaysia/foreign-worker-quota/ta`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-  ];
-
-  NAV_LINKS.forEach((link) => {
-    routes.push({
-      url: normalizeCanonicalUrl(`${baseUrl}${link.href}`),
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    });
-  });
-
-  const uniqueRoutes = new Map<string, MetadataRoute.Sitemap[0]>();
-
-  routes.forEach((route) => {
-    const canonicalUrl = normalizeCanonicalUrl(route.url);
-    if (!uniqueRoutes.has(canonicalUrl)) {
-      uniqueRoutes.set(canonicalUrl, { ...route, url: canonicalUrl });
+  for (const [path, locales] of Object.entries(LOCALIZED_ROUTE_LANGUAGES)) {
+    for (const locale of locales) {
+      entries.push({
+        url: normalizeCanonicalUrl(`${baseUrl}${path}/${locale}`),
+        changeFrequency: "monthly",
+        priority: 0.7,
+      });
     }
-  });
+  }
 
-  return [...uniqueRoutes.values()];
+  return [...new Map(entries.map((entry) => [entry.url, entry])).values()];
 }

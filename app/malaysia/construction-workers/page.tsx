@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -31,15 +32,16 @@ export default function MalaysiaConstructionWorkersPage() {
       <SectionWrapper
         eyebrow="Construction recruitment"
         title="Construction Workers for Malaysia from Bangladesh"
+        titleAs="h1"
         subtitle="Many Malaysian employers seek construction manpower from Bangladesh for project-based, site-based, and labour-intensive hiring needs."
         spacing="lead"
       >
         <div className="grid gap-6 md:grid-cols-2">
           <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Recruitment focus</p>
-            <h1 className="mt-5 font-serif text-4xl leading-tight text-[#0B1F3A] md:text-5xl">
+            <h2 className="mt-5 font-serif text-4xl leading-tight text-[#0B1F3A] md:text-5xl">
               Workforce supply for construction and site operations
-            </h1>
+            </h2>
             <p className="mt-5 text-base leading-8 text-neutral-700">
               Employers requiring construction workers for Malaysia often need a dependable source of labour with suitable work readiness, screening, and documentation support. A structured recruitment process helps reduce operational uncertainty and improves deployment clarity.
             </p>
@@ -73,6 +75,25 @@ export default function MalaysiaConstructionWorkersPage() {
           <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
             <h3 className="font-serif text-2xl text-[#0B1F3A]">Deployment support</h3>
             <p className="mt-3 text-sm leading-7 text-neutral-700">We support mobilization coordination and employer updates for better timeline planning.</p>
+          </article>
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper eyebrow="Employer planning" title="What to define before requesting construction workers">
+        <div className="grid gap-6 md:grid-cols-2">
+          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
+            <h3 className="font-serif text-xl text-[#0B1F3A]">Describe the work clearly</h3>
+            <ul className="mt-4 space-y-3 text-sm leading-7 text-neutral-700">
+              <li>• List the trade or task, required experience, tools or equipment, and any site-specific training.</li>
+              <li>• State the project location, expected duration, headcount, working conditions, and target start date.</li>
+              <li>• Separate general labour from skilled tasks so candidates can be screened against the right role.</li>
+            </ul>
+          </article>
+          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
+            <h3 className="font-serif text-xl text-[#0B1F3A]">Check the employer route</h3>
+            <p className="mt-4 text-sm leading-7 text-neutral-700">
+              Before recruitment starts, confirm the current employer, sector, project, and worksite requirements with the relevant authorities. Construction applications may require sector and project evidence, and approval depends on the applicable route. Our <Link href="/malaysia/application-approval-process" className="font-medium text-[#8A6420] underline underline-offset-4">Malaysia approval guide</Link> explains the employer preparation stages.
+            </p>
           </article>
         </div>
       </SectionWrapper>

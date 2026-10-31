@@ -22,9 +22,9 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Bangladesh Manpower Recruitment Network | Global Employers",
+  title: "Bangladesh Recruitment Network for Global Employers",
   description:
-    "Connect with a network of licensed Bangladesh recruitment agencies for international workforce sourcing, screening, documentation, and deployment coordination across Europe, Canada, Australia, the Middle East, Southeast Asia, and other markets.",
+    "Hire workers from Bangladesh through our licensed agency network. We support employers in Europe, Canada, Australia, the Middle East, Southeast Asia, and other markets.",
   path: "/",
 });
 
