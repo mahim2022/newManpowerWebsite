@@ -17,4 +17,8 @@ The two travel photographs appear in the homepage's international-reach section 
 
 ## Workforce illustration
 
-`recruitment-workforce.png` was generated with OpenAI image generation on 3 November 2026 for the homepage. It is an illustrative workshop scene, not a photograph of the agency's staff, clients, or placements. The homepage caption identifies it as a workforce illustration.
+`recruitment-workforce.png` was generated with OpenAI image generation on 3 November 2026 and previously used on the homepage. It is an illustrative workshop scene, not a photograph of the agency's staff, clients, or placements. The asset is retained in the project but is no longer the active hero image.
+
+## User-supplied construction photograph
+
+`construction-workforce.png` was supplied by the website owner on 3 November 2026 for the homepage hero. The original file is copied unchanged; responsive containers may crop its visible edges. No claim is made that it depicts agency staff, clients, or placements. Original author and licence information were not provided with the upload.

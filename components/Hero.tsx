@@ -18,10 +18,10 @@ export function Hero({ heading, supportingText }: HeroProps) {
           <p className="mt-8 text-xs leading-6 text-neutral-500">Led by East Bengal Overseas · Recruiting licence 912</p>
         </div>
         <figure className="relative mx-auto w-full max-w-xl lg:ml-auto">
-          <div className="relative aspect-[5/4] overflow-hidden rounded-xl bg-[#D7DDDB] sm:aspect-[6/5] lg:aspect-auto lg:h-[550px]">
-            <Image src="/images/recruitment-workforce.png" alt="Illustrative view of skilled workers collaborating in a modern workshop" fill priority sizes="(max-width: 1024px) 100vw, 44vw" className="object-cover" />
+          <div className="relative aspect-video overflow-hidden rounded-xl bg-[#D7DDDB]">
+            <Image src="/images/construction-workforce.png" alt="Construction workers in safety helmets and high-visibility vests working on a concrete slab" fill priority sizes="(max-width: 1024px) 100vw, 44vw" className="object-cover object-[55%_50%]" />
           </div>
-          <figcaption className="mt-4 flex items-center justify-between gap-4 text-[11px] text-neutral-500"><span>People. Skills. Possibilities.</span><span>Workforce illustration</span></figcaption>
+          <figcaption className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-[11px] text-neutral-500"><span>People. Skills. Possibilities.</span><span>Construction workforce</span></figcaption>
         </figure>
       </div>
     </section>
