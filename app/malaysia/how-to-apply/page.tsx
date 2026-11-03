@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
-import { SectionWrapper } from "@/components/SectionWrapper";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbSchema } from "@/lib/seo";
 
@@ -57,6 +56,17 @@ const phases: ApplicationStep[] = [
   },
 ];
 
+const applicationSections = [
+  { id: "planning", label: "Plan the application" },
+  { id: "submission", label: "Prepare and submit" },
+  { id: "follow-up", label: "Follow the review" },
+  { id: "employer-records", label: "Records to locate" },
+  { id: "final-review", label: "Before you file" },
+  { id: "application-support", label: "How we help" },
+];
+
+const phaseIds = ["planning", "submission", "follow-up"];
+
 export default function HowToApplyPage() {
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: "Home", path: "/" },
@@ -67,226 +77,121 @@ export default function HowToApplyPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-
-      <SectionWrapper
-        eyebrow="Application Guide"
-        title="How to Apply for Foreign Worker Approval in Malaysia"
-        titleAs="h1"
-        subtitle="A practical preparation guide for Malaysian employers. The correct portal, documents, and approvals depend on the worker category and current government instructions."
-        spacing="lead"
-      >
-        <div className="mb-8 rounded-lg bg-blue-50 p-6">
-          <p className="mb-2 font-semibold text-neutral-900">Plan for each approval stage separately</p>
-          <p className="text-sm leading-7 text-neutral-700">
-            There is no single end-to-end timeline that applies to every employer and worker category. JTKSM's client charter lists a 14-day service target for its part of the foreign-worker employment application after receipt; this is not a promise of approval or a timeline for quota, sector-regulator, visa, or Immigration stages. <a className="font-medium text-blue-700 underline" href="https://jtksm.gov.my/en/corporate-profile/profile/clients-charter" target="_blank" rel="noreferrer">Read the JTKSM client charter.</a>
+      <div className="border-b border-[#0B1F3A]/10 bg-[#FBFAF6]">
+        <header className="mx-auto max-w-7xl px-6 pb-12 pt-10 sm:pb-16 sm:pt-14 lg:px-10">
+          <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-xs text-neutral-500">
+            <Link href="/" className="transition hover:text-[#8A6420]">Home</Link>
+            <span aria-hidden="true">/</span>
+            <Link href="/malaysia" className="transition hover:text-[#8A6420]">Malaysia</Link>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">How to apply</span>
+          </nav>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8A6420]">Employer guide · Malaysia</p>
+          <h1 className="mt-5 max-w-4xl font-serif text-4xl leading-[1.16] tracking-tight text-[#0B1F3A] sm:text-5xl lg:text-[3.5rem]">
+            How to apply for foreign worker approval in Malaysia
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-600 sm:text-lg">
+            Ten practical steps to prepare your records, choose the correct application route, and follow up with the relevant authorities.
           </p>
-        </div>
+        </header>
+      </div>
 
-        <div className="space-y-10">
-          {phases.map((phaseGroup, phaseIdx) => (
-            <div key={phaseIdx} className="rounded-lg border border-neutral-200 p-6">
-              <h3 className="mb-6 text-lg font-semibold text-neutral-900">{phaseGroup.phase}</h3>
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 sm:py-16 lg:grid-cols-[210px_minmax(0,1fr)] lg:gap-16 lg:px-10">
+        <aside className="lg:relative">
+          <div className="lg:sticky lg:top-28">
+            <nav aria-label="On this page" className="border-y border-[#0B1F3A]/10 py-5 lg:border-y-0 lg:border-l lg:py-0 lg:pl-5">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.16em] text-[#0B1F3A]">In this guide</p>
+              <ul className="flex flex-wrap gap-x-5 gap-y-3 lg:block lg:space-y-3">
+                {applicationSections.map((section) => (
+                  <li key={section.id}><a href={"#" + section.id} className="text-sm leading-6 text-neutral-600 transition hover:text-[#8A6420]">{section.label}</a></li>
+                ))}
+              </ul>
+            </nav>
+            <p className="mt-7 hidden max-w-[190px] text-sm leading-7 text-neutral-500 lg:block">Preparing to recruit from Bangladesh? <Link href="/contact" className="font-medium text-[#8A6420] underline underline-offset-4">Discuss your hiring plan.</Link></p>
+          </div>
+        </aside>
 
-              <div className="space-y-6">
+        <article className="min-w-0 max-w-[72ch] space-y-14 text-base leading-8 text-neutral-700">
+          <div className="border-l-2 border-[#C6A969] pl-5">
+            <h2 className="font-sans text-base font-semibold text-[#0B1F3A]">Plan for each approval stage separately</h2>
+            <p className="mt-3 text-[15px] leading-7">The correct portal, documents, and approvals depend on the worker category and current government instructions. There is no single end-to-end timeline that applies to every employer.</p>
+            <p className="mt-3 text-[15px] leading-7">JTKSM&apos;s client charter lists a 14-day service target for its part of the foreign-worker employment application after receipt. This is not a promise of approval or a timeline for quota, sector-regulator, visa, or Immigration stages. <a className="font-medium text-[#8A6420] underline underline-offset-4" href="https://jtksm.gov.my/en/corporate-profile/profile/clients-charter" target="_blank" rel="noreferrer">Read the JTKSM client charter.</a></p>
+          </div>
+
+          {phases.map((phaseGroup, phaseIndex) => (
+            <section key={phaseGroup.phase} id={phaseIds[phaseIndex]}>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6420]">Stage {String(phaseIndex + 1).padStart(2, "0")}</p>
+              <h2 className="mt-3 font-serif text-3xl leading-tight text-[#0B1F3A]">{phaseGroup.phase.replace(/^\d+\.\s*/, "")}</h2>
+              <ol start={phaseGroup.steps[0].number} className="mt-8 list-none space-y-8">
                 {phaseGroup.steps.map((step) => (
-                  <div key={step.number} className="flex gap-4">
-                    <div className="flex shrink-0 items-center justify-center">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 font-semibold text-white">
-                        {step.number}
-                      </div>
-                      {step.number < phaseGroup.steps[phaseGroup.steps.length - 1].number && (
-                        <div className="absolute h-12 w-1 bg-blue-200" style={{ top: "2.5rem", left: "1.25rem" }} />
-                      )}
-                    </div>
-                    <div className="flex-1 pb-6">
-                      <h4 className="mb-3 font-semibold text-neutral-900">{step.title}</h4>
-                      <ul className="space-y-2">
-                        {step.details.map((detail, detailIdx) => (
-                          <li key={detailIdx} className="flex gap-2 text-sm text-neutral-700">
-                            <span className="text-neutral-400">•</span>
-                            <span>{detail}</span>
-                          </li>
-                        ))}
+                  <li key={step.number} value={step.number} className="grid grid-cols-[2rem_minmax(0,1fr)] gap-4 sm:gap-5">
+                    <span aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-full bg-[#EDE7D9] text-xs font-semibold text-[#8A6420]">{step.number}</span>
+                    <div>
+                      <h3 className="font-sans text-lg font-semibold leading-7 text-[#0B1F3A]">{step.title}</h3>
+                      <ul className="mt-3 list-disc space-y-2 pl-4 text-[15px] leading-7 marker:text-[#B89A5C]">
+                        {step.details.map((detail) => <li key={detail}>{detail}</li>)}
                       </ul>
                     </div>
-                  </div>
+                  </li>
                 ))}
-              </div>
-            </div>
+              </ol>
+            </section>
           ))}
-        </div>
 
-        <div className="mt-10 rounded-lg bg-amber-50 p-6">
-          <h3 className="mb-4 font-semibold text-neutral-900">Prepare a clear, consistent application</h3>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div>
-              <h4 className="mb-2 text-sm font-semibold text-neutral-900">Helpful preparation</h4>
-              <ul className="space-y-2 text-sm text-neutral-700">
-                <li className="flex gap-2">
-                  <span className="text-green-600">✓</span>
-                  <span>Start document collection early</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-green-600">✓</span>
-                  <span>Use the current route-specific checklist</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-green-600">✓</span>
-                  <span>Follow the portal's file format and certification instructions</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-green-600">✓</span>
-                  <span>Respond quickly to JTKSM requests</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-green-600">✓</span>
-                  <span>Maintain organized records and correspondence</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="mb-2 text-sm font-semibold text-neutral-900">Check for these issues</h4>
-              <ul className="space-y-2 text-sm text-neutral-700">
-                <li className="flex gap-2">
-                  <span className="text-red-600">✗</span>
-                  <span>Waiting until last minute to gather documents</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-red-600">✗</span>
-                  <span>Submitting documents that do not match the employer or worksite details</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-red-600">✗</span>
-                  <span>Using a licence or record that is no longer valid, where validity applies</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-red-600">✗</span>
-                  <span>Missing a portal notice or stated response deadline</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-red-600">✗</span>
-                  <span>Underestimating or inflating worker requirements</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-8 space-y-4 rounded-lg bg-neutral-100 p-6">
-          <h3 className="font-semibold text-neutral-900">Employer records to locate early</h3>
-          <p className="text-sm text-neutral-700">
-            The current route may ask for some of these. Locate them early so you can check what applies before submission:
-          </p>
-          <div className="mt-4 grid gap-4 md:grid-cols-2">
-            {[
-              "Company registration and authorized representative details",
-              "Current business, premises, and sector licences",
-              "Worksite, operating activity, and project or service records",
-              "Payroll and statutory contribution records, if requested",
-              "Financial or audited records, if requested",
-              "Accommodation information and supporting records, if applicable",
-            ].map((item, idx) => (
-              <div key={idx} className="flex gap-3 rounded-lg bg-white p-3">
-                <span className="text-blue-600">→</span>
-                <span className="text-sm text-neutral-700">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <div className="rounded-lg border border-neutral-200 p-6">
-            <h4 className="mb-3 font-semibold text-neutral-900">Issues that may delay a review</h4>
-            <ul className="space-y-2 text-sm text-neutral-700">
-              <li className="flex gap-2">
-                <span>1.</span>
-                <span>Missing evidence requested for the employer's specific route</span>
-              </li>
-              <li className="flex gap-2">
-                <span>2.</span>
-                <span>Expired licences or records that do not cover the stated activity or worksite</span>
-              </li>
-              <li className="flex gap-2">
-                <span>3.</span>
-                <span>Files that are unreadable or do not follow the portal's stated format</span>
-              </li>
-              <li className="flex gap-2">
-                <span>4.</span>
-                <span>Missing declarations, signatures, or information required by the application</span>
-              </li>
-              <li className="flex gap-2">
-                <span>5.</span>
-                <span>Differences between the application, company records, and workforce plan</span>
-              </li>
+          <section id="employer-records" className="border-t border-[#0B1F3A]/10 pt-10">
+            <h2 className="font-serif text-3xl leading-tight text-[#0B1F3A]">Employer records to locate early</h2>
+            <p className="mt-5">The current route may ask for some of these. Locate them early so you can check what applies before submission.</p>
+            <ul className="mt-6 list-disc space-y-3 pl-5 marker:text-[#B89A5C]">
+              {[
+                "Company registration and authorized representative details",
+                "Current business, premises, and sector licences",
+                "Worksite, operating activity, and project or service records",
+                "Payroll and statutory contribution records, if requested",
+                "Financial or audited records, if requested",
+                "Accommodation information and supporting records, if applicable",
+              ].map((record) => <li key={record}>{record}</li>)}
             </ul>
-          </div>
+            <Link href="/malaysia/required-documents" className="mt-6 inline-flex min-h-11 items-center gap-3 font-semibold text-[#8A6420] underline underline-offset-4">See the document preparation guide <span aria-hidden="true">→</span></Link>
+          </section>
 
-          <div className="rounded-lg border border-neutral-200 p-6">
-            <h4 className="mb-3 font-semibold text-neutral-900">What helps reviewers understand the case</h4>
-            <ul className="space-y-2 text-sm text-neutral-700">
-              <li className="flex gap-2">
-                <span>✓</span>
-                <span>Complete evidence that directly addresses the current checklist</span>
-              </li>
-              <li className="flex gap-2">
-                <span>✓</span>
-                <span>Timely, specific answers to requests for information</span>
-              </li>
-              <li className="flex gap-2">
-                <span>✓</span>
-                <span>A workforce plan that matches the employer's actual operations</span>
-              </li>
-              <li className="flex gap-2">
-                <span>✓</span>
-                <span>Consistent employer and worksite information across records</span>
-              </li>
-              <li className="flex gap-2">
-                <span>✓</span>
-                <span>Records organized with a copy of each submission and response</span>
-              </li>
+          <section id="final-review">
+            <h2 className="font-serif text-3xl leading-tight text-[#0B1F3A]">Before you file, check for consistency</h2>
+            <p className="mt-5">A clear application helps reviewers understand the employer and workforce need. Start document collection early, use the current route-specific checklist, and keep an organized copy of every submission and response.</p>
+            <ul className="mt-6 list-disc space-y-4 pl-5 marker:text-[#B89A5C]">
+              <li>Make sure the company, worksite, roles, and headcount match the supporting records and actual operations. State the genuine worker requirement.</li>
+              <li>Check validity dates on licences and other time-limited records. Follow the portal&apos;s file format and certification instructions.</li>
+              <li>Confirm any required evidence, declarations, signatures, and information are complete, readable, and relevant to the application route.</li>
+              <li>Monitor portal notices, reply promptly to JTKSM requests, and meet any stated response deadline.</li>
             </ul>
-          </div>
-        </div>
-      </SectionWrapper>
+            <p className="mt-5 text-[15px] leading-7 text-neutral-500">Missing route-specific evidence, expired licences, unreadable files, and differences between the forms and employer records may delay a review. Clear records and timely answers help authorities understand the case; they do not guarantee an approval.</p>
+          </section>
 
-      <SectionWrapper id="resources" eyebrow="Related Resources" title="Additional Application Resources" spacing="compact">
-        <div className="grid gap-6 md:grid-cols-3">
-          <Link
-            href="/malaysia/required-documents"
-            className="rounded-lg border border-neutral-200 p-5 hover:border-blue-300 hover:bg-blue-50 transition-colors"
-          >
-            <h4 className="mb-2 font-semibold text-neutral-900">Document Checklists by Sector</h4>
-            <p className="text-sm text-neutral-600">
-              Employer preparation examples by sector; confirm the current official requirements before filing
-            </p>
-          </Link>
+          <section id="application-support" className="border-y border-[#0B1F3A]/10 py-9">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8A6420]">Practical application support</p>
+            <h2 className="mt-3 font-serif text-3xl leading-tight text-[#0B1F3A]">Get help preparing your application</h2>
+            <p className="mt-5">When you appoint us as your recruitment partner, we can help prepare and organize employer documents for the relevant government steps. This can include FWCMS and Immigration submissions, audited reports, and company records where required.</p>
+            <p className="mt-4">This application support is included without a separate service fee as part of our recruitment service. Authorities make the approval decisions, so we cannot promise an outcome or timeline.</p>
+            <Link href="/contact" className="mt-5 inline-flex min-h-11 items-center gap-3 font-semibold text-[#8A6420] underline underline-offset-4">Talk through your application <span aria-hidden="true">→</span></Link>
+          </section>
 
-          <Link
-            href="/malaysia/application-approval-process"
-            className="rounded-lg border border-neutral-200 p-5 hover:border-blue-300 hover:bg-blue-50 transition-colors"
-          >
-            <h4 className="mb-2 font-semibold text-neutral-900">Full Approval Process Guide</h4>
-            <p className="text-sm text-neutral-600">
-              Comprehensive overview of Section 60K requirements and how the approval system works
-            </p>
-          </Link>
-
-          <Link
-            href="/malaysia/recruitment-process"
-            className="rounded-lg border border-neutral-200 p-5 hover:border-blue-300 hover:bg-blue-50 transition-colors"
-          >
-            <h4 className="mb-2 font-semibold text-neutral-900">After Approval: Recruitment</h4>
-            <p className="text-sm text-neutral-600">
-              What happens next - sourcing, screening, and deploying workers
-            </p>
-          </Link>
-        </div>
-      </SectionWrapper>
-
-      <CTASection
-        title="Need Expert Guidance Through Your Application?"
-        description="When you appoint us as your recruitment partner, we can help prepare and organize employer documents for the relevant government steps, including FWCMS and Immigration submissions and audited reports or company records where required. This application support is included without a separate service fee as part of the recruitment service. Authorities make the approval decisions, so we cannot promise an outcome or timeline."
-      />
+          <section id="resources">
+            <h2 className="font-serif text-3xl leading-tight text-[#0B1F3A]">Continue your planning</h2>
+            <div className="mt-6 divide-y divide-[#0B1F3A]/10 border-y border-[#0B1F3A]/10">
+              {[
+                { href: "/malaysia/required-documents", title: "Document preparation by sector", description: "Employer preparation examples to compare with the current official checklist." },
+                { href: "/malaysia/application-approval-process", title: "The approval process explained", description: "Section 60K, current route examples, and how the stages connect." },
+                { href: "/malaysia/recruitment-process", title: "After approval: recruitment", description: "Candidate sourcing, screening, documentation, and deployment coordination." },
+              ].map((resource) => (
+                <Link key={resource.href} href={resource.href} className="group flex items-center justify-between gap-5 py-5">
+                  <div><h3 className="font-sans text-base font-semibold text-[#0B1F3A] transition group-hover:text-[#8A6420]">{resource.title}</h3><p className="mt-1 text-sm leading-7 text-neutral-500">{resource.description}</p></div>
+                  <span aria-hidden="true" className="text-[#8A6420]">↗</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        </article>
+      </div>
+      <CTASection title="A clearer plan for your next hire." description="Share your sector, worksite, worker category, roles, and headcount. We can help you understand what to prepare and coordinate the next steps." />
     </>
   );
 }

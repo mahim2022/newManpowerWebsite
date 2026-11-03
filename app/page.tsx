@@ -1,225 +1,112 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { Hero } from "@/components/Hero";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { SectionWrapper } from "@/components/SectionWrapper";
-import { ServiceCard } from "@/components/ServiceCard";
-import { TestimonialCard } from "@/components/TestimonialCard";
 import { TrustStats } from "@/components/TrustStats";
-import {
-  BRAND,
-  COMPLIANCE_PROOFS,
-  DESTINATION_REGIONS,
-  INDUSTRIES,
-  PARTNER_AGENCIES,
-  PROCESS_STEPS,
-  SERVICES,
-  SITE_COPY,
-  TESTIMONIALS,
-  TRUST_STATS,
-} from "@/lib/constants";
+import { DESTINATION_REGIONS, INDUSTRIES, PARTNER_AGENCIES, PROCESS_STEPS, SERVICES, SITE_COPY, TRUST_STATS } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Bangladesh Recruitment Network for Global Employers",
-  description:
-    "Hire workers from Bangladesh through our licensed agency network. We support employers in Europe, Canada, Australia, the Middle East, Southeast Asia, and other markets.",
+  description: "Hire workers from Bangladesh through our licensed agency network. We support employers in Europe, Canada, Australia, the Middle East, Southeast Asia, and other markets.",
   path: "/",
 });
 
 export default function Home() {
   const breadcrumbSchema = buildBreadcrumbSchema([{ name: "Home", path: "/" }]);
+  const [mainAgency, ...partners] = PARTNER_AGENCIES;
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Hero heading={SITE_COPY.heroTitle} supportingText={SITE_COPY.heroBody} />
 
-      <SectionWrapper
-        id="trust-signals"
-        eyebrow="One coordinated network"
-        title="More capability behind every recruitment brief"
-        subtitle="Four named Bangladesh recruiting agencies work through a coordinated employer-facing network, led by East Bengal Overseas, to match each workforce requirement to the right recruitment channel."
-        spacing="lead"
-      >
-        <TrustStats items={TRUST_STATS} />
-      </SectionWrapper>
+      <section id="trust-signals" aria-label="Our recruitment network at a glance" className="border-y border-[#0B1F3A]/10 bg-white py-8 md:py-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10"><TrustStats items={TRUST_STATS} /></div>
+      </section>
 
-      <SectionWrapper
-        id="agency-network"
-        eyebrow="Our licensed agency network"
-        title="Four agencies. A broader recruitment network."
-        subtitle="Agency-specific licences create clear accountability while our wider recruitment partnerships help us respond to international workforce needs."
-        className="bg-white"
-        spacing="compact"
-      >
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {PARTNER_AGENCIES.map((agency, index) => (
-            <article key={agency.licenseNumber} className={`group relative overflow-hidden rounded-xl border p-7 transition duration-300 hover:-translate-y-1 sm:p-8 ${agency.role === "Main agency" ? "border-[#0B1F3A] bg-[#0B1F3A] text-white shadow-[0_24px_60px_rgba(11,31,58,0.2)]" : "border-[#0B1F3A]/10 bg-[#FBFAF6] hover:shadow-[0_24px_60px_rgba(11,31,58,0.12)]"}`}>
-              <div className={`absolute right-0 top-0 h-24 w-24 rounded-bl-full ${agency.role === "Main agency" ? "bg-[#D8BC77]/15" : "bg-[#C6A969]/10 transition group-hover:bg-[#C6A969]/20"}`} />
-              <p className={`relative text-xs font-semibold uppercase tracking-[0.2em] ${agency.role === "Main agency" ? "text-[#E2CB91]" : "text-[#9A7C39]"}`}>{agency.role} · 0{index + 1}</p>
-              <h3 className={`relative mt-7 min-h-16 font-serif text-2xl leading-snug ${agency.role === "Main agency" ? "text-white" : "text-[#0B1F3A]"}`}>{agency.name}</h3>
-              <div className={`relative mt-7 flex items-center justify-between border-t pt-5 ${agency.role === "Main agency" ? "border-white/20" : "border-[#0B1F3A]/10"}`}>
-                <span className={`text-xs font-medium uppercase tracking-[0.12em] ${agency.role === "Main agency" ? "text-white/60" : "text-neutral-500"}`}>Recruiting licence</span>
-                <span className={`rounded-full px-4 py-2 text-sm font-semibold tracking-[0.08em] ${agency.role === "Main agency" ? "bg-[#D8BC77] text-[#0B1F3A]" : "bg-[#0B1F3A] text-white"}`}>{agency.licenseNumber}</span>
-              </div>
-            </article>
-          ))}
-        </div>
-        <p className="mt-5 max-w-4xl text-xs leading-6 text-neutral-500">
-          Each licence belongs to its named agency. The responsible recruiting agency and destination-specific process are confirmed for each employer requirement.
-        </p>
-      </SectionWrapper>
-
-      <SectionWrapper
-        id="destinations"
-        eyebrow="International reach"
-        title="Recruitment support across multiple destination markets"
-        subtitle="Our agency and recruitment-partner network supports employer enquiries across established and emerging labour markets. Availability depends on the role, employer requirements, partner capability, and destination-country approvals."
-        spacing="compact"
-      >
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {DESTINATION_REGIONS.map((region, index) => (
-            <div key={region} className="flex min-h-28 flex-col justify-between rounded-lg border border-[#0B1F3A]/10 bg-white p-5 shadow-[0_8px_24px_rgba(11,31,58,0.04)]">
-              <span className="text-xs font-semibold tracking-[0.18em] text-[#B0904D]">0{index + 1}</span>
-              <span className="font-serif text-xl text-[#0B1F3A]">{region}</span>
-            </div>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        id="services-overview"
-        eyebrow="Services"
-        title="Structured Service Scope"
-        subtitle="Service modules designed to reduce execution risk from sourcing through deployment."
-        spacing="compact"
-      >
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {SERVICES.map((service) => (
-            <ServiceCard key={service.title} title={service.title} description={service.description} />
-          ))}
-        </div>
-
-        <div className="mt-8 rounded-sm border border-[#0B1F3A]/10 bg-white p-6 shadow-[0_18px_40px_rgba(11,31,58,0.04)]">
-          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+      <SectionWrapper id="agency-network" eyebrow="The agency network" title="Four agencies. One coordinated team." subtitle="A wider network of recruitment expertise, with a clear point of contact for your business.">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.3fr] lg:gap-16">
+          <article className="flex flex-col justify-between rounded-xl bg-[#0B1F3A] p-7 text-white sm:p-9">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#C6A969]">Destination hiring support</p>
-              <h3 className="mt-3 font-serif text-3xl text-[#0B1F3A]">Recruit Bangladeshi workers for Malaysia</h3>
+              <p className="eyebrow text-[#D8BC77]">Our main agency</p>
+              <h3 className="mt-6 max-w-xs font-serif text-3xl leading-tight sm:text-4xl">{mainAgency.name}</h3>
+              <p className="mt-5 max-w-sm text-sm leading-7 text-white/75">Leading our network of Bangladesh recruitment agencies and coordinating international employer requirements.</p>
             </div>
-            <a
-              href="/malaysia"
-              className="inline-flex items-center justify-center rounded-sm bg-[#0B1F3A] px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
-            >
-              Explore Malaysia hiring
-            </a>
+            <div className="mt-9 flex items-center justify-between border-t border-white/20 pt-5">
+              <span className="text-xs text-white/65">Recruiting licence</span>
+              <span className="font-serif text-3xl text-[#E2CB91]">{mainAgency.licenseNumber}</span>
+            </div>
+          </article>
+          <div>
+            <p className="eyebrow mb-2 text-[#8A6420]">Our recruitment partners</p>
+            <div className="divide-y divide-[#0B1F3A]/12">
+              {partners.map((agency) => (
+                <article key={agency.licenseNumber} className="flex items-center justify-between gap-5 py-6 sm:py-7">
+                  <h3 className="max-w-sm font-serif text-xl leading-snug text-[#0B1F3A] sm:text-2xl">{agency.name}</h3>
+                  <div className="shrink-0 text-right"><p className="text-[11px] text-neutral-500">Licence</p><p className="mt-1 text-base font-semibold text-[#0B1F3A]">{agency.licenseNumber}</p></div>
+                </article>
+              ))}
+            </div>
+            <p className="mt-4 text-sm leading-7 text-neutral-600">Each licence belongs to its named agency. We confirm the agency responsible for your assignment and the applicable destination requirements.</p>
+            <Link href="/compliance" className="text-link mt-5">Our approach to responsible recruitment <span aria-hidden="true">↗</span></Link>
           </div>
-          <p className="mt-4 max-w-3xl text-sm leading-7 text-neutral-700 md:text-base">
-            For Malaysia requirements, review our dedicated employer guide to the recruitment steps, worker categories, documentation, and approval process.
-          </p>
         </div>
       </SectionWrapper>
 
-      <SectionWrapper
-        id="employer-proof"
-        eyebrow="Employer proof"
-        title="Why employers choose a compliance-led recruitment partner"
-        subtitle="The strongest hiring decisions are based on documented process, transparent updates, and reliable worker readiness."
-        spacing="compact"
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">01</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Verified license</h3>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">
-              Recruitment operations are aligned to a documented government license and controlled recruitment procedures.
-            </p>
-          </article>
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">02</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Transparent process</h3>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">
-              Employer updates are structured by stage, helping clients track sourcing, screening, documentation, and deployment.
-            </p>
-          </article>
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">03</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Operational discipline</h3>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">
-              We focus on role-fit candidate matching, documentation quality, and a realistic deployment timeline.
-            </p>
-          </article>
+      <SectionWrapper id="services-overview" eyebrow="What we do" title="Support at every step of the hire." subtitle="From the first workforce brief to deployment, we help you keep the recruitment process organized and clear." className="border-y border-[#0B1F3A]/8 bg-white">
+        <div className="grid gap-12 lg:grid-cols-[1.5fr_0.8fr] lg:gap-20">
+          <div>
+            <ol className="divide-y divide-[#0B1F3A]/10 border-y border-[#0B1F3A]/10">
+              {SERVICES.map((service, index) => (
+                <li key={service.title} className="grid grid-cols-[1.5rem_1fr] gap-4 py-5 sm:grid-cols-[1.5rem_0.9fr_1.2fr] sm:gap-6 sm:py-6">
+                  <span className="pt-1 text-xs text-[#8A6420]">{String(index + 1).padStart(2, "0")}</span>
+                  <h3 className="font-serif text-xl leading-snug text-[#0B1F3A]">{service.title}</h3>
+                  <p className="col-start-2 text-sm leading-7 text-neutral-600 sm:col-start-auto">{service.description}</p>
+                </li>
+              ))}
+            </ol>
+            <Link href="/services" className="text-link mt-7">Explore our services <span aria-hidden="true">↗</span></Link>
+          </div>
+          <aside id="industries-served" className="self-start rounded-xl bg-[#F4F2EB] p-7 sm:p-8">
+            <p className="eyebrow text-[#8A6420]">Across industries</p>
+            <h3 className="mt-4 font-serif text-2xl leading-snug text-[#0B1F3A]">People for the work you do.</h3>
+            <ul className="mt-6 grid grid-cols-2 gap-x-5 gap-y-4 text-sm text-neutral-700">
+              {INDUSTRIES.map((industry) => <li key={industry}>{industry}</li>)}
+            </ul>
+            <Link href="/industries" className="text-link mt-8">View industries <span aria-hidden="true">↗</span></Link>
+          </aside>
         </div>
       </SectionWrapper>
 
-      <SectionWrapper
-        id="industries-served"
-        eyebrow="Industries"
-        title="Industries We Support"
-        subtitle="Sector-aligned recruitment for workforce-intensive operations."
-        spacing="compact"
-      >
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {INDUSTRIES.map((industry) => (
-            <article key={industry} className="rounded-sm border border-[#0B1F3A]/10 bg-white p-8">
-              <h3 className="font-serif text-2xl text-[#0B1F3A]">{industry}</h3>
-            </article>
-          ))}
+      <section id="destinations" className="bg-[#0B1F3A] py-20 text-white lg:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-24 lg:px-10">
+          <div>
+            <p className="eyebrow text-[#D8BC77]">International reach</p>
+            <h2 className="mt-5 max-w-sm font-serif text-3xl leading-tight sm:text-4xl md:text-5xl">Based in Bangladesh.<br />Connected to the world.</h2>
+            <p className="mt-6 max-w-md text-[15px] leading-8 text-white/75">We support employer enquiries across multiple regions through our agency and recruitment partner network.</p>
+          </div>
+          <div>
+            <ul className="grid grid-cols-2 gap-x-7 sm:gap-x-10">
+              {DESTINATION_REGIONS.map((region) => <li key={region} className="border-b border-white/20 py-5 font-serif text-xl leading-snug sm:text-2xl">{region}</li>)}
+            </ul>
+            <p className="mt-6 text-xs leading-6 text-white/60">Availability depends on the role, partner capability, and the destination&apos;s requirements and approvals.</p>
+          </div>
         </div>
-      </SectionWrapper>
+      </section>
 
-      <SectionWrapper
-        id="recruitment-process"
-        eyebrow="Process"
-        title="Transparent Recruitment Timeline"
-        subtitle="Defined operational stages from consultation to deployment."
-        spacing="compact"
-      >
+      <SectionWrapper id="recruitment-process" eyebrow="How it works" title="A clear path from brief to deployment." subtitle="One coordinated process, with practical checkpoints and communication along the way.">
         <ProcessTimeline steps={PROCESS_STEPS} />
+        <Link href="/malaysia" className="group mt-12 flex flex-col justify-between gap-4 border-y border-[#0B1F3A]/12 py-6 sm:flex-row sm:items-center">
+          <span><span className="eyebrow block text-[#8A6420]">For Malaysian employers</span><span className="mt-2 block font-serif text-xl text-[#0B1F3A] sm:text-2xl">Start with our Malaysia hiring guide.</span></span>
+          <span className="text-sm font-semibold text-[#0B1F3A]">Explore the guide <span aria-hidden="true" className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span></span>
+        </Link>
       </SectionWrapper>
 
-      <SectionWrapper
-        id="compliance"
-        eyebrow="Compliance"
-        title="Compliance Is Core to Every Placement"
-        subtitle={SITE_COPY.complianceBody}
-        className="bg-[#0B1F3A]"
-        dark
-        spacing="compact"
-      >
-        <div className="grid gap-6 md:grid-cols-2">
-          <article className="rounded-sm border border-white/20 bg-white/5 p-8 md:col-span-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Clear agency accountability</p>
-            <p className="mt-4 font-serif text-4xl text-white">A network built for international hiring</p>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-white/85">
-              {BRAND.brandName} coordinates employer enquiries across licensed recruitment partners. We identify the agency handling the recruitment and align the process to the applicable destination requirements.
-            </p>
-          </article>
-          {COMPLIANCE_PROOFS.map((proof) => (
-            <article key={proof.title} className="rounded-sm border border-white/20 bg-white/5 p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">{proof.title}</p>
-              <p className="mt-4 text-sm leading-7 text-white/85">{proof.detail}</p>
-            </article>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        id="testimonials"
-        eyebrow="Testimonials"
-        title="Employer Confidence in Execution"
-        subtitle="Employer feedback on process control, communication quality, and compliance confidence."
-        spacing="compact"
-      >
-        <div className="grid gap-6 lg:grid-cols-3">
-          {TESTIMONIALS.map((item) => (
-            <TestimonialCard key={`${item.company}-${item.country}`} quote={item.quote} company={item.company} country={item.country} />
-          ))}
-        </div>
-      </SectionWrapper>
-
-      <CTASection title={SITE_COPY.ctaTitle} description={SITE_COPY.ctaBody} />
+      <CTASection title="Let’s build your next workforce." description="Tell us where you’re hiring, the roles you need, and your expected headcount. Our team will help you understand the next steps." />
     </>
   );
 }

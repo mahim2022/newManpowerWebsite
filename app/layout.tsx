@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import localFont from "next/font/local";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { BRAND } from "@/lib/constants";
 import { buildLocalBusinessSchema, buildOrganizationSchema } from "@/lib/seo";
 import "./globals.css";
 
-const inter = Inter({
+const inter = localFont({
+  src: "./fonts/inter-latin.woff2",
   variable: "--font-inter",
-  subsets: ["latin"],
+  weight: "100 900",
+  display: "swap",
 });
 
-const playfairDisplay = Playfair_Display({
+const playfairDisplay = localFont({
+  src: "./fonts/playfair-display-latin.woff2",
   variable: "--font-playfair",
-  subsets: ["latin"],
+  weight: "400 900",
+  display: "swap",
+  adjustFontFallback: "Times New Roman",
 });
 
 export const metadata: Metadata = {
@@ -44,7 +49,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfairDisplay.variable} bg-[#F8F6F0] text-neutral-800 antialiased`}>
+      <body className={`${inter.variable} ${playfairDisplay.variable} bg-background text-foreground antialiased`}>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>

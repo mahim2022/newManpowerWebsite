@@ -193,9 +193,9 @@ export const TESTIMONIALS = [
 ];
 
 export const SITE_COPY = {
-  heroTitle: "Bangladesh Manpower Recruitment, Built on a Stronger Network",
+  heroTitle: "Bangladesh talent. A stronger network.",
   heroBody:
-    "We connect international employers with a network of licensed Bangladesh recruitment agencies. One coordinated team supports candidate sourcing, screening, documentation, and deployment planning across multiple destinations.",
+    "One coordinated team connects international employers with four licensed recruitment agencies in Bangladesh. We support your hiring from candidate sourcing to deployment planning.",
   ctaTitle: "Request a Workforce Partnership Consultation",
   ctaBody:
     "Share your recruitment requirement and receive a structured response covering candidate sourcing, licensing checks, compliance milestones, and realistic deployment planning.",

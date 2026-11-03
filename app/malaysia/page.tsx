@@ -75,72 +75,59 @@ const malaysiaFaqs = [
   },
 ];
 
-const malaysiaKeywords = [
-  "Malaysia recruitment agency from Bangladesh",
-  "Bangladesh manpower supply to Malaysia",
-  "Labour supply to Malaysia",
-  "Malaysia manpower agency",
-  "Recruitment agency for Malaysia employers",
-  "Bangladesh workers for Malaysia",
-  "Malaysia worker recruitment from Bangladesh",
-  "How to hire workers from Bangladesh to Malaysia",
-  "Bangladesh construction workers for Malaysia",
-  "Malaysia labour recruitment agency",
-];
-
 const malaysiaGuideLinks = [
   {
     title: "Required documents by sector",
-    category: "Checklist",
-    description: "Review the exact documentation employers typically need to prepare before applying for foreign worker approval in Malaysia.",
+    category: "Prepare your records",
+    description: "Organize employer documents and see which sector items to confirm against the current official checklist.",
     href: "/malaysia/required-documents",
   },
   {
     title: "Section 60K approval process",
-    category: "Legal & compliance",
-    description: "Understand the employer approval pathway, eligibility rules, and the step-by-step framework for hiring foreign workers in Malaysia.",
+    category: "Understand the route",
+    description: "See where employer prior approval fits into the hiring process and which application route to check.",
     href: "/malaysia/application-approval-process",
   },
   {
     title: "How to apply for foreign worker approval",
-    category: "Practical guide",
-    description: "Follow a clear application roadmap from eligibility checks to final submission and review.",
+    category: "Plan your application",
+    description: "Work through the preparation, submission, and follow-up stages with a practical employer guide.",
     href: "/malaysia/how-to-apply",
   },
   {
     title: "Malaysia recruitment process",
-    category: "Workflow",
-    description: "See how sourcing, screening, documentation, and deployment coordination work from Bangladesh to Malaysia.",
+    category: "Recruitment workflow",
+    description: "Follow sourcing, screening, documentation, and deployment coordination from Bangladesh to Malaysia.",
     href: "/malaysia/recruitment-process",
   },
   {
     title: "How to hire workers from Bangladesh",
     category: "Hiring guide",
-    description: "Learn the practical model for sourcing and managing workers from Bangladesh for Malaysian employers.",
+    description: "Prepare a workforce brief and understand how candidate selection and recruitment support fit together.",
     href: "/malaysia/how-to-hire-workers-from-bangladesh",
   },
   {
     title: "Foreign worker quota guide",
-    category: "Quota support",
-    description: "Explore the quota process and how worker demand is aligned with the broader hiring and approval journey.",
+    category: "Quota planning",
+    description: "Explore how worker demand and quota considerations fit into the wider approval journey.",
     href: "/malaysia/foreign-worker-quota",
   },
   {
     title: "Worker categories",
-    category: "Overview",
-    description: "Review the common workforce groups employers hire for in Malaysia and which roles are most in demand.",
+    category: "Role planning",
+    description: "Review examples of workforce roles and the details to define before requesting candidates.",
     href: "/malaysia/worker-categories",
   },
   {
     title: "Construction workers for Malaysia",
-    category: "Sector focus",
-    description: "Browse the construction labour pathway and how project-based hiring is structured for Malaysian employers.",
+    category: "Construction hiring",
+    description: "Define the trades, tasks, and project requirements for construction and site-based hiring.",
     href: "/malaysia/construction-workers",
   },
   {
     title: "Skilled workers in Malaysia",
-    category: "Sector focus",
-    description: "Understand how skilled personnel recruitment is handled and where this fits within the wider Malaysia hiring model.",
+    category: "Skilled recruitment",
+    description: "Describe practical skills, relevant experience, and screening criteria for operational roles.",
     href: "/malaysia/skilled-workers",
   },
 ];
@@ -151,265 +138,81 @@ export default function MalaysiaPage() {
     { name: "Malaysia", path: "/malaysia" },
   ]);
   const faqSchema = buildFaqSchema(malaysiaFaqs);
+  const whatsappUrl = `https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent("Hello, I need manpower supply to Malaysia from Bangladesh. Please contact me with the recruitment process and candidate availability.")}`;
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <SectionWrapper
-        eyebrow="Malaysia recruitment agency"
-        title="Malaysia Recruitment Agency from Bangladesh for Trusted Workforce Supply"
-        subtitle="Looking for a dependable manpower supplier for Malaysia? We support Malaysian employers with compliant recruitment, screened worker profiles, and deployment-ready candidate coordination from Bangladesh."
-        spacing="lead"
-      >
-        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-8 shadow-[0_18px_40px_rgba(11,31,58,0.06)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Malaysia manpower supply</p>
-            <h1 className="mt-5 font-serif text-4xl leading-tight text-[#0B1F3A] md:text-5xl">
-              Bangladesh manpower supply to Malaysia for employers who need reliable workers
-            </h1>
-            <p className="mt-5 text-base leading-8 text-neutral-700">
-              We help Malaysian employers source workers from Bangladesh through a controlled recruitment process built around role fit, documentation quality, and transparent communication. Our focus is on delivering suitable candidates for labour-intensive and operational hiring needs with clear process visibility.
-            </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-sm bg-[#0B1F3A] px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
-              >
-                Request Malaysia workforce consultation
-              </a>
-              <a
-                href="/process"
-                className="inline-flex items-center justify-center rounded-sm border border-[#0B1F3A]/20 px-6 py-3 text-sm font-medium text-[#0B1F3A] transition-all duration-200 hover:-translate-y-0.5"
-              >
-                See our recruitment process
-              </a>
-            </div>
-          </article>
-
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-[#0B1F3A] p-8 text-white shadow-[0_18px_40px_rgba(11,31,58,0.10)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Malaysia hiring focus</p>
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
-              {malaysiaWorkforceAreas.map((item) => (
-                <div key={item} className="rounded-sm border border-white/15 bg-white/5 p-4 text-sm text-white/90">
-                  {item}
-                </div>
-              ))}
-            </div>
-          </article>
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        eyebrow="Quick access"
-        title="Malaysia hiring essentials"
-        subtitle="Start here for the pages employers look for most often when planning worker approval, documentation, and application steps."
-      >
-        <div className="sticky top-20 z-20 mb-2 rounded-sm border border-[#C6A969]/60 bg-[#FFF7E3] p-3 shadow-[0_12px_26px_rgba(11,31,58,0.08)]">
-          <div className="flex flex-col gap-3 lg:flex-row lg:flex-wrap">
-            {malaysiaGuideLinks.slice(0, 3).map((guide) => (
-              <Link
-                key={guide.href}
-                href={guide.href}
-                className="inline-flex flex-1 min-w-[220px] items-center justify-between rounded-sm border border-[#0B1F3A]/10 bg-white px-4 py-3 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-[#0B1F3A]/30"
-              >
-                <span>
-                  <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C6A969]">{guide.category}</span>
-                  <span className="mt-1 block text-sm font-semibold text-[#0B1F3A]">{guide.title}</span>
-                </span>
-                <span className="ml-3 text-base font-bold text-[#0B1F3A]">→</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        eyebrow="Why employers choose us"
-        title="Why Malaysian employers look for a Bangladesh labour supply partner"
-        subtitle="A dependable recruitment partner should reduce operational risk, keep hiring transparent, and support a strong candidate pipeline from beginning to deployment."
-      >
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {malaysiaBenefits.map((item) => (
-            <article key={item.title} className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Advantage</p>
-              <h2 className="mt-4 font-serif text-2xl text-[#0B1F3A]">{item.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-neutral-700">{item.detail}</p>
-            </article>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        eyebrow="Hiring categories"
-        title="Malaysia manpower recruitment categories we support"
-        subtitle="We support workforce sourcing across the sectors most often requested by Malaysian employers looking for cost-effective and reliable hiring solutions."
-      >
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
-            <h3 className="font-serif text-2xl text-[#0B1F3A]">Construction</h3>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">General construction labour, site support workers, and task-based manpower supply for project execution.</p>
-          </article>
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
-            <h3 className="font-serif text-2xl text-[#0B1F3A]">Manufacturing</h3>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">Factory and production line workers for structured, high-volume operational hiring requirements.</p>
-          </article>
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
-            <h3 className="font-serif text-2xl text-[#0B1F3A]">Hospitality</h3>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">Support staff for hospitality operations requiring dependable service standards and work readiness.</p>
-          </article>
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
-            <h3 className="font-serif text-2xl text-[#0B1F3A]">Service & Support</h3>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">Cleaning, security, logistics, and support work covered through organized candidate screening and deployment planning.</p>
-          </article>
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        eyebrow="Quota support"
-        title="Malaysia foreign worker quota guidance for employers"
-        subtitle="If your business needs to understand the quota and hiring pathway for foreign workers in Malaysia, this guide explains what employers usually prepare, how the process works, and where recruitment support fits in."
-      >
-        <div className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 shadow-[0_18px_40px_rgba(11,31,58,0.04)]">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Related guide</p>
-          <h3 className="mt-4 font-serif text-3xl text-[#0B1F3A]">Malaysia foreign worker quota application for employers</h3>
-          <p className="mt-3 text-base leading-8 text-neutral-700">
-            Employers planning manpower supply to Malaysia often need a clearer view of hiring categories, documentation requirements, and how quota-based worker sourcing fits into the broader recruitment cycle.
-          </p>
-          <div className="mt-6">
-            <a
-              href="/malaysia/foreign-worker-quota"
-              className="inline-flex items-center justify-center rounded-sm bg-[#0B1F3A] px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
-            >
-              Read the quota guide
-            </a>
-          </div>
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        eyebrow="Process"
-        title="How our Malaysia recruitment process works"
-        subtitle="We follow a practical recruitment model designed for employers who want dependable hiring outcomes without communication gaps."
-      >
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">01</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Requirement review</h3>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">We review the role, worker category, hiring volume, and employer expectations before sourcing candidates.</p>
-          </article>
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">02</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Sourcing and shortlisting</h3>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">We identify qualified Bangladesh-based candidates, assess their suitability, and prepare interview-ready shortlists.</p>
-          </article>
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">03</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Documentation and compliance</h3>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">Candidate files, documentation, and compliance records are prepared and checked before medical and final processing steps.</p>
-          </article>
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">04</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Deployment support</h3>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">We support mobilization coordination so employers receive deployment updates with clearer timeline and readiness control.</p>
-          </article>
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        eyebrow="Lead capture"
-        title="Need a reliable manpower supplier for Malaysia?"
-      >
-        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-8 shadow-[0_18px_40px_rgba(11,31,58,0.06)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Direct contact</p>
-            <h3 className="mt-5 font-serif text-3xl text-[#0B1F3A]">Speak with our recruitment team today</h3>
-            <p className="mt-4 text-sm leading-7 text-neutral-700 md:text-base">
-              Share your manpower requirement, worker category, or hiring volume and we will respond with a practical recommendation suited to your Malaysia recruitment needs.
-            </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-sm bg-[#0B1F3A] px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
-              >
-                Send inquiry
-              </a>
-              <a
-                href={`https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent("Hello, I need manpower supply to Malaysia from Bangladesh. Please contact me with the recruitment process and candidate availability.")}`}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-sm border border-[#0B1F3A]/20 px-6 py-3 text-sm font-medium text-[#0B1F3A] transition-all duration-200 hover:-translate-y-0.5"
-              >
-                WhatsApp us
-              </a>
-            </div>
-          </article>
-
-          <article className="rounded-sm border border-[#0B1F3A]/10 bg-[#0B1F3A] p-8 text-white">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Contact details</p>
-            <div className="mt-5 space-y-4 text-sm text-white/90">
-              <p><strong>Phone:</strong> <a href={`tel:${BRAND.phone}`} className="underline underline-offset-4">{BRAND.phone}</a></p>
-              <p><strong>WhatsApp:</strong> <a href={`https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}`} target="_blank" rel="noreferrer" className="underline underline-offset-4">{BRAND.whatsapp}</a></p>
-              <p><strong>Email:</strong> <a href={`mailto:${BRAND.email}`} className="underline underline-offset-4">{BRAND.email}</a></p>
-            </div>
-          </article>
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        eyebrow="High-intent keywords"
-        title="Keywords this page is built to target for Malaysia employers"
-      >
-        <div className="flex flex-wrap gap-3">
-          {malaysiaKeywords.map((keyword) => (
-            <span key={keyword} className="rounded-full border border-[#0B1F3A]/10 bg-white px-4 py-2 text-sm text-[#0B1F3A]">
-              {keyword}
-            </span>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper
-        eyebrow="Malaysia hiring hub"
-        title="Browse every Malaysia hiring guide in one place"
-        subtitle="Start with the article that matches your need, then continue through the full hiring sequence from approval and documents to recruitment and deployment."
-      >
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {malaysiaGuideLinks.map((guide) => (
-            <article key={guide.href} className="group flex h-full flex-col rounded-sm border border-[#0B1F3A]/10 bg-white p-6 shadow-[0_12px_28px_rgba(11,31,58,0.04)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(11,31,58,0.08)]">
-              <div className="flex items-center justify-between gap-3">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C6A969]">{guide.category}</span>
-                <span className="text-xs font-medium text-[#0B1F3A]">Read article</span>
+      <section className="pb-16 pt-12 md:pb-20 md:pt-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <p className="eyebrow text-[#8A6420]">For Malaysian employers</p>
+          <div className="mt-6 grid gap-9 lg:grid-cols-[1.3fr_0.7fr] lg:items-end lg:gap-20">
+            <div>
+              <h1 className="max-w-[19ch] font-serif text-4xl leading-[1.13] tracking-[-0.025em] text-[#0B1F3A] sm:text-5xl lg:text-[3.6rem]">Recruit workers from Bangladesh for your business in Malaysia.</h1>
+              <p className="mt-6 max-w-[62ch] text-[15px] leading-8 text-neutral-600">A clear route from your workforce brief to candidate selection. We help Malaysian employers with sourcing, screening, documentation, and deployment coordination through our licensed recruitment network.</p>
+              <div className="mt-8 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:gap-8">
+                <Link href="/contact" className="button-primary">Discuss your hiring needs <span aria-hidden="true">↗</span></Link>
+                <a href={whatsappUrl} target="_blank" rel="noreferrer" className="text-link justify-center sm:justify-start">WhatsApp our team <span aria-hidden="true">↗</span><span className="sr-only">(opens in a new tab)</span></a>
               </div>
-              <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">{guide.title}</h3>
-              <p className="mt-3 flex-1 text-sm leading-7 text-neutral-700">{guide.description}</p>
-              <Link href={guide.href} className="mt-5 inline-flex items-center text-sm font-semibold text-[#0B1F3A] underline underline-offset-4">
-                Open guide
-              </Link>
-            </article>
+            </div>
+            <div className="border-l border-[#C6A969]/45 pl-6 lg:mb-2">
+              <p className="eyebrow text-[#8A6420]">Start with a clear brief</p>
+              <p className="mt-4 max-w-xs text-sm leading-7 text-neutral-600">Tell us the roles, worksite, hiring volume, and target start date. We can then help identify the next steps for your requirement.</p>
+              <Link href="/process" className="text-link mt-3">Our recruitment process <span aria-hidden="true">→</span></Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SectionWrapper id="hiring-essentials" eyebrow="Start here" title="Your Malaysia hiring essentials" subtitle="Plan the approval route, prepare the right records, and understand the application steps." className="border-y border-[#0B1F3A]/10 bg-white/50" spacing="compact">
+        <div className="grid gap-8 md:grid-cols-3 md:gap-10">
+          {malaysiaGuideLinks.slice(0, 3).map((guide, index) => (
+            <Link key={guide.href} href={guide.href} className="group block border-t border-[#0B1F3A]/20 pt-5">
+              <div className="flex items-center justify-between gap-4"><span className="eyebrow text-[#8A6420]">0{index + 1} · {guide.category}</span><span className="text-[#8A6420] transition-transform group-hover:translate-x-1" aria-hidden="true">↗</span></div>
+              <h3 className="mt-5 max-w-[24ch] font-serif text-2xl leading-snug text-[#0B1F3A]">{guide.title}</h3>
+              <p className="mt-4 max-w-[42ch] text-sm leading-7 text-neutral-600">{guide.description}</p>
+              <span className="mt-5 inline-block text-sm font-semibold text-[#0B1F3A] underline decoration-[#C6A969]/70 underline-offset-4">Read the guide</span>
+            </Link>
           ))}
         </div>
       </SectionWrapper>
 
-      <SectionWrapper
-        eyebrow="FAQ"
-        title="Frequently asked questions about hiring workers from Bangladesh for Malaysia"
-      >
-        <div className="space-y-4">
-          {malaysiaFaqs.map((item) => (
-            <article key={item.question} className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
-              <h3 className="text-lg font-semibold text-[#0B1F3A]">{item.question}</h3>
-              <p className="mt-3 text-sm leading-7 text-neutral-700">{item.answer}</p>
-            </article>
+      <SectionWrapper id="malaysia-guides" eyebrow="Employer library" title="Explore the rest of the hiring journey" subtitle="Choose a guide for the part of recruitment you are planning now.">
+        <div className="grid gap-x-14 md:grid-cols-2">
+          {malaysiaGuideLinks.slice(3).map((guide) => (
+            <Link key={guide.href} href={guide.href} className="group border-t border-[#0B1F3A]/15 py-7">
+              <div className="flex items-start justify-between gap-5"><div><p className="eyebrow text-[#8A6420]">{guide.category}</p><h3 className="mt-3 font-serif text-2xl leading-snug text-[#0B1F3A]">{guide.title}</h3></div><span className="mt-1 shrink-0 text-[#8A6420] transition-transform group-hover:translate-x-1" aria-hidden="true">↗</span></div>
+              <p className="mt-3 max-w-[55ch] text-sm leading-7 text-neutral-600">{guide.description}</p>
+            </Link>
           ))}
         </div>
       </SectionWrapper>
 
-      <CTASection
-        title="Request a Malaysia manpower supply consultation"
-        description="If you are a Malaysian employer or agency looking for a reliable Bangladesh manpower supplier, share your worker requirement and we will respond with a practical recruitment recommendation."
-      />
+      <SectionWrapper id="recruitment-support" eyebrow="How we help" title="Recruitment built around your workforce brief" className="bg-[#F0EDE4]" spacing="compact">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+          <div>
+            <p className="max-w-[48ch] text-[15px] leading-8 text-neutral-600">We review the role, worker category, hiring volume, and job site conditions before sourcing. A clear brief helps us prepare suitable shortlists and keep documentation and deployment planning organized.</p>
+            <h3 className="mt-7 font-serif text-2xl text-[#0B1F3A]">Workforce areas</h3>
+            <ul className="mt-5 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+              {malaysiaWorkforceAreas.map((area) => <li key={area} className="border-b border-[#0B1F3A]/10 pb-3 text-sm text-[#394552]">{area}</li>)}
+            </ul>
+            <p className="mt-5 max-w-[55ch] text-xs leading-6 text-neutral-600">These are examples of work areas. Role and sector eligibility, worker availability, and required approvals depend on the current application route. Confirm the applicable requirements before recruitment.</p>
+          </div>
+          <ol className="divide-y divide-[#0B1F3A]/15 border-y border-[#0B1F3A]/15">
+            {malaysiaBenefits.map((benefit, index) => <li key={benefit.title} className="grid grid-cols-[2rem_1fr] gap-4 py-6"><span className="eyebrow pt-1 text-[#8A6420]">0{index + 1}</span><div><h3 className="font-serif text-2xl leading-snug text-[#0B1F3A]">{benefit.title}</h3><p className="mt-3 max-w-[53ch] text-sm leading-7 text-neutral-600">{benefit.detail}</p></div></li>)}
+          </ol>
+        </div>
+      </SectionWrapper>
+
+      <SectionWrapper id="employer-questions" eyebrow="Common questions" title="A few things employers ask">
+        <div className="max-w-4xl divide-y divide-[#0B1F3A]/15 border-y border-[#0B1F3A]/15">
+          {malaysiaFaqs.map((faq) => <details key={faq.question} className="group py-6"><summary className="flex cursor-pointer list-none items-start justify-between gap-6 text-[15px] font-semibold leading-7 text-[#0B1F3A] [&::-webkit-details-marker]:hidden"><span>{faq.question}</span><span className="shrink-0 text-xl font-normal text-[#8A6420] transition-transform group-open:rotate-45" aria-hidden="true">+</span></summary><p className="mt-4 max-w-[72ch] pr-8 text-sm leading-8 text-neutral-600">{faq.answer}</p></details>)}
+        </div>
+      </SectionWrapper>
+
+      <CTASection title="Plan your next hire in Malaysia." description="Share your worker requirement, worksite, and hiring volume. Our team will help you plan the recruitment steps and discuss candidate availability for your brief." />
     </>
   );
 }

@@ -201,7 +201,7 @@ export default function ApplicationApprovalProcessPage() {
           <article className="min-w-0 max-w-3xl">
             <section id="section-60k" className="scroll-mt-8">
               <p className="text-[17px] leading-8 text-neutral-700">
-                Hiring a foreign worker in Malaysia involves several approvals. Section 60K of the Employment Act 1955 is an important early step for employers within the Act's jurisdiction, but it is not the same as receiving a worker quota, visa, or work pass.
+                Hiring a foreign worker in Malaysia involves several approvals. Section 60K of the Employment Act 1955 is an important early step for employers within the Act&apos;s jurisdiction, but it is not the same as receiving a worker quota, visa, or work pass.
               </p>
               <p className="mt-5 text-[17px] leading-8 text-neutral-700">
                 Understanding that distinction helps you plan the right application route, prepare the information that may be reviewed, and avoid assuming that one approval completes the whole hiring process.
@@ -210,7 +210,7 @@ export default function ApplicationApprovalProcessPage() {
               <aside className="my-8 border-l-4 border-[#CDB66E] bg-[#F1EBD9] px-5 py-5 sm:px-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#705522]">The key distinction</p>
                 <p className="mt-2 font-serif text-xl leading-8 text-[#0B1F3A]">Section 60K approval is one stage in the process. Further quota, sector, and immigration decisions may still be required.</p>
-                <p className="mt-3 text-sm leading-6 text-neutral-700">See <ExternalLink href={officialLinks.jtksmFaq}>JTKSM's employer FAQ</ExternalLink> and its <ExternalLink href={officialLinks.jtksmForeignWorkers}>current foreign-worker application guidance</ExternalLink>.</p>
+                <p className="mt-3 text-sm leading-6 text-neutral-700">See <ExternalLink href={officialLinks.jtksmFaq}>JTKSM&apos;s employer FAQ</ExternalLink> and its <ExternalLink href={officialLinks.jtksmForeignWorkers}>current foreign-worker application guidance</ExternalLink>.</p>
               </aside>
             </section>
 
@@ -219,7 +219,7 @@ export default function ApplicationApprovalProcessPage() {
               <p className="mt-4 text-base leading-8 text-neutral-700">
                 This guide focuses on employers in Peninsular Malaysia and Labuan, where the Employment Act 1955 applies. Sabah and Sarawak have separate labour ordinances and procedures, so employers in those states should confirm the applicable approval route with the relevant state labour department.
               </p>
-              <p className="mt-3 text-sm leading-7 text-neutral-600"><ExternalLink href={officialLinks.territorialScope}>Read JTKSM's explanation of the Act's territorial scope.</ExternalLink></p>
+              <p className="mt-3 text-sm leading-7 text-neutral-600"><ExternalLink href={officialLinks.territorialScope}>Read JTKSM&apos;s explanation of the Act&apos;s territorial scope.</ExternalLink></p>
             </section>
 
             <section id="prepare" className="mt-12 scroll-mt-8 border-t border-[#0B1F3A]/10 pt-8">
@@ -236,14 +236,14 @@ export default function ApplicationApprovalProcessPage() {
                 ))}
               </ul>
               <p className="mt-6 text-sm leading-7 text-neutral-600">
-                JTKSM's current guidance refers to matters such as vacancy advertising, wage payment, accommodation, labour-law compliance, PERKESO contributions, forced-labour compliance, and relevant sector-regulator criteria. Which requirements apply depends on the employer and route. <ExternalLink href={officialLinks.jtksmFaq}>Check the current official FAQ.</ExternalLink>
+                JTKSM&apos;s current guidance refers to matters such as vacancy advertising, wage payment, accommodation, labour-law compliance, PERKESO contributions, forced-labour compliance, and relevant sector-regulator criteria. Which requirements apply depends on the employer and route. <ExternalLink href={officialLinks.jtksmFaq}>Check the current official FAQ.</ExternalLink>
               </p>
             </section>
 
             <section id="process" className="mt-12 scroll-mt-8 border-t border-[#0B1F3A]/10 pt-8">
               <h2 className="font-serif text-3xl leading-tight text-[#0B1F3A]">How the application process generally works</h2>
               <p className="mt-4 text-base leading-8 text-neutral-700">
-                The sequence depends on the worker's pass, sector, location, and whether you are applying for a new hire, renewal, or change of employer. For a new application, employers can use this general sequence to organize their next steps:
+                The sequence depends on the worker&apos;s pass, sector, location, and whether you are applying for a new hire, renewal, or change of employer. For a new application, employers can use this general sequence to organize their next steps:
               </p>
               <ol className="mt-7 space-y-7 border-l border-[#CDB66E] pl-6 sm:pl-8">
                 {processSteps.map((step) => (
@@ -297,15 +297,15 @@ export default function ApplicationApprovalProcessPage() {
             <section id="review" className="mt-12 scroll-mt-8 border-t border-[#0B1F3A]/10 pt-8">
               <h2 className="font-serif text-3xl leading-tight text-[#0B1F3A]">What may be reviewed?</h2>
               <p className="mt-4 text-base leading-8 text-neutral-700">
-                JTKSM says its review can include the employer's actual premises, compliance with labour requirements, accommodation arrangements, and the criteria set by the relevant sector regulator. Keep your company, business activity, worksite, and requested worker details consistent across the application and supporting evidence. Be ready to respond if the department asks for clarification or an inspection.
+                JTKSM says its review can include the employer&apos;s actual premises, compliance with labour requirements, accommodation arrangements, and the criteria set by the relevant sector regulator. Keep your company, business activity, worksite, and requested worker details consistent across the application and supporting evidence. Be ready to respond if the department asks for clarification or an inspection.
               </p>
-              <p className="mt-3 text-sm leading-7 text-neutral-600"><ExternalLink href={officialLinks.jtksmFaq}>See JTKSM's employer FAQ for its current criteria.</ExternalLink></p>
+              <p className="mt-3 text-sm leading-7 text-neutral-600"><ExternalLink href={officialLinks.jtksmFaq}>See JTKSM&apos;s employer FAQ for its current criteria.</ExternalLink></p>
             </section>
 
             <section id="timing" className="mt-12 scroll-mt-8 border-t border-[#0B1F3A]/10 pt-8">
               <h2 className="font-serif text-3xl leading-tight text-[#0B1F3A]">How long should employers allow?</h2>
               <p className="mt-4 text-base leading-8 text-neutral-700">
-                Avoid planning around a single end-to-end timeline. JTKSM's client charter lists a 14-day service target for resolving a foreign-worker employment application from receipt. That target relates to JTKSM's part of the process; it is not a promise of approval or a timeline for quota, sector-regulator, visa, or immigration stages.
+                Avoid planning around a single end-to-end timeline. JTKSM&apos;s client charter lists a 14-day service target for resolving a foreign-worker employment application from receipt. That target relates to JTKSM&apos;s part of the process; it is not a promise of approval or a timeline for quota, sector-regulator, visa, or immigration stages.
               </p>
               <p className="mt-3 text-sm leading-7 text-neutral-600"><ExternalLink href={officialLinks.clientCharter}>View the JTKSM client charter.</ExternalLink></p>
             </section>
@@ -316,7 +316,7 @@ export default function ApplicationApprovalProcessPage() {
                 Follow the next steps for your category. For quota-based PLKS hiring, further quota, sector-regulator, and One Stop Centre steps may apply before immigration and visa formalities. Do not treat the Section 60K approval letter on its own as permission for a worker to start work.
               </p>
               <p className="mt-4 text-base leading-8 text-neutral-700">
-                Once employment begins, employers also have reporting duties. Section 60K(3) requires the employer to furnish the worker's particulars within the applicable statutory period. Follow JTKSM's current channel and instructions for reporting employment and termination.
+                Once employment begins, employers also have reporting duties. Section 60K(3) requires the employer to furnish the worker&apos;s particulars within the applicable statutory period. Follow JTKSM&apos;s current channel and instructions for reporting employment and termination.
               </p>
               <p className="mt-3 text-sm leading-7 text-neutral-600"><ExternalLink href={officialLinks.employmentAct}>Read the Employment Act 1955 (Act 265).</ExternalLink></p>
             </section>
@@ -331,7 +331,7 @@ export default function ApplicationApprovalProcessPage() {
               </p>
               <aside className="my-7 rounded-lg bg-[#0B1F3A] px-5 py-6 text-white sm:px-7">
                 <p className="font-serif text-2xl">Application support is included when you choose us as your recruitment partner.</p>
-                <p className="mt-3 text-sm leading-7 text-white/75">We provide this application support free of charge to our recruitment clients. Government fees, if applicable, remain subject to the relevant authority's requirements. JTKSM, KDN, sector regulators, and Immigration make the approval decisions.</p>
+                <p className="mt-3 text-sm leading-7 text-white/75">We provide this application support free of charge to our recruitment clients. Government fees, if applicable, remain subject to the relevant authority&apos;s requirements. JTKSM, KDN, sector regulators, and Immigration make the approval decisions.</p>
                 <Link href="/contact" className="mt-5 inline-flex rounded-sm bg-[#D8BC77] px-5 py-3 text-sm font-semibold text-[#0B1F3A] transition hover:bg-[#E6D39E]">Discuss your hiring plan</Link>
               </aside>
             </section>

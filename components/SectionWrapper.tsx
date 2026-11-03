@@ -26,8 +26,8 @@ export function SectionWrapper({
   dark = false,
   spacing = "default",
 }: SectionWrapperProps) {
-  const sectionSpacing = spacing === "lead" ? "pb-16 pt-12 md:pb-20 md:pt-16" : spacing === "compact" ? "py-16 md:py-20" : "py-20 md:py-24";
-  const headerSpacing = spacing === "default" ? "mb-10 max-w-3xl space-y-4 md:mb-12" : "mb-8 max-w-3xl space-y-4 md:mb-10";
+  const sectionSpacing = spacing === "lead" ? "pb-16 pt-12 md:pb-20 md:pt-16" : spacing === "compact" ? "py-14 md:py-20" : "py-20 lg:py-24";
+  const headerSpacing = "mb-10 max-w-3xl space-y-4 md:mb-12";
   const Heading = titleAs;
 
   return (
@@ -38,8 +38,8 @@ export function SectionWrapper({
             {eyebrow ? (
               <p
                 className={cn(
-                  "text-xs font-semibold uppercase tracking-[0.24em]",
-                  dark ? "text-[#C6A969]" : "text-[#0B1F3A]/70",
+                  "eyebrow",
+                  dark ? "text-[#D8BC77]" : "text-[#8A6420]",
                 )}
               >
                 {eyebrow}
@@ -48,7 +48,7 @@ export function SectionWrapper({
             {title ? (
               <Heading
                 className={cn(
-                  "font-serif text-2xl leading-tight sm:text-3xl md:text-4xl",
+                  "max-w-[27ch] font-serif text-3xl leading-[1.18] tracking-[-0.02em] sm:text-4xl lg:text-[2.75rem]",
                   dark ? "text-[#FAFAFA]" : "text-[#0B1F3A]",
                 )}
               >
@@ -56,7 +56,7 @@ export function SectionWrapper({
               </Heading>
             ) : null}
             {subtitle ? (
-              <p className={cn("max-w-2xl text-sm leading-7 sm:text-base sm:leading-8", dark ? "text-white/80" : "text-neutral-700")}>
+              <p className={cn("max-w-[65ch] text-[15px] leading-8", dark ? "text-white/75" : "text-neutral-600")}>
                 {subtitle}
               </p>
             ) : null}

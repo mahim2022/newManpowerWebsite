@@ -3,61 +3,41 @@ import { BRAND, NAV_LINKS, PARTNER_AGENCIES } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer aria-label="Site footer" className="border-t border-[#0B1F3A]/10 bg-[#0B1F3A] py-16 text-white">
-      <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 lg:grid-cols-3 lg:px-10">
-        <div className="space-y-3">
-          <h3 className="font-serif text-2xl">{BRAND.brandName}</h3>
-          <p className="max-w-sm text-sm leading-7 text-white/75">
-            A coordinated network connecting international employers with licensed recruitment agencies in Bangladesh.
-          </p>
+    <footer aria-label="Site footer" className="bg-[#0B1F3A] text-white">
+      <div className="mx-auto w-full max-w-7xl px-6 pb-8 pt-14 lg:px-10 lg:pt-16">
+        <div className="grid gap-10 border-b border-white/15 pb-12 sm:grid-cols-2 lg:grid-cols-[1.25fr_0.7fr_1fr] lg:gap-16">
+          <div>
+            <Link href="/" className="font-serif text-2xl leading-snug">{BRAND.brandName}</Link>
+            <p className="mt-5 max-w-sm text-sm leading-7 text-[#BCC6D1]">A coordinated network of licensed recruitment agencies in Bangladesh, led by East Bengal Overseas.</p>
+            <p className="mt-4 max-w-sm text-sm leading-7 text-[#BCC6D1]">Connecting international employers with the people their businesses need.</p>
+          </div>
+          <div>
+            <h2 className="mb-4 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-[#D8BC77]">Explore</h2>
+            <nav aria-label="Footer">
+              <ul className="grid gap-1 text-sm text-[#DBE1E7]">
+                {NAV_LINKS.map((link) => <li key={link.href}><Link href={link.href} className="inline-flex min-h-9 items-center transition-colors hover:text-[#D8BC77]">{link.label}</Link></li>)}
+                <li><Link href="/about" className="inline-flex min-h-9 items-center transition-colors hover:text-[#D8BC77]">About the network</Link></li>
+                <li><Link href="/compliance" className="inline-flex min-h-9 items-center transition-colors hover:text-[#D8BC77]">Our approach to compliance</Link></li>
+              </ul>
+            </nav>
+          </div>
+          <div className="sm:col-span-2 lg:col-span-1">
+            <h2 className="mb-4 font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-[#D8BC77]">Get in touch</h2>
+            <address className="grid gap-1 text-sm not-italic text-[#DBE1E7]">
+              <a href={`tel:${BRAND.phone.replace(/\s+/g, "")}`} className="inline-flex min-h-9 items-center transition-colors hover:text-[#D8BC77]">{BRAND.phone}</a>
+              <a href={`https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}`} target="_blank" rel="noreferrer" className="inline-flex min-h-9 items-center gap-2 transition-colors hover:text-[#D8BC77]">WhatsApp <span aria-hidden="true">↗</span><span className="sr-only">{BRAND.whatsapp} (opens in a new tab)</span></a>
+              <a href={`mailto:${BRAND.email}`} className="inline-flex min-h-9 items-center break-all transition-colors hover:text-[#D8BC77]">{BRAND.email}</a>
+              <p className="mt-4 max-w-xs leading-7 text-[#BCC6D1]">{BRAND.address}</p>
+            </address>
+          </div>
         </div>
-        <div>
-          <h4 className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#C6A969]">Navigation</h4>
-          <nav aria-label="Footer">
-            <ul className="space-y-2 text-sm text-white/85">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="transition-colors duration-200 hover:text-[#C6A969]">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+        <div className="pt-8">
+          <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.16em] text-[#D8BC77]">Our licensed agency network</p>
+          <ul className="mt-5 grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-4">
+            {PARTNER_AGENCIES.map((agency) => <li key={agency.licenseNumber} className="text-sm leading-6"><p className="text-[#DBE1E7]">{agency.name}</p><p className="mt-1 text-xs text-[#AAB7C6]">Licence {agency.licenseNumber}{agency.role === "Main agency" ? " · Main agency" : ""}</p></li>)}
+          </ul>
+          <p className="mt-8 border-t border-white/10 pt-6 text-xs leading-6 text-[#AAB7C6]">Each licence belongs to its named agency. Recruitment is subject to the applicable destination requirements and approvals.</p>
         </div>
-        <address className="space-y-2 text-sm not-italic text-white/85">
-          <h4 className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#C6A969]">Contact</h4>
-          <p>
-            <a className="transition-colors duration-200 hover:text-[#C6A969]" href={`tel:${BRAND.phone.replace(/\s+/g, "")}`}>
-              Phone: {BRAND.phone}
-            </a>
-          </p>
-          <p>
-            <a
-              className="transition-colors duration-200 hover:text-[#C6A969]"
-              href={`https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              WhatsApp: {BRAND.whatsapp}
-            </a>
-          </p>
-          <p>
-            <a className="transition-colors duration-200 hover:text-[#C6A969]" href={`mailto:${BRAND.email}`}>
-              Email: {BRAND.email}
-            </a>
-          </p>
-          <p>{BRAND.address}</p>
-        </address>
-      </div>
-      <div className="mx-auto mt-12 w-full max-w-7xl border-t border-white/15 px-6 pt-6 text-xs text-white/70 lg:px-10">
-        <p className="font-semibold text-white/80">Licensed recruitment partners</p>
-        <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
-          {PARTNER_AGENCIES.map((agency) => (
-            <span key={agency.licenseNumber}>{agency.role}: {agency.name} · Licence {agency.licenseNumber}</span>
-          ))}
-        </div>
-        <p className="mt-4">Each recruitment is handled through the named agency and remains subject to destination requirements and approvals.</p>
       </div>
     </footer>
   );

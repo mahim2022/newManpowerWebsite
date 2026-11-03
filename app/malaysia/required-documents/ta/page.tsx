@@ -1,5 +1,4 @@
 
-import type { Metadata } from "next";
 import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { SectionWrapper } from "@/components/SectionWrapper";

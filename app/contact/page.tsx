@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { InquiryForm } from "@/components/InquiryForm";
-import { SectionWrapper } from "@/components/SectionWrapper";
 import { BRAND, SITE_COPY } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbSchema } from "@/lib/seo";
@@ -28,96 +28,73 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <h1 className="mx-auto max-w-7xl px-6 pt-10 text-3xl font-bold tracking-tight text-[#0B1F3A] md:text-5xl lg:px-10">
-        Recruit Bangladeshi Workers for International Hiring
-      </h1>
-      <SectionWrapper
-        eyebrow="Contact"
-        title="Tell us what your team needs"
-        subtitle="Share your business location, hiring destination, roles, and headcount. Our team will route your enquiry through the relevant licensed recruitment partner."
-      >
-        <div className="mb-10 grid gap-5 lg:grid-cols-3">
-          <div className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0B1F3A]/60">Location</p>
-            <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Dhaka Office</h3>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">{BRAND.address}</p>
-            <p className="mt-3 text-sm text-neutral-600">{BRAND.businessHours}</p>
-            <a
-              href={BRAND.addressMapUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-5 inline-flex text-sm font-medium text-[#0B1F3A] underline underline-offset-4 transition-colors duration-200 hover:text-[#C6A969]"
-            >
-              Get directions
-            </a>
-          </div>
+      <header className="mx-auto max-w-7xl px-6 pb-10 pt-10 sm:pb-12 sm:pt-14 lg:px-10">
+        <nav aria-label="Breadcrumb" className="mb-7 flex items-center gap-2 text-xs text-neutral-500">
+          <Link href="/" className="transition hover:text-[#8A6420]">Home</Link>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Contact</span>
+        </nav>
+        <p className="eyebrow text-[#8A6420]">Employer enquiries</p>
+        <h1 className="mt-5 max-w-3xl font-serif text-4xl leading-[1.14] tracking-tight text-[#0B1F3A] sm:text-5xl lg:text-[3.5rem]">
+          Recruit your next workforce from Bangladesh.
+        </h1>
+        <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-600">
+          Share your business location, hiring destination, roles, and headcount. We will connect your requirement with the relevant licensed recruitment partner.
+        </p>
+      </header>
 
-          <div className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0B1F3A]/60">Direct Contact</p>
-            <div className="mt-4 space-y-4 text-sm text-neutral-700">
-              <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">Phone</p>
-                <a href={`tel:${BRAND.phone.replace(/\s+/g, "")}`} className="mt-1 inline-block font-medium text-[#0B1F3A] hover:text-[#C6A969]">
-                  {BRAND.phone}
-                </a>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">Email</p>
-                <a href={`mailto:${BRAND.email}`} className="mt-1 inline-block break-all font-medium text-[#0B1F3A] hover:text-[#C6A969]">
-                  {BRAND.email}
-                </a>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-neutral-500">Working Hours</p>
-                <p className="mt-1 font-medium text-[#0B1F3A]">{BRAND.businessHours}</p>
-              </div>
+      <div className="mx-auto grid max-w-7xl items-start gap-12 px-6 pb-20 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-14 lg:px-10 xl:grid-cols-[minmax(0,720px)_1fr]">
+        <div className="min-w-0">
+          {params.status === "success" ? (
+            <div role="status" className="mb-6 border-l-2 border-emerald-700 bg-emerald-50 px-5 py-4 text-sm leading-7 text-emerald-900">
+              Inquiry submitted successfully. Our team will contact you shortly.
             </div>
-          </div>
-
-          <div className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#0B1F3A]/60">Connect</p>
-            <div className="mt-4 space-y-4 text-sm text-neutral-700">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="block rounded-sm border border-[#0B1F3A]/10 bg-[#F9FAFB] px-4 py-3 font-medium text-[#0B1F3A] transition-colors duration-200 hover:border-[#C6A969]/40 hover:text-[#C6A969]"
-              >
-                WhatsApp: {BRAND.whatsapp}
-              </a>
-              <a
-                href={BRAND.linkedinUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="block rounded-sm border border-[#0B1F3A]/10 bg-[#F9FAFB] px-4 py-3 font-medium text-[#0B1F3A] transition-colors duration-200 hover:border-[#C6A969]/40 hover:text-[#C6A969]"
-              >
-                LinkedIn profile
-              </a>
-              <p className="text-sm leading-7 text-neutral-600">
-                Need a faster response? Message us directly on WhatsApp for candidate availability, visa updates, and worker deployment questions.
-              </p>
+          ) : null}
+          {params.status === "invalid" ? (
+            <div role="alert" className="mb-6 border-l-2 border-[#8A6420] bg-[#F2EDDF] px-5 py-4 text-sm leading-7 text-[#6E521E]">
+              Please complete all required fields with valid information.
             </div>
-          </div>
+          ) : null}
+          {params.status === "error" ? (
+            <div role="alert" className="mb-6 border-l-2 border-rose-700 bg-rose-50 px-5 py-4 text-sm leading-7 text-rose-900">
+              We could not submit your inquiry at this moment. Please try again or contact us by phone, WhatsApp, or email.
+            </div>
+          ) : null}
+          <InquiryForm action={submitInquiry} />
         </div>
 
-        <p className="mb-6 text-sm leading-7 text-neutral-600">{SITE_COPY.contactTrustNote}</p>
-        {params.status === "success" ? (
-          <div className="mb-6 rounded-sm border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm text-emerald-800">
-            Inquiry submitted successfully. Our team will contact you shortly.
+        <aside className="border-t border-[#0B1F3A]/12 pt-8 lg:pt-2 lg:border-t-0">
+          <h2 className="font-serif text-2xl leading-snug text-[#0B1F3A]">Prefer to speak directly?</h2>
+          <p className="mt-4 text-sm leading-7 text-neutral-600">Contact our team about candidate availability, recruitment documents, and deployment planning.</p>
+
+          <dl className="mt-7 space-y-5">
+            <div>
+              <dt className="text-xs text-neutral-500">Phone</dt>
+              <dd><a href={"tel:" + BRAND.phone.replace(/\s+/g, "")} className="inline-flex min-h-11 items-center text-sm font-medium text-[#0B1F3A] transition hover:text-[#8A6420]">{BRAND.phone}</a></dd>
+            </div>
+            <div>
+              <dt className="text-xs text-neutral-500">Email</dt>
+              <dd><a href={"mailto:" + BRAND.email} className="inline-flex min-h-11 items-center break-all text-sm font-medium text-[#0B1F3A] transition hover:text-[#8A6420]">{BRAND.email}</a></dd>
+            </div>
+            <div>
+              <dt className="text-xs text-neutral-500">WhatsApp</dt>
+              <dd><a href={whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[#0B1F3A] transition hover:text-[#8A6420]">{BRAND.whatsapp} <span aria-hidden="true">↗</span></a></dd>
+            </div>
+          </dl>
+
+          <div className="mt-7 border-t border-[#0B1F3A]/12 pt-7">
+            <h3 className="font-sans text-sm font-semibold text-[#0B1F3A]">Dhaka office</h3>
+            <p className="mt-3 max-w-xs text-sm leading-7 text-neutral-600">{BRAND.address}</p>
+            <p className="mt-3 text-xs leading-6 text-neutral-500">{BRAND.businessHours}</p>
+            <a href={BRAND.addressMapUrl} target="_blank" rel="noreferrer" className="text-link mt-3">Get directions <span aria-hidden="true">↗</span></a>
           </div>
-        ) : null}
-        {params.status === "invalid" ? (
-          <div className="mb-6 rounded-sm border border-amber-200 bg-amber-50 px-5 py-4 text-sm text-amber-800">
-            Please complete all required fields with valid information.
+
+          <div className="mt-6 border-t border-[#0B1F3A]/12 pt-6">
+            <p className="text-sm leading-7 text-neutral-600">{SITE_COPY.contactTrustNote}</p>
+            <a href={BRAND.linkedinUrl} target="_blank" rel="noreferrer" className="text-link mt-3">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
           </div>
-        ) : null}
-        {params.status === "error" ? (
-          <div className="mb-6 rounded-sm border border-rose-200 bg-rose-50 px-5 py-4 text-sm text-rose-800">
-            We could not submit your inquiry at this moment. Please try again or contact us by phone, WhatsApp, or email.
-          </div>
-        ) : null}
-        <InquiryForm action={submitInquiry} />
-      </SectionWrapper>
+        </aside>
+      </div>
     </>
   );
 }

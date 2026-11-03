@@ -10,3 +10,7 @@ Source: https://commons.wikimedia.org/wiki/File:Muhammad_Yunus_Inaugurates_Proba
 
 3. `visa-line-queue.jpg`
 Source: https://commons.wikimedia.org/wiki/File:20180412-144358-otopeni-henri-coanda-airport-passport-control-2018.jpg
+
+## Workforce illustration
+
+`recruitment-workforce.png` was generated with OpenAI image generation on 3 November 2026 for the homepage. It is an illustrative workshop scene, not a photograph of the agency's staff, clients, or placements. The homepage caption identifies it as a workforce illustration.

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import React from "react";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { CTASection } from "@/components/CTASection";
