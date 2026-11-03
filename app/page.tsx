@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { Hero } from "@/components/Hero";
@@ -83,17 +84,39 @@ export default function Home() {
       </SectionWrapper>
 
       <section id="destinations" className="bg-[#0B1F3A] py-20 text-white lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-24 lg:px-10">
-          <div>
-            <p className="eyebrow text-[#D8BC77]">International reach</p>
-            <h2 className="mt-5 max-w-sm font-serif text-3xl leading-tight sm:text-4xl md:text-5xl">Based in Bangladesh.<br />Connected to the world.</h2>
-            <p className="mt-6 max-w-md text-[15px] leading-8 text-white/75">We support employer enquiries across multiple regions through our agency and recruitment partner network.</p>
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-24">
+            <div>
+              <p className="eyebrow text-[#D8BC77]">International reach</p>
+              <h2 className="mt-5 max-w-sm font-serif text-3xl leading-tight sm:text-4xl md:text-5xl">Based in Bangladesh.<br />Connected to the world.</h2>
+              <p className="mt-6 max-w-md text-[15px] leading-8 text-white/75">We support employer enquiries across multiple regions through our agency and recruitment partner network.</p>
+            </div>
+            <div>
+              <ul className="grid grid-cols-2 gap-x-7 sm:gap-x-10">
+                {DESTINATION_REGIONS.map((region) => <li key={region} className="border-b border-white/20 py-5 font-serif text-xl leading-snug sm:text-2xl">{region}</li>)}
+              </ul>
+              <p className="mt-6 text-xs leading-6 text-white/60">Availability depends on the role, partner capability, and the destination&apos;s requirements and approvals.</p>
+            </div>
           </div>
-          <div>
-            <ul className="grid grid-cols-2 gap-x-7 sm:gap-x-10">
-              {DESTINATION_REGIONS.map((region) => <li key={region} className="border-b border-white/20 py-5 font-serif text-xl leading-snug sm:text-2xl">{region}</li>)}
-            </ul>
-            <p className="mt-6 text-xs leading-6 text-white/60">Availability depends on the role, partner capability, and the destination&apos;s requirements and approvals.</p>
+          <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:mt-14" aria-label="Archive photographs of international travel">
+            <figure>
+              <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-white/5">
+                <Image src="/images/visa-line-queue.jpg" alt="Travellers waiting beneath passport-control signs at Henri Coandă Airport in Romania" fill sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 600px" className="object-cover" />
+              </div>
+              <figcaption className="mt-3 flex flex-wrap justify-between gap-x-4 gap-y-1 text-[11px] leading-6 text-white/65">
+                <span>Passport control, Henri Coandă Airport, Romania · 2018</span>
+                <a href="https://commons.wikimedia.org/wiki/File:20180412-144358-otopeni-henri-coanda-airport-passport-control-2018.jpg" target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-white">Rakoon / Wikimedia · CC0 <span aria-hidden="true">↗</span></a>
+              </figcaption>
+            </figure>
+            <figure>
+              <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-white/5">
+                <Image src="/images/travelling-abroad-bangladesh.jpg" alt="People attending the opening of the Probashi Lounge at Dhaka airport in 2024" fill sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 600px" className="object-cover" />
+              </div>
+              <figcaption className="mt-3 flex flex-wrap justify-between gap-x-4 gap-y-1 text-[11px] leading-6 text-white/65">
+                <span>Probashi Lounge opening, Dhaka airport · 2024</span>
+                <a href="https://commons.wikimedia.org/wiki/File:Muhammad_Yunus_Inaugurates_Probashi_Lounge_For_Migrant_Workers_At_Hazrat_Shahjalal_International_Airport_Dhaka_2024-11-11_(PID-0005331).jpg" target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-white">PID / Wikimedia · Public domain <span aria-hidden="true">↗</span></a>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
