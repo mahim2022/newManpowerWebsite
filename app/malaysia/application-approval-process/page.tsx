@@ -16,9 +16,9 @@ const officialLinks = {
 };
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Malaysia Section 60K Approval: Employer Guide",
+  title: "Section 60K Approval in Malaysia: Employer Guide",
   description:
-    "A practical guide for Malaysian employers: understand Section 60K prior approval, prepare your application, check the right route, and plan the steps that follow.",
+    "Prepare your Section 60K application in Malaysia with an employer document checklist, application steps, and local support from MN Global Overseas.",
   path: "/malaysia/application-approval-process",
   keywords: [
     "Section 60K Malaysia",
@@ -322,9 +322,9 @@ export default function ApplicationApprovalProcessPage() {
             </section>
 
             <section id="how-we-help" className="mt-12 scroll-mt-8 border-t border-[#0B1F3A]/10 pt-8">
-              <h2 className="font-serif text-3xl leading-tight text-[#0B1F3A]">How Bangladesh Labour Supply can help</h2>
+              <h2 className="font-serif text-3xl leading-tight text-[#0B1F3A]">Application support from our Malaysia partner</h2>
               <p className="mt-4 text-base leading-8 text-neutral-700">
-                When you appoint Bangladesh Labour Supply as your recruitment partner, our team helps prepare and organize the documents required for the relevant government steps. This can include FWCMS and Immigration submissions, audited reports and other company records where required, as well as guidance and coordination for the procedures employers need to complete.
+                Bangladesh Labour Supply works with MN Global Overseas to help employers prepare and organize documents for the applicable government steps. This can include paperwork for FWCMS and Immigration submissions, audited reports and other company records where required, and coordination as the application progresses.
               </p>
               <p className="mt-4 text-base leading-8 text-neutral-700">
                 We provide this support to all employers who appoint us as their recruitment partner, free of charge as part of our recruitment service. Share your worksite location, sector, worker category, roles, and headcount, and we will help identify the current requirements for your case.
@@ -332,7 +332,7 @@ export default function ApplicationApprovalProcessPage() {
               <aside className="my-7 rounded-lg bg-[#0B1F3A] px-5 py-6 text-white sm:px-7">
                 <p className="font-serif text-2xl">Application support is included when you choose us as your recruitment partner.</p>
                 <p className="mt-3 text-sm leading-7 text-white/75">We provide this application support free of charge to our recruitment clients. Government fees, if applicable, remain subject to the relevant authority&apos;s requirements. JTKSM, KDN, sector regulators, and Immigration make the approval decisions.</p>
-                <Link href="/contact" className="mt-5 inline-flex rounded-sm bg-[#D8BC77] px-5 py-3 text-sm font-semibold text-[#0B1F3A] transition hover:bg-[#E6D39E]">Discuss your hiring plan</Link>
+                <Link href="/contact" className="mt-5 inline-flex rounded-sm bg-[#D8BC77] px-5 py-3 text-sm font-semibold text-[#0B1F3A] transition hover:bg-[#E6D39E]">Get help with your hiring paperwork</Link>
               </aside>
             </section>
 

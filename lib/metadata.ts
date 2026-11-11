@@ -17,8 +17,8 @@ function cleanPath(path: string): string {
 export function buildPageMetadata({ title, description, path }: PageMetadataInput): Metadata {
   const cleanCurrentPath = cleanPath(path);
   const canonicalUrl = normalizeCanonicalUrl(`${BRAND.websiteUrl}${cleanCurrentPath === "/" ? "" : cleanCurrentPath}`);
-  const localeMatch = cleanCurrentPath.match(/\/(ms|zh|ta)$/);
-  const basePath = localeMatch ? cleanCurrentPath.replace(/\/(ms|zh|ta)$/, "") || "/" : cleanCurrentPath;
+  const localeMatch = cleanCurrentPath.match(/\/(ms|zh|ta|bg)$/);
+  const basePath = localeMatch ? cleanCurrentPath.replace(/\/(ms|zh|ta|bg)$/, "") || "/" : cleanCurrentPath;
   const translatedLocales = LOCALIZED_ROUTE_LANGUAGES[basePath as keyof typeof LOCALIZED_ROUTE_LANGUAGES];
 
   const languages: Record<string, string> | undefined = translatedLocales

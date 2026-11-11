@@ -7,6 +7,8 @@ const ENGLISH_ROUTES = [
   { path: "/case-studies", priority: 0.6 },
   { path: "/compliance", priority: 0.7 },
   { path: "/contact", priority: 0.8 },
+  { path: "/europe/bulgaria", priority: 0.85 },
+  { path: "/europe/bulgaria/how-to-hire-workers-from-bangladesh", priority: 0.8 },
   { path: "/industries", priority: 0.75 },
   { path: "/malaysia", priority: 0.9 },
   { path: "/malaysia/application-approval-process", priority: 0.9 },

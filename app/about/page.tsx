@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbSchema } from "@/lib/seo";
@@ -20,12 +21,12 @@ export default function AboutPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <h1 className="mx-auto max-w-7xl px-6 pt-10 text-3xl font-bold tracking-tight text-[#0B1F3A] md:text-5xl lg:px-10">
-        About Bangladesh Labour Supply Agency
+        About the Bangladesh Labour Supply Network
       </h1>
       <SectionWrapper
         eyebrow="About"
-        title="Licensed Recruitment Operations with Structured Delivery"
-        subtitle="We operate as a Bangladesh-based manpower recruitment agency focused on legal transparency, disciplined process control, and dependable international employer support."
+        title="Recruitment from Bangladesh, with local support in Malaysia"
+        subtitle="East Bengal Overseas leads our network of four Bangladesh recruitment agencies. MN Global Overseas supports employers on the Malaysia side."
       >
         <div className="max-w-3xl space-y-5 text-base leading-8 text-neutral-700">
           <p>
@@ -33,8 +34,9 @@ export default function AboutPage() {
             Each recruitment cycle follows written procedures that improve visibility for HR and legal teams.
           </p>
           <p>
-            We prioritize ethical recruitment standards and clear communication so employers can evaluate risk, timeline, and deliverables at each stage.
+            Malaysian employers can work with MN Global Overseas on application preparation, supporting records, and follow-up as part of their recruitment planning.
           </p>
+          <Link href="/malaysia#malaysia-partner" className="text-link">Meet our Malaysia partner <span aria-hidden="true">→</span></Link>
         </div>
       </SectionWrapper>
     </>

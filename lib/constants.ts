@@ -2,6 +2,8 @@ export const PREFERRED_CANONICAL_URL = "https://www.recruitfrombangladesh.me";
 
 // Keep available locales aligned with the translated page directories under app/.
 export const LOCALIZED_ROUTE_LANGUAGES = {
+  "/europe/bulgaria": ["bg"],
+  "/europe/bulgaria/how-to-hire-workers-from-bangladesh": ["bg"],
   "/malaysia": ["ms", "zh", "ta"],
   "/malaysia/required-documents": ["ms", "zh", "ta"],
   "/malaysia/how-to-hire-workers-from-bangladesh": ["ms", "zh", "ta"],
@@ -81,6 +83,11 @@ export const DESTINATION_REGIONS = [
   "Other international markets",
 ];
 
+export const MALAYSIA_PARTNER = {
+  name: "Agensi Pekerjaan MN Global Overseas Sdn. Bhd.",
+  registrationNumber: "201301019945 (1049775-H)",
+};
+
 export const MALAYSIA_SUBMENU_LINKS = [
   { label: "Overview", href: "/malaysia" },
   { label: "Required Documents", href: "/malaysia/required-documents" },
@@ -103,9 +110,9 @@ export const NAV_LINKS = [
 
 export const TRUST_STATS = [
   {
-    label: "Licensed agencies",
-    value: "04",
-    helperText: "Named licensed agencies, led by East Bengal Overseas",
+    label: "Agency network",
+    value: "05",
+    helperText: "Four Bangladesh agencies and one Malaysia partner",
   },
   { label: "Destination reach", value: "Global", helperText: "Multiple regions through our network" },
   { label: "Employer support", value: "End to end", helperText: "From workforce brief to deployment coordination" },
@@ -195,12 +202,12 @@ export const TESTIMONIALS = [
 export const SITE_COPY = {
   heroTitle: "Bangladesh talent. A stronger network.",
   heroBody:
-    "One coordinated team connects international employers with four licensed recruitment agencies in Bangladesh. We support your hiring from candidate sourcing to deployment planning.",
+    "Hire workers from Bangladesh through a network led by East Bengal Overseas. Our Malaysia partner, MN Global Overseas, helps local employers prepare foreign worker applications and coordinate next steps.",
   ctaTitle: "Request a Workforce Partnership Consultation",
   ctaBody:
     "Share your recruitment requirement and receive a structured response covering candidate sourcing, licensing checks, compliance milestones, and realistic deployment planning.",
   complianceBody:
-    "Bangladesh Labour Supply coordinates employer requirements through named licensed recruitment partners. Each agency's licence remains specific to that agency, and destination recruitment is subject to applicable approvals and requirements.",
+    "Bangladesh Labour Supply coordinates recruitment through licensed agencies in Bangladesh and works with MN Global Overseas to support employers in Malaysia. Each agency's credentials and responsibilities are specific to its role and jurisdiction.",
   contactTrustNote:
     "Business inquiries are reviewed within one working day by our operations team with a clear next-step recommendation.",
 };
@@ -208,7 +215,7 @@ export const SITE_COPY = {
 export const COMPLIANCE_PROOFS = [
   {
     title: "Agency-specific licensing",
-    detail: "Each named recruitment partner operates under its own recruiting licence. We identify the agency responsible for a recruitment assignment.",
+    detail: "We identify the agency responsible for each assignment and distinguish company registration from recruiting licence details.",
   },
   {
     title: "Contract Transparency",

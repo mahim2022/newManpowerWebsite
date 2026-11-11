@@ -9,7 +9,7 @@ import { buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Malaysia Recruitment Agency | Bangladesh Manpower Supply",
   description:
-    "Malaysia recruitment agency from Bangladesh for compliant manpower supply, skilled workers, and vetted hiring support.",
+    "Recruit workers from Bangladesh and get help preparing Malaysian foreign worker applications through our local partner, MN Global Overseas.",
   path: "/malaysia",
   keywords: [
     "Malaysia recruitment agency from Bangladesh",
@@ -151,7 +151,7 @@ export default function MalaysiaPage() {
           <div className="mt-6 grid gap-9 lg:grid-cols-[1.3fr_0.7fr] lg:items-end lg:gap-20">
             <div>
               <h1 className="max-w-[19ch] font-serif text-4xl leading-[1.13] tracking-[-0.025em] text-[#0B1F3A] sm:text-5xl lg:text-[3.6rem]">Recruit workers from Bangladesh for your business in Malaysia.</h1>
-              <p className="mt-6 max-w-[62ch] text-[15px] leading-8 text-neutral-600">A clear route from your workforce brief to candidate selection. We help Malaysian employers with sourcing, screening, documentation, and deployment coordination through our licensed recruitment network.</p>
+              <p className="mt-6 max-w-[62ch] text-[15px] leading-8 text-neutral-600">Our Bangladesh agencies source and screen candidates. In Malaysia, MN Global Overseas helps employers prepare foreign worker applications, organize supporting records, and coordinate follow-up.</p>
               <div className="mt-8 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:gap-8">
                 <Link href="/contact" className="button-primary">Discuss your hiring needs <span aria-hidden="true">↗</span></Link>
                 <a href={whatsappUrl} target="_blank" rel="noreferrer" className="text-link justify-center sm:justify-start">WhatsApp our team <span aria-hidden="true">↗</span><span className="sr-only">(opens in a new tab)</span></a>
@@ -160,7 +160,7 @@ export default function MalaysiaPage() {
             <div className="border-l border-[#C6A969]/45 pl-6 lg:mb-2">
               <p className="eyebrow text-[#8A6420]">Start with a clear brief</p>
               <p className="mt-4 max-w-xs text-sm leading-7 text-neutral-600">Tell us the roles, worksite, hiring volume, and target start date. We can then help identify the next steps for your requirement.</p>
-              <Link href="/process" className="text-link mt-3">Our recruitment process <span aria-hidden="true">→</span></Link>
+              <Link href="#malaysia-partner" className="text-link mt-3">Meet our Malaysia partner <span aria-hidden="true">↓</span></Link>
             </div>
           </div>
         </div>

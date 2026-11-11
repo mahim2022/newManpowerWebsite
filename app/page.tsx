@@ -6,7 +6,7 @@ import { Hero } from "@/components/Hero";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { TrustStats } from "@/components/TrustStats";
-import { DESTINATION_REGIONS, INDUSTRIES, PARTNER_AGENCIES, PROCESS_STEPS, SERVICES, SITE_COPY, TRUST_STATS } from "@/lib/constants";
+import { DESTINATION_REGIONS, INDUSTRIES, MALAYSIA_PARTNER, PARTNER_AGENCIES, PROCESS_STEPS, SERVICES, SITE_COPY, TRUST_STATS } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbSchema } from "@/lib/seo";
 
@@ -29,7 +29,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10"><TrustStats items={TRUST_STATS} /></div>
       </section>
 
-      <SectionWrapper id="agency-network" eyebrow="The agency network" title="Four agencies. One coordinated team." subtitle="A wider network of recruitment expertise, with a clear point of contact for your business.">
+      <SectionWrapper id="agency-network" eyebrow="The agency network" title="Five agencies across Bangladesh and Malaysia." subtitle="Recruitment from Bangladesh, with local application support for Malaysian employers.">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.3fr] lg:gap-16">
           <article className="flex flex-col justify-between rounded-xl bg-[#0B1F3A] p-7 text-white sm:p-9">
             <div>
@@ -43,7 +43,7 @@ export default function Home() {
             </div>
           </article>
           <div>
-            <p className="eyebrow mb-2 text-[#8A6420]">Our recruitment partners</p>
+            <p className="eyebrow mb-2 text-[#8A6420]">Bangladesh recruitment partners</p>
             <div className="divide-y divide-[#0B1F3A]/12">
               {partners.map((agency) => (
                 <article key={agency.licenseNumber} className="flex items-center justify-between gap-5 py-6 sm:py-7">
@@ -56,6 +56,17 @@ export default function Home() {
             <Link href="/compliance" className="text-link mt-5">Our approach to responsible recruitment <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
+        <article className="mt-8 grid gap-5 rounded-xl border border-[#0B1F3A]/10 bg-[#F0EDE4] p-6 sm:p-8 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="eyebrow text-[#8A6420]">Malaysia partner</p>
+            <h3 className="mt-3 font-serif text-2xl leading-snug text-[#0B1F3A]">{MALAYSIA_PARTNER.name}</h3>
+            <p className="mt-2 text-sm text-neutral-600">Company registration: {MALAYSIA_PARTNER.registrationNumber}</p>
+          </div>
+          <div>
+            <p className="text-sm leading-7 text-neutral-700">Local support for foreign worker applications, supporting documents, and follow-up in Malaysia.</p>
+            <Link href="/malaysia#malaysia-partner" className="text-link mt-3">Explore Malaysia employer support <span aria-hidden="true">↗</span></Link>
+          </div>
+        </article>
       </SectionWrapper>
 
       <SectionWrapper id="services-overview" eyebrow="What we do" title="Support at every step of the hire." subtitle="From the first workforce brief to deployment, we help you keep the recruitment process organized and clear." className="border-y border-[#0B1F3A]/8 bg-white">
@@ -96,6 +107,7 @@ export default function Home() {
                 {DESTINATION_REGIONS.map((region) => <li key={region} className="border-b border-white/20 py-5 font-serif text-xl leading-snug sm:text-2xl">{region}</li>)}
               </ul>
               <p className="mt-6 text-xs leading-6 text-white/60">Availability depends on the role, partner capability, and the destination&apos;s requirements and approvals.</p>
+              <Link href="/europe/bulgaria" className="mt-6 inline-flex text-sm font-semibold text-[#E2CB91] underline underline-offset-4">Recruit workers for Bulgaria <span aria-hidden="true" className="ml-2">→</span></Link>
             </div>
           </div>
           <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:mt-14" aria-label="Archive photographs of international travel">

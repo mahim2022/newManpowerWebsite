@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { SectionWrapper } from "@/components/SectionWrapper";
-import { COMPLIANCE_PROOFS, PARTNER_AGENCIES, SITE_COPY } from "@/lib/constants";
+import { COMPLIANCE_PROOFS, MALAYSIA_PARTNER, PARTNER_AGENCIES, SITE_COPY } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbSchema } from "@/lib/seo";
 
@@ -40,6 +40,11 @@ export default function CompliancePage() {
               </article>
             ))}
           </div>
+          <article className="rounded-xl border border-white/15 bg-white/5 p-7">
+            <p className="eyebrow text-[#D8BC77]">Malaysia partner</p>
+            <h3 className="mt-4 font-serif text-2xl text-white">{MALAYSIA_PARTNER.name}</h3>
+            <p className="mt-3 text-sm leading-7 text-white/80">Company registration: {MALAYSIA_PARTNER.registrationNumber}</p>
+          </article>
           <div className="grid gap-5 md:grid-cols-2">
             {COMPLIANCE_PROOFS.map((proof) => (
               <article key={proof.title} className="rounded-xl border border-white/15 bg-white/5 p-7">

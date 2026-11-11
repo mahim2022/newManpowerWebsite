@@ -39,7 +39,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           Recruit your next workforce from Bangladesh.
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-8 text-neutral-600">
-          Share your business location, hiring destination, roles, and headcount. We will connect your requirement with the relevant licensed recruitment partner.
+          Share your business location, hiring destination, roles, and headcount. If you need help with a foreign worker application in Malaysia, include your sector, worksite, and current application stage so we can coordinate with MN Global Overseas.
         </p>
       </header>
 
