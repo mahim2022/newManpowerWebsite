@@ -9,7 +9,7 @@ const labelTextClassName = "block text-sm font-medium text-[#0B1F3A]";
 
 export function InquiryForm({ action }: InquiryFormProps) {
   return (
-    <form action={action} className="space-y-8 rounded-xl border border-[#0B1F3A]/12 bg-white p-6 sm:p-8 lg:p-9">
+    <form action={action} data-inquiry-form className="space-y-8 rounded-xl border border-[#0B1F3A]/12 bg-white p-6 sm:p-8 lg:p-9">
       <div>
         <h2 className="font-serif text-2xl leading-tight text-[#0B1F3A] sm:text-3xl">Tell us what you need</h2>
         <p className="mt-3 text-sm leading-7 text-neutral-500">A few details help us understand your requirement. All fields are required.</p>

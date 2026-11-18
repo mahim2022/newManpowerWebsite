@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { InquiryResultTracker } from "@/components/Analytics";
+import { ANALYTICS_MEASUREMENT_ID } from "@/lib/analytics-config";
 import { InquiryForm } from "@/components/InquiryForm";
 import { BRAND, SITE_COPY } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -27,6 +29,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
   return (
     <>
+      <InquiryResultTracker status={params.status} measurementId={ANALYTICS_MEASUREMENT_ID} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <header className="mx-auto max-w-7xl px-6 pb-10 pt-10 sm:pb-12 sm:pt-14 lg:px-10">
         <nav aria-label="Breadcrumb" className="mb-7 flex items-center gap-2 text-xs text-neutral-500">

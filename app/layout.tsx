@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { ANALYTICS_MEASUREMENT_ID } from "@/lib/analytics-config";
+import { Analytics } from "@/components/Analytics";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { BRAND } from "@/lib/constants";
@@ -46,10 +48,13 @@ export default function RootLayout({
 }>) {
   const organizationSchema = buildOrganizationSchema();
   const localBusinessSchema = buildLocalBusinessSchema();
+  const analyticsId = ANALYTICS_MEASUREMENT_ID;
+  const validAnalyticsId = analyticsId && /^G-[A-Z0-9]+$/i.test(analyticsId) ? analyticsId : undefined;
 
   return (
     <html lang="en">
       <body className={`${inter.variable} ${playfairDisplay.variable} bg-background text-foreground antialiased`}>
+        <Analytics measurementId={validAnalyticsId} />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
