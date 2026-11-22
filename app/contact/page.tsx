@@ -63,7 +63,7 @@ export default function ContactPage() {
           <section className="rounded-xl border border-[#0B1F3A]/10 bg-white p-6 sm:p-8">
             <h2 className="font-serif text-2xl text-[#0B1F3A]">What to include in your enquiry</h2>
             <p className="mt-3 leading-7 text-neutral-700">
-              Share your company name, hiring destination, roles, number of workers, and preferred start date.
+              Share your company name, hiring destination, roles, number of workers, and preferred start date. Please also mention any required trade certifications or licences.
             </p>
             <p className="mt-3 leading-7 text-neutral-700">
               For help with a Malaysian foreign worker application, include your sector, worksite, and current application stage so we can coordinate with MN Global Overseas.
