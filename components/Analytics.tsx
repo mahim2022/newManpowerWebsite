@@ -11,7 +11,6 @@ declare global {
   }
 }
 
-const pendingKey = "recruitment_inquiry_pending";
 const consentKey = "recruitment_analytics_consent_v1";
 type Consent = "unknown" | "granted" | "denied";
 
@@ -69,18 +68,17 @@ export function Analytics({ measurementId }: { measurementId?: string }) {
     function onClick(event: MouseEvent) {
       const target = event.target instanceof Element ? event.target.closest("a[href]") : null;
       if (!(target instanceof HTMLAnchorElement)) return;
+      if (target.protocol === "mailto:" || target.protocol === "tel:") {
+        track(target.protocol === "mailto:" ? "email_click" : "phone_click", window.location.pathname);
+        return;
+      }
       try {
         const url = new URL(target.href, window.location.origin);
         if (url.hostname === "wa.me" || url.hostname === "api.whatsapp.com") track("whatsapp_click", window.location.pathname);
       } catch { /* Ignore invalid URLs. */ }
     }
-    function onSubmit(event: SubmitEvent) {
-      if (!(event.target instanceof HTMLFormElement) || !event.target.matches("[data-inquiry-form]")) return;
-      try { sessionStorage.setItem(pendingKey, String(Date.now())); } catch { /* Never block a submission. */ }
-    }
     document.addEventListener("click", onClick);
-    document.addEventListener("submit", onSubmit, true);
-    return () => { document.removeEventListener("click", onClick); document.removeEventListener("submit", onSubmit, true); };
+    return () => document.removeEventListener("click", onClick);
   }, [id, consent]);
 
   function choose(value: "granted" | "denied") {
@@ -102,19 +100,4 @@ export function Analytics({ measurementId }: { measurementId?: string }) {
   ) : consent !== "unknown" ? (
     <button type="button" onClick={() => setShowPreferences(true)} className="fixed bottom-2 left-2 z-40 rounded bg-white/95 px-2 py-1 text-xs text-slate-600 shadow" aria-label={bulgarian ? "Настройки за анализ" : "Analytics preferences"}>{bulgarian ? "Анализ" : "Analytics settings"}</button>
   ) : null;
-}
-
-export function InquiryResultTracker({ status, measurementId }: { status?: string; measurementId?: string }) {
-  useEffect(() => {
-    if (!validId(measurementId) || !status) return;
-    try {
-      const pending = Number(sessionStorage.getItem(pendingKey));
-      sessionStorage.removeItem(pendingKey);
-      if (status === "success" && pending > 0 && Date.now() - pending < 30 * 60 * 1000 && localStorage.getItem(consentKey) === "granted") {
-        startAnalytics(measurementId);
-        track("generate_lead", "/contact");
-      }
-    } catch { /* Enquiries still work when storage is unavailable. */ }
-  }, [measurementId, status]);
-  return null;
 }
