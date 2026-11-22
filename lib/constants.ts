@@ -43,7 +43,7 @@ export const BRAND = {
   websiteUrl: normalizeCanonicalUrl(process.env.NEXT_PUBLIC_SITE_URL || PREFERRED_CANONICAL_URL),
   phone: "+601166773501",
   whatsapp: "+8801625069703",
-  email: "naimulmushfiq98@gmail.com",
+  email: "info@recruitfrombangladesh.me",
   address: "Level 8, Gulshan Avenue, Dhaka 1212, Bangladesh",
   addressMapUrl: "https://maps.google.com/?q=Level+8,+Gulshan+Avenue,+Dhaka+1212,+Bangladesh",
   businessHours: "Mon - Sat • 9:00 AM - 6:30 PM (GMT+6)",
