@@ -27,6 +27,7 @@ export default function Home() {
 
       <section className="mx-auto max-w-7xl px-6 py-8 lg:px-10" aria-label="Labour mobility news">
         <p className="text-sm font-semibold text-[#8A6420]">Labour mobility news · 23 November 2026</p>
+        <Link className="mt-2 block font-serif text-xl text-[#0B1F3A] underline underline-offset-4" href="/news/brunei-bangladesh-recruitment-november-2026">Brunei employers seek workers from Bangladesh through BOESL →</Link>
         <Link className="mt-2 inline-block font-serif text-xl text-[#0B1F3A] underline underline-offset-4" href="/news/bangladesh-kosovo-labour-mobility-2026">Bangladesh and Kosovo discuss labour mobility cooperation →</Link>
       </section>
 
