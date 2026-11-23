@@ -25,6 +25,11 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Hero heading={SITE_COPY.heroTitle} supportingText={SITE_COPY.heroBody} />
 
+      <section className="mx-auto max-w-7xl px-6 py-8 lg:px-10" aria-label="Labour mobility news">
+        <p className="text-sm font-semibold text-[#8A6420]">Labour mobility news · 23 November 2026</p>
+        <Link className="mt-2 inline-block font-serif text-xl text-[#0B1F3A] underline underline-offset-4" href="/news/bangladesh-kosovo-labour-mobility-2026">Bangladesh and Kosovo discuss labour mobility cooperation →</Link>
+      </section>
+
       <section id="trust-signals" aria-label="Our recruitment network at a glance" className="border-y border-[#0B1F3A]/10 bg-white py-8 md:py-10">
         <div className="mx-auto max-w-7xl px-6 lg:px-10"><TrustStats items={TRUST_STATS} /></div>
       </section>

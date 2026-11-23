@@ -20,6 +20,7 @@ const ENGLISH_ROUTES = [
   { path: "/malaysia/recruitment-process", priority: 0.85 },
   { path: "/malaysia/skilled-workers", priority: 0.75 },
   { path: "/malaysia/worker-categories", priority: 0.75 },
+  { path: "/news/bangladesh-kosovo-labour-mobility-2026", priority: 0.6 },
   { path: "/process", priority: 0.75 },
   { path: "/services", priority: 0.8 },
 ] as const;
