@@ -12,6 +12,7 @@ export const metadata = buildPageMetadata({
 
 const steps = [
   ["Define your requirement", "List the job titles, number of workers, duties, location, skills, salary, accommodation and other employment terms. Confirm that each occupation is suitable for your business and any required qualifications."],
+  ["Advertise locally first", "BusinessBN says employers must advertise vacancies on JobCentre Brunei for at least two weeks before applying for a foreign worker licence. If local candidates apply, employers have additional time to assess them. Check the current requirements with JobCentre Brunei and your employment agency."],
   ["Work with a licensed Brunei employment agency", "The published Bangladesh High Commission process begins with the employer contacting a licensed Brunei employment agency. Confirm the agency’s current licence and its arrangements with BOESL before proceeding."],
   ["Prepare and attest the demand letter", "The Brunei agency prepares the demand letter for the employer and submits it to the Bangladesh High Commission for attestation. The agency sends the attested demand letter and employment contract to BOESL under the published process."],
   ["Recruit and select", "BOESL advertises the positions, receives applications and arranges selection with the employer. Selected workers undergo the required medical and other checks. Role-specific qualifications and availability must be confirmed for each request."],
@@ -39,8 +40,9 @@ export default function BruneiHiringGuide() {
       <ul className="space-y-4 leading-7 text-neutral-700">
         <li><a className="underline" href="https://file.mofa.gov.bd/uploads/41e4be23-cba2-4af0-bc78-f4f6b01c9e51/65b/36a/80a/65b36a80aa536948277317.pdf">Bangladesh High Commission: Brunei–BOESL recruitment process</a></li>
         <li><a className="underline" href="https://www.labour.gov.bn/Download/LPA_FORM%20%28ENGLISH%29.pdf">Brunei Department of Labour: foreign worker licence checklist</a></li>
+        <li><a className="underline" href="https://www.business.gov.bn/employing-workers/">BusinessBN: local advertising and foreign worker licensing</a></li>
         <li><a className="underline" href="https://boesl.gov.bd/sites/default/files/files/boesl.portal.gov.bd/page/6dc2f3bb_4539_43d5_90b3_a375731e4aff/2024-11-10-10-50-62674d22a6220e899af334f86cf2f210.pdf">BOESL annual report: Brunei recruitment arrangement</a></li>
-      </ul><p className="mt-5 text-sm text-neutral-600">Reviewed 23 November 2026. Official requirements can change; confirm the current procedure with the responsible authorities.</p>
+      </ul><p className="mt-5 text-sm text-neutral-600">Reviewed 24 November 2026. Official requirements can change; confirm the current procedure with the responsible authorities.</p>
     </SectionWrapper>
     <CTASection title="Discuss your Brunei hiring requirement" description="Share the roles and number of workers you need. Our team can discuss your enquiry and the applicable recruitment route." />
   </>;
