@@ -23,6 +23,7 @@ const ENGLISH_ROUTES = [
   { path: "/malaysia/worker-categories", priority: 0.75 },
   { path: "/news/bangladesh-kosovo-labour-mobility-2026", priority: 0.6 },
   { path: "/news/brunei-bangladesh-recruitment-november-2026", priority: 0.6 },
+  { path: "/news/malaysia-bangladesh-recruitment-november-2026", priority: 0.7 },
   { path: "/process", priority: 0.75 },
   { path: "/services", priority: 0.8 },
 ] as const;

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+  <title id="title">Logistics recruitment illustration</title><desc id="desc">A stylised warehouse, boxes and a route between Bangladesh and Malaysia.</desc>
+  <rect width="1200" height="480" fill="#0b1f3a"/><circle cx="972" cy="92" r="180" fill="#173a54"/><path d="M0 375h1200v105H0z" fill="#133d4b"/>
+  <path d="M95 196L331 83l235 113v179H95z" fill="#f1eee5"/><path d="M70 195L331 69l259 126" fill="none" stroke="#c6a969" stroke-width="18" stroke-linejoin="round"/><path d="M154 227h353v148H154z" fill="#19425a"/><path d="M171 253h315M171 284h315M171 315h315M171 346h315" stroke="#a4c3c5" stroke-width="7"/>
+  <path d="M608 308h79v67h-79zM697 278h91v97h-91zM801 324h61v51h-61z" fill="#c6a969"/><path d="M647 308v67M743 278v97" stroke="#f4dfae" stroke-width="5"/>
+  <path d="M680 142c113-55 221-45 321 16" fill="none" stroke="#f2deac" stroke-width="7" stroke-dasharray="12 15"/><circle cx="680" cy="142" r="12" fill="#f2deac"/><circle cx="1001" cy="158" r="12" fill="#f2deac"/>
+  <text x="667" y="108" fill="#fff" font-family="Arial,sans-serif" font-size="27" font-weight="bold">BANGLADESH</text><text x="944" y="203" fill="#fff" font-family="Arial,sans-serif" font-size="27" font-weight="bold">MALAYSIA</text>
+</svg>

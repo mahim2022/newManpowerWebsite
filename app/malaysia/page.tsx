@@ -166,6 +166,10 @@ export default function MalaysiaPage() {
         </div>
       </section>
 
+      <SectionWrapper eyebrow="Recruitment news · 24 November 2026" title="Bangladesh–Malaysia hiring update" spacing="compact">
+        <p className="max-w-3xl leading-8 text-neutral-700">Bangladesh’s BOESL has completed an application round for Malaysian logistics roles. Read what the announcement means for employers and what remains subject to approval.</p>
+        <Link className="mt-4 inline-block font-semibold text-[#0B1F3A] underline" href="/news/malaysia-bangladesh-recruitment-november-2026">Read the Malaysia recruitment update</Link>
+      </SectionWrapper>
       <SectionWrapper id="hiring-essentials" eyebrow="Start here" title="Your Malaysia hiring essentials" subtitle="Plan the approval route, prepare the right records, and understand the application steps." className="border-y border-[#0B1F3A]/10 bg-white/50" spacing="compact">
         <div className="grid gap-8 md:grid-cols-3 md:gap-10">
           {malaysiaGuideLinks.slice(0, 3).map((guide, index) => (
