@@ -1,5 +1,9 @@
 import type { MetadataRoute } from "next";
 import { BRAND, LOCALIZED_ROUTE_LANGUAGES, normalizeCanonicalUrl } from "@/lib/constants";
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
+import { getSupabaseEnv } from "@/lib/supabase/env";
+
+export const revalidate = 900;
 
 const ENGLISH_ROUTES = [
   { path: "/", priority: 1 },
@@ -11,6 +15,9 @@ const ENGLISH_ROUTES = [
   { path: "/europe/bulgaria", priority: 0.85 },
   { path: "/europe/bulgaria/how-to-hire-workers-from-bangladesh", priority: 0.8 },
   { path: "/industries", priority: 0.75 },
+  { path: "/hire", priority: 0.85 },
+  { path: "/jobs", priority: 0.9 },
+  { path: "/marketplace-privacy", priority: 0.35 },
   { path: "/malaysia", priority: 0.9 },
   { path: "/malaysia/application-approval-process", priority: 0.9 },
   { path: "/malaysia/construction-workers", priority: 0.75 },
@@ -28,7 +35,7 @@ const ENGLISH_ROUTES = [
   { path: "/services", priority: 0.8 },
 ] as const;
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = BRAND.websiteUrl;
   const entries: MetadataRoute.Sitemap = ENGLISH_ROUTES.map(({ path, priority }) => ({
     url: normalizeCanonicalUrl(`${baseUrl}${path === "/" ? "" : path}`),
@@ -43,6 +50,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "monthly",
         priority: 0.7,
       });
+    }
+  }
+
+  const englishJobs = normalizeCanonicalUrl(baseUrl + "/jobs");
+  const banglaJobs = normalizeCanonicalUrl(baseUrl + "/bn/jobs");
+  entries.push({
+    url: banglaJobs,
+    changeFrequency: "daily",
+    priority: 0.85,
+    alternates: { languages: { "en-MY": englishJobs, "bn-BD": banglaJobs } },
+  });
+  const config = getSupabaseEnv();
+  if (config) {
+    try {
+      const supabase = createSupabaseClient(config.url, config.key);
+      const { data } = await supabase.from("jobs").select("slug,updated_at").eq("status", "open").gt("expires_at", new Date().toISOString()).order("created_at", { ascending: false }).limit(1000);
+      for (const job of data ?? []) {
+        const english = normalizeCanonicalUrl(baseUrl + "/jobs/" + job.slug);
+        const bangla = normalizeCanonicalUrl(baseUrl + "/bn/jobs/" + job.slug);
+        entries.push({
+          url: english,
+          lastModified: job.updated_at,
+          changeFrequency: "weekly",
+          priority: 0.75,
+          alternates: { languages: { "en-MY": english, "bn-BD": bangla } },
+        });
+        entries.push({
+          url: bangla,
+          lastModified: job.updated_at,
+          changeFrequency: "weekly",
+          priority: 0.7,
+          alternates: { languages: { "en-MY": english, "bn-BD": bangla } },
+        });
+      }
+    } catch {
+      // The stable marketing sitemap remains available if the jobs API is down.
     }
   }
 

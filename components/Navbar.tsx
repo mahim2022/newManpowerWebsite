@@ -71,7 +71,7 @@ export function Navbar() {
                 {isOpen ? (
                   <div id="desktop-destination-links" className="absolute left-1/2 top-full w-[22rem] -translate-x-1/2 pt-3">
                     <div className="rounded-xl border border-[#0B1F3A]/10 bg-[#FBFAF6] p-3 shadow-[0_16px_48px_rgba(11,31,58,0.12)]">
-                      <p className="px-3 pb-3 pt-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#876A32]">Malaysia employer guides</p>
+                      <p className="px-3 pb-3 pt-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#876A32]">{("groupTitle" in item && item.groupTitle) || "Malaysia employer guides"}</p>
                       {children.map((child) => <Link key={child.href} href={child.href} onClick={closeMenus} aria-current={pathname === child.href ? "page" : undefined} className={cn("flex min-h-10 items-center rounded-md px-3 py-2 text-sm transition-colors hover:bg-[#EEEAE0]", pathname === child.href ? "bg-[#EEEAE0] font-medium text-[#0B1F3A]" : "text-[#4D5966]")}>{child.label}</Link>)}
                     </div>
                   </div>

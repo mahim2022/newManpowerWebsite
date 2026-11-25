@@ -104,6 +104,17 @@ export const MALAYSIA_SUBMENU_LINKS = [
 export const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Malaysia", href: "/malaysia", children: MALAYSIA_SUBMENU_LINKS },
+  {
+    label: "Marketplace",
+    href: "/jobs",
+    groupTitle: "Malaysia recruitment marketplace",
+    children: [
+      { label: "Browse vacancies", href: "/jobs" },
+      { label: "For employers", href: "/hire" },
+      { label: "Worker profiles", href: "/talent" },
+      { label: "My account", href: "/account" },
+    ],
+  },
   { label: "Industries", href: "/industries" },
   { label: "Contact", href: "/contact" },
 ];
