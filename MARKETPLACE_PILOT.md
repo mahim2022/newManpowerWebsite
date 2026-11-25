@@ -23,7 +23,7 @@ There are no demonstration listings or seeded worker records. Employer accounts 
 
 The schema, private candidate-document bucket, row-level security policies, triggers, and indexes are versioned under `supabase/migrations/`. They have been applied to the connected Malaysia pilot Supabase project. No worker, employer, or job rows were added during setup.
 
-The existing Vercel project should receive the same two `NEXT_PUBLIC_SUPABASE_*` values in **Preview** for branch `codex/malaysia-marketplace`. Keep production settings and the production alias unchanged until the owner reviews the preview. Add the final preview callback URL to Supabase's Auth redirect allowlist after Vercel assigns that URL. Do not configure a service-role key for the website; the app uses user sessions plus database row-level security.
+The two `NEXT_PUBLIC_SUPABASE_*` values are configured in **Preview** for branch `codex/malaysia-marketplace`. Keep production settings and the production alias unchanged until the owner reviews the preview. Vercel captures environment values per deployment, so a new preview build is needed after changing a variable. Add the final preview callback URL to Supabase's Auth redirect allowlist after Vercel assigns that URL. Do not configure a service-role key for the website; the app uses user sessions plus database row-level security.
 
 ## Email and launch checks
 
