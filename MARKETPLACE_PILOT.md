@@ -16,17 +16,17 @@ There are no demonstration listings or seeded worker records. Employer accounts 
 
 1. Install the project packages with `npm install`.
 2. Copy `.env.example` to `.env.local` and enter the Supabase project's URL and **publishable** key. Never put a Supabase `service_role` key in a `NEXT_PUBLIC_` variable or browser code.
-3. In Supabase Authentication URL Configuration, keep the production Site URL and add the local preview redirect `http://127.0.0.1:3001/**` (and `http://localhost:3001/**` if using that hostname).
+3. In Supabase Authentication URL Configuration, the Site URL currently points to the Vercel preview branch so invitation and confirmation links return to the pilot. Add the local redirect `http://127.0.0.1:3001/**` (and `http://localhost:3001/**` if using that hostname) before testing locally.
 4. Run `npm run dev -- --port 3001`.
 
 ## Database and deployment
 
 The schema, private candidate-document bucket, row-level security policies, triggers, and indexes are versioned under `supabase/migrations/`. They have been applied to the connected Malaysia pilot Supabase project. No worker, employer, or job rows were added during setup.
 
-The two `NEXT_PUBLIC_SUPABASE_*` values are configured in **Preview** for branch `codex/malaysia-marketplace`. Keep production settings and the production alias unchanged until the owner reviews the preview. Vercel captures environment values per deployment, so a new preview build is needed after changing a variable. Add the final preview callback URL to Supabase's Auth redirect allowlist after Vercel assigns that URL. Do not configure a service-role key for the website; the app uses user sessions plus database row-level security.
+The two `NEXT_PUBLIC_SUPABASE_*` values are configured in **Preview** for branch `codex/malaysia-marketplace`. Vercel captures environment values per deployment, so a new preview build is needed after changing a variable. The stable preview callback URL is already in Supabase's Auth redirect allowlist. Before moving the marketplace to production, add `https://recruitfrombangladesh.me/auth/callback` and `https://www.recruitfrombangladesh.me/auth/callback` to the allowlist, then set the Supabase Site URL to the production domain after the production deployment is ready. Do not configure a service-role key for the website; the app uses user sessions plus database row-level security.
 
 ## Email and launch checks
 
-Supabase's default Auth email delivery is used for account confirmation and password resets. Custom SMTP through Brevo and transactional messages for new applications are not connected in this pilot. Until configured, users should check their marketplace dashboards for application and introduction updates.
+Supabase's default Auth email delivery is used for account confirmation, password resets, and the administrator invitation. The administrator invitation has been sent to `naimulmushfiq98@gmail.com` and must be accepted. Custom SMTP through Brevo and transactional messages for new applications are not connected in this pilot. Until configured, users should check their marketplace dashboards for application and introduction updates.
 
-Before opening the service to real users, confirm the current Supabase and Vercel quotas, finish sender setup if higher-volume Auth email is needed, invite the admin email through Supabase Auth, and review the privacy notice and Malaysian/Bangladesh recruitment obligations with the business's adviser. Never upload real passports, national IDs, or other sensitive identity documents to this pilot.
+Before opening the service to real users, accept the administrator invitation, confirm the current Supabase and Vercel quotas, finish sender setup if higher-volume Auth email is needed, and review the privacy notice and Malaysian/Bangladesh recruitment obligations with the business's adviser. Never upload real passports, national IDs, or other sensitive identity documents to this pilot.
