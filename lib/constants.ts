@@ -107,10 +107,10 @@ export const NAV_LINKS = [
   {
     label: "Marketplace",
     href: "/jobs",
-    groupTitle: "Malaysia recruitment marketplace",
+    groupTitle: "Worldwide employer and worker marketplace",
     children: [
       { label: "Browse vacancies", href: "/jobs" },
-      { label: "For employers", href: "/hire" },
+      { label: "Post a vacancy", href: "/account/register?type=employer" },
       { label: "Worker profiles", href: "/talent" },
       { label: "My account", href: "/account" },
     ],
