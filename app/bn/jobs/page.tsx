@@ -3,11 +3,11 @@ import { BRAND } from "@/lib/constants";
 import { JobsListing } from "@/app/jobs/page";
 
 export const metadata: Metadata = {
-  title: "মালয়েশিয়ায় চাকরি | বাংলাদেশি কর্মীদের জন্য বর্তমান সুযোগ",
-  description: "নিয়োগকর্তাদের প্রকাশিত মালয়েশিয়ার সক্রিয় চাকরি দেখুন। আবেদন করার আগে কাজের বিবরণ, কর্মস্থল ও শর্ত যাচাই করুন।",
+  title: "বিদেশে চাকরি | বাংলাদেশি কর্মীদের জন্য বর্তমান সুযোগ",
+  description: "বিভিন্ন দেশের নিয়োগকর্তাদের প্রকাশিত সক্রিয় চাকরি দেখুন। আবেদন করার আগে গন্তব্য, কাজের বিবরণ ও শর্ত যাচাই করুন।",
   alternates: {
     canonical: BRAND.websiteUrl + "/bn/jobs",
-    languages: { "en-MY": BRAND.websiteUrl + "/jobs", "bn-BD": BRAND.websiteUrl + "/bn/jobs" },
+    languages: { en: BRAND.websiteUrl + "/jobs", "bn-BD": BRAND.websiteUrl + "/bn/jobs" },
   },
 };
 

@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { BRAND, LOCALIZED_ROUTE_LANGUAGES, normalizeCanonicalUrl } from "@/lib/constants";
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { getSupabaseEnv } from "@/lib/supabase/env";
+import { countrySlug } from "@/lib/countries";
 
 export const revalidate = 900;
 
@@ -59,29 +60,40 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: banglaJobs,
     changeFrequency: "daily",
     priority: 0.85,
-    alternates: { languages: { "en-MY": englishJobs, "bn-BD": banglaJobs } },
+    alternates: { languages: { en: englishJobs, "bn-BD": banglaJobs } },
   });
   const config = getSupabaseEnv();
   if (config) {
     try {
       const supabase = createSupabaseClient(config.url, config.key);
-      const { data } = await supabase.from("jobs").select("slug,updated_at").eq("status", "open").gt("expires_at", new Date().toISOString()).order("created_at", { ascending: false }).limit(1000);
+      const { data } = await supabase.from("jobs").select("slug,country,updated_at").eq("status", "open").gt("expires_at", new Date().toISOString()).order("created_at", { ascending: false }).limit(1000);
+      const countryPages = new Map<string, { country: string; updatedAt: string }>();
       for (const job of data ?? []) {
         const english = normalizeCanonicalUrl(baseUrl + "/jobs/" + job.slug);
         const bangla = normalizeCanonicalUrl(baseUrl + "/bn/jobs/" + job.slug);
+        const slug = countrySlug(job.country);
+        if (slug && !countryPages.has(slug)) countryPages.set(slug, { country: job.country, updatedAt: job.updated_at });
         entries.push({
           url: english,
           lastModified: job.updated_at,
           changeFrequency: "weekly",
           priority: 0.75,
-          alternates: { languages: { "en-MY": english, "bn-BD": bangla } },
+          alternates: { languages: { en: english, "bn-BD": bangla } },
         });
         entries.push({
           url: bangla,
           lastModified: job.updated_at,
           changeFrequency: "weekly",
           priority: 0.7,
-          alternates: { languages: { "en-MY": english, "bn-BD": bangla } },
+          alternates: { languages: { en: english, "bn-BD": bangla } },
+        });
+      }
+      for (const [slug, value] of countryPages) {
+        entries.push({
+          url: normalizeCanonicalUrl(`${baseUrl}/jobs/country/${slug}`),
+          lastModified: value.updatedAt,
+          changeFrequency: "daily",
+          priority: 0.7,
         });
       }
     } catch {

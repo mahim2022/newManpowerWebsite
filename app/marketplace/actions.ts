@@ -63,6 +63,7 @@ export async function registerAction(formData: FormData) {
       : {
           account_type: accountType,
           company_name: stringValue(formData, "company_name", 160),
+          company_country: stringValue(formData, "company_country", 80),
           registration_number: stringValue(formData, "registration_number", 100),
           sector: stringValue(formData, "sector", 100),
           website: stringValue(formData, "website", 240),
@@ -72,6 +73,7 @@ export async function registerAction(formData: FormData) {
 
   if (accountType === "worker" && !metadata.full_name) fail(registerPath, "Enter your full name.");
   if (accountType === "employer" && metadata.company_name.length < 2) fail(registerPath, "Enter your company's legal or trading name.");
+  if (accountType === "employer" && metadata.company_country.length < 2) fail(registerPath, "Enter the country where your business is based.");
 
   const supabase = await createClient();
   const origin = await trustedOrigin();
@@ -139,10 +141,13 @@ export async function saveProfileAction(formData: FormData) {
   if (kind === "employer") {
     const companyName = stringValue(formData, "company_name", 160);
     if (companyName.length < 2) fail("/account/profile", "Enter a company name.");
+    const companyCountry = stringValue(formData, "company_country", 80);
+    if (companyCountry.length < 2) fail("/account/profile", "Enter the country where your business is based.");
     const { error } = await supabase
       .from("employers")
       .update({
         company_name: companyName,
+        country: companyCountry,
         registration_number: stringValue(formData, "registration_number", 100),
         sector: stringValue(formData, "sector", 100),
         website: stringValue(formData, "website", 240),
@@ -211,10 +216,11 @@ export async function createJobAction(formData: FormData) {
 
   const title = stringValue(formData, "title", 120);
   const employerName = stringValue(formData, "employer_name", 160);
+  const country = stringValue(formData, "country", 80);
   const location = stringValue(formData, "location", 120);
   const description = stringValue(formData, "description", 12000);
-  if (title.length < 4 || employerName.length < 2 || location.length < 2 || description.length < 40) {
-    fail("/employers/post-job", "Add a clear title, employer name, Malaysian work location and at least a short paragraph about the role.");
+  if (title.length < 4 || employerName.length < 2 || country.length < 2 || location.length < 2 || description.length < 40) {
+    fail("/employers/post-job", "Add a clear title, employer name, destination country, work location and at least a short paragraph about the role.");
   }
 
   const slugBase = title
@@ -224,13 +230,18 @@ export async function createJobAction(formData: FormData) {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "")
     .slice(0, 72);
-  const slug = (slugBase || "malaysia-job") + "-" + randomUUID().slice(0, 8);
+  const slug = (slugBase || "job") + "-" + randomUUID().slice(0, 8);
   const requirements = splitList(stringValue(formData, "requirements", 3000), 20);
   const salaryMinText = stringValue(formData, "salary_min", 24);
   const salaryMaxText = stringValue(formData, "salary_max", 24);
+  const salaryCurrencyInput = stringValue(formData, "salary_currency", 3).toUpperCase();
+  if ((salaryMinText || salaryMaxText) && !/^[A-Z]{3}$/.test(salaryCurrencyInput)) fail("/employers/post-job", "Enter a three-letter currency code for the salary, such as MYR, EUR or USD.");
+  const salaryCurrency = /^[A-Z]{3}$/.test(salaryCurrencyInput) ? salaryCurrencyInput : "MYR";
+  const salaryPeriod = stringValue(formData, "salary_period", 16) || "month";
+  if (!["hour", "day", "week", "month", "year"].includes(salaryPeriod)) fail("/employers/post-job", "Choose a valid salary period.");
   const salaryMin = salaryMinText && Number.isFinite(Number(salaryMinText)) ? Number(salaryMinText) : null;
   const salaryMax = salaryMaxText && Number.isFinite(Number(salaryMaxText)) ? Number(salaryMaxText) : null;
-  if ((salaryMin !== null && salaryMin < 0) || (salaryMax !== null && salaryMax < 0) || (salaryMin !== null && salaryMax !== null && salaryMax < salaryMin)) {
+  if ((salaryMinText && salaryMin === null) || (salaryMaxText && salaryMax === null) || (salaryMin !== null && salaryMin < 0) || (salaryMax !== null && salaryMax < 0) || (salaryMin !== null && salaryMax !== null && salaryMax < salaryMin)) {
     fail("/employers/post-job", "Check the optional salary range.");
   }
 
@@ -240,13 +251,14 @@ export async function createJobAction(formData: FormData) {
     employer_name: employerName,
     title,
     category: stringValue(formData, "category", 80) || "Other",
-    country: "Malaysia",
+    country,
     location,
     employment_type: stringValue(formData, "employment_type", 24) || "Full-time",
     positions: Math.min(500, Math.max(1, Number(stringValue(formData, "positions")) || 1)),
     salary_min: salaryMin,
     salary_max: salaryMax,
-    salary_period: stringValue(formData, "salary_period", 16) || "month",
+    salary_currency: salaryCurrency,
+    salary_period: salaryPeriod,
     description,
     requirements,
     accommodation: stringValue(formData, "accommodation", 1500),

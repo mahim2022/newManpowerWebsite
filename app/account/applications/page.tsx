@@ -14,7 +14,7 @@ export default async function CandidateApplicationsPage({ searchParams }: { sear
   const { data: applications } = await supabase.from("applications").select("id,job_id,status,cover_note,created_at").eq("candidate_id", user.id).order("created_at", { ascending: false });
   const jobIds = [...new Set((applications ?? []).map((application) => application.job_id))];
   const { data: jobs } = jobIds.length
-    ? await supabase.from("jobs").select("id,slug,title,location,status,expires_at").in("id", jobIds)
+    ? await supabase.from("jobs").select("id,slug,title,location,country,status,expires_at").in("id", jobIds)
     : { data: [] };
   const jobsById = new Map((jobs ?? []).map((job) => [job.id, job]));
 
@@ -35,7 +35,7 @@ export default async function CandidateApplicationsPage({ searchParams }: { sear
                   <div>
                     <span className="rounded-full bg-[#f0ecdf] px-3 py-1 text-xs font-semibold capitalize text-[#66552d]">{application.status.replaceAll("_", " ")}</span>
                     <h2 className="mt-3 text-2xl text-[#0b1f3a]">{job ? <Link className="hover:text-[#876a32]" href={"/jobs/" + job.slug}>{job.title}</Link> : "Vacancy no longer available"}</h2>
-                    <p className="market-muted mt-1 text-sm">{job?.location ? job.location + ", Malaysia · " : ""}Applied {humanDate(application.created_at)}</p>
+                    <p className="market-muted mt-1 text-sm">{job?.location ? job.location + (job.country ? ", " + job.country : "") + " · " : ""}Applied {humanDate(application.created_at)}</p>
                     {application.cover_note ? <p className="market-muted mt-2 max-w-2xl text-sm leading-6">{application.cover_note}</p> : null}
                   </div>
                   {job?.status === "open" ? <Link className="market-link inline-flex min-h-10 shrink-0 items-center text-sm" href={"/jobs/" + job.slug}>View vacancy →</Link> : <span className="text-xs text-[#68737d]">This post has closed.</span>}
@@ -47,7 +47,7 @@ export default async function CandidateApplicationsPage({ searchParams }: { sear
           <div className="market-panel mt-6 p-7">
             <h2 className="text-2xl text-[#0b1f3a]">No applications yet</h2>
             <p className="market-muted mt-2 leading-6">Browse current jobs and submit an application when you find a suitable role.</p>
-            <Link className="market-button mt-5" href="/jobs">Browse Malaysia jobs →</Link>
+            <Link className="market-button mt-5" href="/jobs">Browse jobs worldwide →</Link>
           </div>
         )}
       </div>

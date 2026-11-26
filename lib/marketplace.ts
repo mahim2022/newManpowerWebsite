@@ -1,4 +1,3 @@
-export const MARKETPLACE_COUNTRY = "Malaysia";
 export const ADMIN_EMAIL = "naimulmushfiq98@gmail.com";
 export const RESUME_BUCKET = "candidate-documents";
 export const RESUME_MAX_BYTES = 10 * 1024 * 1024;
@@ -37,7 +36,7 @@ export function jobSalaryLabel(job: {
   salary_period: string;
 }) {
   if (job.salary_min == null && job.salary_max == null) return "Salary discussed with the employer";
-  const amount = new Intl.NumberFormat("en-MY", { maximumFractionDigits: 0 });
+  const amount = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 0 });
   const low = job.salary_min == null ? "" : amount.format(job.salary_min);
   const high = job.salary_max == null ? "" : amount.format(job.salary_max);
   const range = low && high ? low + "–" + high : low || high;
@@ -45,7 +44,7 @@ export function jobSalaryLabel(job: {
 }
 
 export function humanDate(value: string) {
-  return new Intl.DateTimeFormat("en-MY", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Kuala_Lumpur" }).format(new Date(value));
+  return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Dhaka" }).format(new Date(value));
 }
 
 export function isListingExpired(value: string) {

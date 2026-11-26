@@ -15,7 +15,7 @@ type Job = {
   title: string;
   category: string;
   location: string;
-  country: "Malaysia";
+  country: string;
   employment_type: "Full-time" | "Contract" | "Temporary";
   positions: number;
   salary_min: number | null;
@@ -46,11 +46,14 @@ async function getJob(slug: string): Promise<Job | null> {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const job = await getJob(slug);
-  if (!job) return { title: "Vacancy not found | Malaysia Jobs", robots: { index: false, follow: false } };
+  if (!job) return { title: "Vacancy not found | Global Jobs", robots: { index: false, follow: false } };
   return {
-    title: job.title + " in " + job.location + " | Malaysia Jobs",
+    title: job.title + " in " + job.location + ", " + job.country + " | Jobs for Bangladeshi Workers",
     description: job.description.replace(/\s+/g, " ").slice(0, 155),
-    alternates: { canonical: BRAND.websiteUrl + "/jobs/" + job.slug },
+    alternates: {
+      canonical: BRAND.websiteUrl + "/jobs/" + job.slug,
+      languages: { en: BRAND.websiteUrl + "/jobs/" + job.slug, "bn-BD": BRAND.websiteUrl + "/bn/jobs/" + job.slug },
+    },
     openGraph: { title: job.title + " in " + job.location, description: job.description.slice(0, 180), type: "article" },
   };
 }
@@ -71,12 +74,12 @@ export async function JobDetailView({
   const bangla = language === "bn";
   const copy = bangla
     ? {
-        back: "← সব মালয়েশিয়া চাকরি দেখুন",
+        back: "← সব আন্তর্জাতিক চাকরি দেখুন",
         about: "চাকরির বিবরণ",
         requirements: "যোগ্যতা ও শর্ত",
         next: "আবেদন ও পরবর্তী ধাপ",
         instructions: "এই পেজের মাধ্যমে আবেদন করুন। সাক্ষাৎকার বা পরিচয়ের আগে আমাদের দল যোগ্যতা ও নিয়োগ প্রক্রিয়া নিয়ে কথা বলতে পারে।",
-        support: "বাংলাদেশ লেবার সাপ্লাই এবং মালয়েশিয়ার আমাদের অংশীদার নিয়োগ সমন্বয় ও নিয়োগকর্তার আবেদন প্রস্তুতিতে সহায়তা করতে পারেন। ওয়ার্ক পারমিটের সিদ্ধান্ত সরকারি কর্তৃপক্ষ নেয়; অনুমোদন বা চাকরি নিশ্চিত নয়।",
+        support: "বাংলাদেশ থেকে নিয়োগ সমন্বয়ে বাংলাদেশ লেবার সাপ্লাই সহায়তা করতে পারে। কাজের অনুমতি ও নিয়োগের সিদ্ধান্ত সংশ্লিষ্ট নিয়োগকর্তা এবং সরকারি কর্তৃপক্ষের; কোনো অনুমোদন বা চাকরি নিশ্চিত নয়।",
         details: "চাকরির তথ্য",
         salary: "বেতন",
         positions: "পদসংখ্যা",
@@ -105,12 +108,12 @@ export async function JobDetailView({
         safety: "এটি নিয়োগকর্তার অ্যাকাউন্ট থেকে প্রকাশিত। টাকা দেওয়া বা পরিচয়পত্র পাঠানোর আগে আমাদের দলের সঙ্গে চাকরিটি যাচাই করুন। প্রশ্ন? ",
       }
     : {
-        back: "← Back to all Malaysia jobs",
+        back: "← Back to all international jobs",
         about: "About this vacancy",
         requirements: "Requirements",
         next: "Application and next steps",
         instructions: "Apply through this page. Our team may contact you to discuss eligibility and recruitment steps before an interview or introduction.",
-        support: "Bangladesh Labour Supply and our Malaysian partner can help coordinate recruitment and employer application preparation. Government authorities make work authorization decisions; no approval or hiring outcome is guaranteed.",
+        support: "Bangladesh Labour Supply can help coordinate recruitment from Bangladesh. Employers and relevant authorities determine work authorization requirements and decisions; no approval or hiring outcome is guaranteed.",
         details: "Job details",
         salary: "Salary",
         positions: "Positions",
@@ -142,6 +145,11 @@ export async function JobDetailView({
   const messages = await searchParams;
   const job = await getJob(slug);
   if (!job) notFound();
+  const supportText = job.country.trim().toLowerCase() === "malaysia"
+    ? (bangla
+        ? "বাংলাদেশ থেকে নিয়োগ সমন্বয়ে বাংলাদেশ লেবার সাপ্লাই সহায়তা করতে পারে। মালয়েশিয়ার নিয়োগকর্তাদের জন্য আমাদের অংশীদার Agensi Pekerjaan MN Global Overseas Sdn. Bhd. স্থানীয় বিদেশি কর্মী আবেদন প্রক্রিয়ায় সহায়তা করতে পারে। সরকারি কর্তৃপক্ষ অনুমোদনের সিদ্ধান্ত নেয়; কোনো অনুমোদন বা চাকরি নিশ্চিত নয়।"
+        : "Bangladesh Labour Supply can coordinate recruitment from Bangladesh. For Malaysian employers, our local partner Agensi Pekerjaan MN Global Overseas Sdn. Bhd. can assist with local foreign worker application procedures. Government authorities make approval decisions; no approval or hiring outcome is guaranteed.")
+    : copy.support;
 
   let user = null;
   let hasWorkerProfile = false;
@@ -165,7 +173,7 @@ export async function JobDetailView({
     validThrough: job.expires_at,
     employmentType: job.employment_type.toUpperCase().replaceAll("-", "_"),
     hiringOrganization: { "@type": "Organization", name: job.employer_name },
-    jobLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: job.location, addressCountry: "MY" } },
+    jobLocation: { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: job.location, addressCountry: { "@type": "Country", name: job.country } } },
     ...(job.salary_min != null || job.salary_max != null
       ? {
           baseSalary: {
@@ -189,10 +197,10 @@ export async function JobDetailView({
             <div className="flex flex-wrap gap-2 text-xs">
               <span className="rounded-full bg-white/10 px-3 py-1 text-[#e2cb94]">{job.category}</span>
               <span className="rounded-full bg-white/10 px-3 py-1 text-white/85">{job.employment_type}</span>
-              <span className="rounded-full bg-white/10 px-3 py-1 text-white/85">Malaysia</span>
+              <span className="rounded-full bg-white/10 px-3 py-1 text-white/85">{job.country}</span>
             </div>
             <h1 className="mt-4 text-4xl leading-tight text-white sm:text-5xl">{job.title}</h1>
-            <p className="mt-3 text-sm text-white/75">{job.employer_name} <span className="mx-1.5">·</span> {job.location}, Malaysia</p>
+            <p className="mt-3 text-sm text-white/75">{job.employer_name} <span className="mx-1.5">·</span> {job.location}, {job.country}</p>
           </header>
           <div className="grid gap-8 p-6 sm:p-9 lg:grid-cols-[1fr_280px]">
             <div>
@@ -211,7 +219,7 @@ export async function JobDetailView({
                 <p className="market-muted mt-2 leading-6">
                   {job.application_instructions || copy.instructions}
                 </p>
-                <p className="mt-3 text-sm leading-6 text-[#4c5a66]">{copy.support}</p>
+                <p className="mt-3 text-sm leading-6 text-[#4c5a66]">{supportText}</p>
               </section>
             </div>
             <aside className="grid content-start gap-4">

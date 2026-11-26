@@ -4,6 +4,7 @@ import { BRAND } from "@/lib/constants";
 import { requireMarketplaceUser } from "@/lib/marketplace-server";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { saveProfileAction } from "@/app/marketplace/actions";
+import { POPULAR_JOB_COUNTRIES } from "@/lib/countries";
 
 export const metadata: Metadata = { title: "Profile Settings", robots: { index: false, follow: false } };
 
@@ -39,6 +40,10 @@ export default async function ProfilePage({ searchParams }: { searchParams: Prom
               <label className="market-label sm:col-span-2">Company name
                 <input className="market-input" name="company_name" defaultValue={employer.company_name} maxLength={160} required />
               </label>
+              <label className="market-label">Business country
+                <input className="market-input" name="company_country" list="marketplace-countries" defaultValue={employer.country} required minLength={2} maxLength={80} />
+                <datalist id="marketplace-countries">{POPULAR_JOB_COUNTRIES.map((country) => <option key={country} value={country} />)}</datalist>
+              </label>
               <label className="market-label">Registration number
                 <input className="market-input" name="registration_number" defaultValue={employer.registration_number} maxLength={100} />
               </label>
@@ -64,7 +69,7 @@ export default async function ProfilePage({ searchParams }: { searchParams: Prom
             <section className="market-panel mt-6 p-6 sm:p-8">
               <p className="market-kicker">Worker profile · {worker.candidate_code}</p>
               <h2 className="mt-2 text-2xl text-[#0b1f3a]">Your skills and experience</h2>
-              <p className="market-muted mt-2 text-sm leading-6">This profile can be seen by you and, only when you opt in, approved Malaysian employer accounts. Employers who receive your application may also see this skills profile. Your name, phone number and CV stay private.</p>
+              <p className="market-muted mt-2 text-sm leading-6">This profile can be seen by you and, only when you opt in, approved employer accounts. Employers who receive your application may also see this skills profile. Your name, phone number and CV stay private.</p>
               <form action={saveProfileAction} className="mt-6 grid gap-4 sm:grid-cols-2">
                 <input type="hidden" name="profile_type" value="worker" />
                 <label className="market-label">Full name
@@ -92,7 +97,7 @@ export default async function ProfilePage({ searchParams }: { searchParams: Prom
                   <input className="market-input" name="languages" defaultValue={(worker.languages ?? []).join(", ")} maxLength={500} placeholder="e.g. Bengali, English" />
                 </label>
                 <label className="market-label">Preferred destinations
-                  <input className="market-input" name="preferred_destinations" defaultValue={(worker.preferred_destinations ?? ["Malaysia"]).join(", ")} maxLength={500} placeholder="Malaysia" />
+                  <input className="market-input" name="preferred_destinations" defaultValue={(worker.preferred_destinations ?? ["Malaysia"]).join(", ")} maxLength={500} placeholder="Add countries separated by commas" />
                 </label>
                 <label className="market-label sm:col-span-2">Experience summary
                   <textarea className="market-input min-h-32 resize-y" name="summary" defaultValue={worker.summary} maxLength={1500} placeholder="Summarise relevant tasks, industries and experience. Do not include your address, phone number or passport details." />

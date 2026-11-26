@@ -8,7 +8,7 @@ import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
-  title: "Sign In | Malaysia Recruitment Marketplace",
+  title: "Sign In | Bangladesh Labour Supply Marketplace",
   robots: { index: false, follow: false },
 };
 

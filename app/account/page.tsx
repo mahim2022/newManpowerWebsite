@@ -112,7 +112,7 @@ export default async function AccountHome({ searchParams }: { searchParams: Prom
 
           <article className="market-panel p-6">
             <p className="market-kicker">Keep going</p>
-            <h2 className="mt-2 text-2xl text-[#0b1f3a]">Malaysia marketplace</h2>
+            <h2 className="mt-2 text-2xl text-[#0b1f3a]">Worldwide job marketplace</h2>
             <div className="mt-2 grid gap-2 text-sm">
               <Link className="market-link inline-flex min-h-10 items-center" href="/jobs">Browse current vacancies →</Link>
               <Link className="market-link inline-flex min-h-10 items-center" href="/marketplace-privacy">Privacy and document handling →</Link>

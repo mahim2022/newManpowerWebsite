@@ -5,10 +5,11 @@ import { BRAND } from "@/lib/constants";
 import { registerAction } from "@/app/marketplace/actions";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { createClient } from "@/lib/supabase/server";
+import { POPULAR_JOB_COUNTRIES } from "@/lib/countries";
 
 export const metadata: Metadata = {
-  title: "Create a Marketplace Account | Malaysia",
-  description: "Create a worker or employer account for the Malaysia recruitment marketplace.",
+  title: "Create a Marketplace Account | Bangladesh Labour Supply",
+  description: "Create a worker or employer account for the worldwide Bangladesh recruitment marketplace.",
   robots: { index: false, follow: false },
 };
 
@@ -27,9 +28,9 @@ export default async function RegisterPage({ searchParams }: { searchParams: Pro
       <div className="mx-auto grid max-w-6xl gap-7 lg:grid-cols-[.8fr_1.2fr]">
         <aside className="market-hero flex flex-col justify-between p-7 sm:p-9">
           <div className="relative z-10">
-            <p className="text-[11px] font-semibold uppercase tracking-[.18em] text-[#e1ca8e]">{bangla ? "মালয়েশিয়া পাইলট" : "Malaysia pilot"}</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[.18em] text-[#e1ca8e]">{bangla ? "আন্তর্জাতিক নিয়োগ মার্কেটপ্লেস" : "Worldwide job marketplace"}</p>
             <h1 className="mt-3 text-4xl leading-tight text-white">{bangla ? "নিয়োগ মার্কেটপ্লেসে যোগ দিন" : "Join the recruitment marketplace"}</h1>
-            <p className="mt-4 leading-7 text-white/80">{bangla ? "কর্মী হিসেবে সক্রিয় চাকরিতে আবেদন করুন এবং চাইলে আপনার দক্ষতার প্রোফাইল অনুমোদিত নিয়োগকর্তাদের দেখান। নিয়োগকর্তারা চাকরি প্রকাশ করতে ও আমাদের দলের মাধ্যমে পরিচয় চাইতে পারবেন।" : "Choose the account that fits you. Workers can apply for live jobs and opt in to a skills directory. Employers can post real vacancies and request introductions through our team."}</p>
+            <p className="mt-4 leading-7 text-white/80">{bangla ? "কর্মী হিসেবে বিভিন্ন দেশের সক্রিয় চাকরিতে আবেদন করুন এবং চাইলে আপনার দক্ষতার প্রোফাইল অনুমোদিত নিয়োগকর্তাদের দেখান। নিয়োগকর্তারা যে দেশে নিয়োগ করছেন সেখানকার চাকরি প্রকাশ করতে পারবেন।" : "Workers can apply for live jobs in different countries and opt in to a skills directory. Employers can publish genuine vacancies for their own destination country."}</p>
           </div>
           <div className="relative z-10 mt-8 border-t border-white/15 pt-5 text-sm leading-6 text-white/75">
             <p>{bangla ? "আপনার ফোন নম্বর ও CV ব্যক্তিগত থাকবে। নিয়োগকর্তারা সীমিত কাজের তথ্য দেখবেন। পরিচয় করিয়ে দেওয়ার আগে আমাদের দল আপনার সম্মতি নেবে।" : "Worker contact details and CV files are private. Employers only see eligible work information, and our team asks for your consent before arranging contact."}</p>
@@ -71,6 +72,10 @@ export default async function RegisterPage({ searchParams }: { searchParams: Pro
               <>
                 <label className="market-label">Company name
                   <input className="market-input" name="company_name" autoComplete="organization" required maxLength={160} />
+                </label>
+                <label className="market-label">Business country
+                  <input className="market-input" name="company_country" list="marketplace-countries" autoComplete="country-name" required minLength={2} maxLength={80} placeholder="Country where the company is based" />
+                  <datalist id="marketplace-countries">{POPULAR_JOB_COUNTRIES.map((country) => <option key={country} value={country} />)}</datalist>
                 </label>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <label className="market-label">Business registration number (optional)

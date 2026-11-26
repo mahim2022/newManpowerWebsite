@@ -25,7 +25,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
       .select("user_id,status,review_note,created_at,employers(company_name,registration_number,sector,country,website,contact_name,phone,contact_email)")
       .order("created_at", { ascending: false })
       .limit(80),
-    supabase.from("jobs").select("id,slug,title,employer_name,employer_id,location,status,created_at,expires_at").order("created_at", { ascending: false }).limit(80),
+    supabase.from("jobs").select("id,slug,title,employer_name,employer_id,country,location,status,created_at,expires_at").order("created_at", { ascending: false }).limit(80),
     supabase.from("job_reports").select("id,job_id,reason,details,created_at,jobs(title,slug,employer_name)").is("resolved_at", null).order("created_at", { ascending: false }).limit(80),
     supabase.from("introduction_requests").select("id,job_id,employer_id,candidate_id,message,worker_consent,team_status,created_at,jobs(title,slug),employers(company_name)").order("created_at", { ascending: false }).limit(80),
   ]);
@@ -70,7 +70,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
                           <h3 className="text-xl text-[#0b1f3a]">{company?.company_name ?? "Company name missing"}</h3>
                           <span className="rounded-full bg-[#f0ecdf] px-3 py-1 text-xs font-semibold capitalize text-[#66552d]">{review.status}</span>
                         </div>
-                        <p className="market-muted mt-2 text-sm">{company?.sector || "Sector not listed"} · {company?.country ?? "Malaysia"} · Registered {humanDate(review.created_at)}</p>
+                        <p className="market-muted mt-2 text-sm">{company?.sector || "Sector not listed"} · {company?.country || "Business country not set"} · Registered {humanDate(review.created_at)}</p>
                         <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
                           <div><dt className="text-xs text-[#68737d]">Registration number</dt><dd className="text-[#314253]">{company?.registration_number || "Not provided"}</dd></div>
                           <div><dt className="text-xs text-[#68737d]">Website</dt><dd>{company?.website ? <a className="market-link" href={company.website} rel="noreferrer">{company.website}</a> : <span className="text-[#596776]">Not provided</span>}</dd></div>
@@ -108,7 +108,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
                   {jobs.map((job) => (
                     <tr key={job.id}>
                       <td><Link className="market-link" href={"/jobs/" + job.slug}>{job.title}</Link></td>
-                      <td>{job.employer_name}</td><td>{job.location}</td><td className="capitalize">{job.status}</td><td>{humanDate(job.expires_at)}</td>
+                      <td>{job.employer_name}</td><td>{job.location}, {job.country}</td><td className="capitalize">{job.status}</td><td>{humanDate(job.expires_at)}</td>
                       <td>
                         <form action={setAdminJobStatusAction} className="flex gap-2">
                           <input type="hidden" name="job_id" value={job.id} /><input type="hidden" name="status" value={job.status === "open" ? "closed" : "open"} />

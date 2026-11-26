@@ -17,7 +17,7 @@ export default async function EmployerJobsPage({ searchParams }: { searchParams:
   if (!employer) redirect("/account");
   const { data: jobs } = await supabase
     .from("jobs")
-    .select("id,slug,title,category,location,status,positions,created_at,expires_at")
+    .select("id,slug,title,category,location,country,status,positions,created_at,expires_at")
     .eq("employer_id", user.id)
     .order("created_at", { ascending: false });
 
@@ -45,7 +45,7 @@ export default async function EmployerJobsPage({ searchParams }: { searchParams:
                       <span className={"rounded-full px-3 py-1 text-xs font-semibold " + (expired || job.status === "closed" ? "bg-[#f1e9e7] text-[#85473e]" : "bg-[#e5f1eb] text-[#2d684d]")}>{expired ? "Expired" : job.status}</span>
                     </div>
                     <h2 className="mt-3 truncate text-2xl text-[#0b1f3a]"><Link className="hover:text-[#876a32]" href={"/jobs/" + job.slug}>{job.title}</Link></h2>
-                    <p className="market-muted mt-1 text-sm">{job.location}, Malaysia · {job.positions} position(s) · {humanDate(job.created_at)}</p>
+                    <p className="market-muted mt-1 text-sm">{job.location}, {job.country} · {job.positions} position(s) · {humanDate(job.created_at)}</p>
                     <p className="mt-1 text-xs text-[#68737d]">Closing date: {humanDate(job.expires_at)}</p>
                   </div>
                   <div className="flex shrink-0 flex-wrap items-center gap-3">
@@ -63,7 +63,7 @@ export default async function EmployerJobsPage({ searchParams }: { searchParams:
         ) : (
           <div className="market-panel mt-6 p-7">
             <h2 className="text-2xl text-[#0b1f3a]">No vacancies posted yet</h2>
-            <p className="market-muted mt-2 leading-6">Create your first Malaysian job listing. It will publish immediately and can be closed from this dashboard.</p>
+            <p className="market-muted mt-2 leading-6">Create your first international job listing. It will publish immediately and can be closed from this dashboard.</p>
             <Link className="market-button mt-5" href="/employers/post-job">Post your first vacancy <span aria-hidden="true">→</span></Link>
           </div>
         )}

@@ -2,17 +2,21 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BRAND } from "@/lib/constants";
 import { humanDate, jobSalaryLabel } from "@/lib/marketplace";
+import { countrySlug, POPULAR_JOB_COUNTRIES } from "@/lib/countries";
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 
 export const metadata: Metadata = {
-  title: "Malaysia Jobs for Bangladeshi Workers | Current Vacancies",
+  title: "Jobs for Bangladeshi Workers Worldwide | Current Vacancies",
   description:
-    "Browse genuine Malaysia job openings posted by employers. Review role details, work location, pay information and requirements before applying.",
-  alternates: { canonical: BRAND.websiteUrl + "/jobs" },
+    "Browse current international job vacancies posted by employers. Check destination, duties, pay and requirements before applying.",
+  alternates: {
+    canonical: BRAND.websiteUrl + "/jobs",
+    languages: { en: BRAND.websiteUrl + "/jobs", "bn-BD": BRAND.websiteUrl + "/bn/jobs" },
+  },
 };
 
-type SearchParams = Promise<{ q?: string; category?: string; location?: string; reported?: string }>;
+type SearchParams = Promise<{ q?: string; category?: string; location?: string; country?: string; reported?: string }>;
 
 type ListingJob = {
   id: string;
@@ -20,6 +24,7 @@ type ListingJob = {
   title: string;
   category: string;
   employer_name: string;
+  country: string;
   location: string;
   employment_type: string;
   positions: number;
@@ -31,12 +36,13 @@ type ListingJob = {
   expires_at: string;
 };
 
-export async function JobsListing({ searchParams, language = "en" }: { searchParams: SearchParams; language?: "en" | "bn" }) {
+export async function JobsListing({ searchParams, language = "en", fixedCountry }: { searchParams: SearchParams; language?: "en" | "bn"; fixedCountry?: string }) {
   const bangla = language === "bn";
   const params = await searchParams;
   const query = (params.q ?? "").trim().slice(0, 80);
   const category = (params.category ?? "").trim().slice(0, 80);
   const location = (params.location ?? "").trim().slice(0, 80);
+  const country = (fixedCountry ?? params.country ?? "").trim().slice(0, 80);
   let jobs: ListingJob[] = [];
   let loadError = false;
 
@@ -44,7 +50,7 @@ export async function JobsListing({ searchParams, language = "en" }: { searchPar
     const supabase = await createClient();
     let request = supabase
       .from("jobs")
-      .select("id,slug,title,category,employer_name,location,employment_type,positions,salary_min,salary_max,salary_currency,salary_period,created_at,expires_at")
+      .select("id,slug,title,category,employer_name,country,location,employment_type,positions,salary_min,salary_max,salary_currency,salary_period,created_at,expires_at")
       .eq("status", "open")
       .gt("expires_at", new Date().toISOString())
       .order("created_at", { ascending: false })
@@ -52,6 +58,7 @@ export async function JobsListing({ searchParams, language = "en" }: { searchPar
     if (query) request = request.ilike("title", "%" + query + "%");
     if (category) request = request.eq("category", category);
     if (location) request = request.ilike("location", "%" + location + "%");
+    if (country) request = request.ilike("country", country);
     const { data, error } = await request;
     jobs = (data ?? []) as ListingJob[];
     loadError = Boolean(error);
@@ -60,16 +67,18 @@ export async function JobsListing({ searchParams, language = "en" }: { searchPar
   const categories = ["Construction", "Manufacturing", "Plantation & agriculture", "Food service", "Cleaning & facilities", "Logistics & warehousing", "Skilled trades", "Care work", "Other"];
   const copy = bangla
     ? {
-        eyebrow: "মালয়েশিয়া নিয়োগ মার্কেটপ্লেস",
-        title: "মালয়েশিয়ায় বর্তমান চাকরির সুযোগ",
-        intro: "নিয়োগকর্তাদের প্রকাশিত প্রকৃত চাকরির বিজ্ঞাপন দেখুন। আবেদন করার আগে কাজের বিবরণ, কর্মস্থল, বেতন এবং শর্তগুলো ভালোভাবে পড়ুন।",
-        employer: "আপনি কি নিয়োগকর্তা?",
+        eyebrow: "আন্তর্জাতিক নিয়োগ মার্কেটপ্লেস",
+        title: fixedCountry ? fixedCountry + "-এ বর্তমান চাকরির সুযোগ" : "বিভিন্ন দেশে বর্তমান চাকরির সুযোগ",
+        intro: "বিভিন্ন দেশের নিয়োগকর্তাদের প্রকাশিত সক্রিয় চাকরি দেখুন। আবেদন করার আগে দেশ, কর্মস্থল, বেতন, দায়িত্ব ও শর্তগুলো যাচাই করুন।",
+        employer: "চাকরি প্রকাশ করুন",
         search: "চাকরি খুঁজুন",
         role: "পদ বা কীওয়ার্ড",
         category: "কাজের ধরন",
         allCategories: "সব ধরনের কাজ",
         location: "কর্মস্থল",
         city: "শহর বা রাজ্য",
+        country: "গন্তব্য দেশ",
+        anyCountry: "সব দেশ",
         searchButton: "খুঁজুন",
         clear: "ফিল্টার মুছুন",
         support: "কর্মীদের জন্য",
@@ -85,20 +94,22 @@ export async function JobsListing({ searchParams, language = "en" }: { searchPar
         workerAccount: "কর্মী অ্যাকাউন্ট খুলুন",
       }
     : {
-        eyebrow: "Malaysia recruitment marketplace",
-        title: "Current Malaysia job openings",
-        intro: "Explore live vacancies published by employers. Read the terms and role details carefully; each employer is responsible for keeping its post accurate and open.",
-        employer: "Hiring in Malaysia?",
+        eyebrow: "Worldwide recruitment marketplace",
+        title: fixedCountry ? "Current job openings in " + fixedCountry : "Current job openings worldwide",
+        intro: "Explore live vacancies published by employers in different countries. Check the destination, terms and role details carefully; each employer is responsible for keeping its post accurate and open.",
+        employer: "Post a vacancy",
         search: "Search vacancies",
         role: "Role or keyword",
         category: "Job category",
         allCategories: "All categories",
         location: "Work location",
         city: "City or state",
+        country: "Destination country",
+        anyCountry: "All countries",
         searchButton: "Search jobs",
         clear: "Clear filters",
         support: "Worker support",
-        supportText: "Create a profile to apply and choose whether approved employers can find your skills and experience.",
+        supportText: "Create a profile to apply for suitable roles worldwide and choose whether approved employers can find your skills and experience.",
         createAccount: "Create worker account →",
         current: "current vacancies",
         newest: "Showing newest listings first",
@@ -120,7 +131,7 @@ export async function JobsListing({ searchParams, language = "en" }: { searchPar
               <p className="mt-4 max-w-2xl text-base leading-7 text-white/80">{copy.intro}</p>
             </div>
             <div className="relative z-10 flex flex-wrap items-center gap-4 self-start lg:self-auto">
-              <Link className="market-button market-button-gold" href="/hire">{copy.employer} <span aria-hidden="true">↗</span></Link>
+              <Link className="market-button market-button-gold" href="/account/register?type=employer">{copy.employer} <span aria-hidden="true">↗</span></Link>
               {bangla ? <Link className="text-sm font-semibold text-white/80 underline underline-offset-4" href="/jobs">English</Link> : <Link className="text-sm font-semibold text-white/80 underline underline-offset-4" href="/bn/jobs">বাংলা</Link>}
             </div>
           </div>
@@ -130,6 +141,7 @@ export async function JobsListing({ searchParams, language = "en" }: { searchPar
           <aside className="market-panel h-fit p-5">
             <h2 className="text-xl text-[#0b1f3a]">{copy.search}</h2>
             <form action={bangla ? "/bn/jobs" : "/jobs"} className="mt-4 grid gap-4">
+              {fixedCountry ? <input type="hidden" name="country" value={fixedCountry} /> : null}
               <label className="market-label">{copy.role}
                 <input className="market-input" name="q" placeholder="e.g. welder" defaultValue={query} maxLength={80} />
               </label>
@@ -142,8 +154,12 @@ export async function JobsListing({ searchParams, language = "en" }: { searchPar
               <label className="market-label">{copy.location}
                 <input className="market-input" name="location" placeholder={copy.city} defaultValue={location} maxLength={80} />
               </label>
+              {!fixedCountry ? <label className="market-label">{copy.country}
+                <input className="market-input" name="country" list="job-countries" placeholder={copy.anyCountry} defaultValue={country} maxLength={80} />
+                <datalist id="job-countries">{POPULAR_JOB_COUNTRIES.map((item) => <option key={item} value={item} />)}</datalist>
+              </label> : null}
               <button className="market-button w-full" type="submit">{copy.searchButton} <span aria-hidden="true">→</span></button>
-              {(query || category || location) ? <Link className="text-center text-sm text-[#596776] underline underline-offset-4" href={bangla ? "/bn/jobs" : "/jobs"}>{copy.clear}</Link> : null}
+              {(query || category || location || country) ? <Link className="text-center text-sm text-[#596776] underline underline-offset-4" href={bangla ? "/bn/jobs" : "/jobs"}>{copy.clear}</Link> : null}
             </form>
             <div className="mt-6 border-t border-[#0b1f3a]/10 pt-5">
               <p className="text-xs font-semibold uppercase tracking-[.12em] text-[#8a6d35]">{copy.support}</p>
@@ -174,7 +190,7 @@ export async function JobsListing({ searchParams, language = "en" }: { searchPar
                           <span className="rounded-full bg-[#eff3f3] px-3 py-1 text-[11px] font-semibold text-[#3d5362]">{job.employment_type}</span>
                         </div>
                         <h3 className="mt-3 text-2xl leading-snug text-[#0b1f3a]"><Link href={(bangla ? "/bn/jobs/" : "/jobs/") + job.slug} className="hover:text-[#876a32]">{job.title}</Link></h3>
-                        <p className="mt-2 text-sm text-[#4f5d69]">{job.employer_name} <span className="mx-1.5 text-[#b5ad9c]">·</span> {job.location}, Malaysia</p>
+                        <p className="mt-2 text-sm text-[#4f5d69]">{job.employer_name} <span className="mx-1.5 text-[#b5ad9c]">·</span> {job.location}, <Link className="underline decoration-[#c7b98f] underline-offset-2" href={`/jobs/country/${countrySlug(job.country)}`}>{job.country}</Link></p>
                       </div>
                       <Link className="market-link inline-flex min-h-10 shrink-0 items-center" href={(bangla ? "/bn/jobs/" : "/jobs/") + job.slug}>{bangla ? "বিজ্ঞাপন দেখুন" : "View vacancy"} <span className="ml-2" aria-hidden="true">→</span></Link>
                     </div>
@@ -193,7 +209,7 @@ export async function JobsListing({ searchParams, language = "en" }: { searchPar
                 <p className="market-muted mt-2 max-w-2xl leading-7">{copy.emptyBody}</p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <Link className="market-button" href={bangla ? "/account/register?type=worker&lang=bn" : "/account/register?type=worker"}>{copy.workerJoin}</Link>
-                  <Link className="market-link inline-flex min-h-12 items-center" href="/malaysia/how-to-apply">{copy.howApply}</Link>
+                  <Link className="market-link inline-flex min-h-12 items-center" href="/process">{copy.howApply}</Link>
                 </div>
               </div>
             )}

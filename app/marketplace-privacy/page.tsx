@@ -3,7 +3,7 @@ import { BRAND } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Marketplace Privacy and Document Handling",
-  description: "How Bangladesh Labour Supply uses worker profiles, employer applications and private CV files in the Malaysia recruitment marketplace.",
+  description: "How Bangladesh Labour Supply uses worker profiles, employer applications and private CV files in its international recruitment marketplace.",
   alternates: { canonical: BRAND.websiteUrl + "/marketplace-privacy" },
 };
 
@@ -11,9 +11,9 @@ export default function MarketplacePrivacyPage() {
   return (
     <div className="market-surface min-h-[60vh] px-5 py-10 sm:px-8 sm:py-14">
       <article className="market-panel mx-auto max-w-4xl p-6 sm:p-10">
-        <p className="market-kicker">Malaysia marketplace</p>
+        <p className="market-kicker">International marketplace</p>
         <h1 className="mt-2 text-4xl text-[#0b1f3a]">Privacy and document handling</h1>
-        <p className="market-muted mt-4 leading-7">This page explains the information used by the Malaysia pilot marketplace operated by Bangladesh Labour Supply. Contact <a className="market-link" href={"mailto:" + BRAND.email}>{BRAND.email}</a> if you have a question, want to correct information or want help closing your account.</p>
+        <p className="market-muted mt-4 leading-7">This page explains the information used by the international recruitment marketplace operated by Bangladesh Labour Supply. Contact <a className="market-link" href={"mailto:" + BRAND.email}>{BRAND.email}</a> if you have a question, want to correct information or want help closing your account.</p>
         <section className="mt-8">
           <h2 className="text-2xl text-[#0b1f3a]">Information workers provide</h2>
           <p className="market-muted mt-2 leading-7">Account email, name, phone number and city are kept in private account records. A separate skills profile can include roles, experience, skills, languages, destination preferences and a short work summary. Workers choose whether that profile appears to approved employers. A worker who applies to a job shares the skills profile and any application note with that job&apos;s employer. Do not add phone numbers or email addresses to the profile or application note; the form checks for this before saving.</p>
