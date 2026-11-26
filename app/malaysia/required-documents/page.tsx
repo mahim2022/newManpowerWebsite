@@ -92,13 +92,6 @@ const sectors: SectorDocuments[] = [
     specialRequirements: ["Check current port, airport, and sector-authority approvals for the specific operation"],
     notes: "The responsible authority and required evidence depend on the facility and cargo activity.",
   },
-  {
-    name: "Security Services (Pengawal Keselamatan)",
-    sectorCode: "Security",
-    basicDocuments: ["Company registration and current security-business licence", "Business activity and worksite details", "Hiring plan with role, headcount, and deployment locations", "Company records requested by the current application route"],
-    specialRequirements: ["Confirm current KDN licensing and any additional approval for the security activity"],
-    notes: "Security services have separate licensing considerations. Verify that the licence and proposed activity remain valid for the application.",
-  },
 ];
 
 const documentSections = [

@@ -7,7 +7,7 @@ import { buildBreadcrumbSchema } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Kategori Pekerja Malaysia | Pembekalan Tenaga Kerja",
   description:
-    "Gambaran ringkas kategori pekerja yang biasa diambil ke Malaysia dari Bangladesh — pembinaan, perkilangan, keselamatan, pembersihan dan logistik.",
+    "Gambaran ringkas kategori pekerja yang biasa diambil ke Malaysia dari Bangladesh — pembinaan, perkilangan, pembersihan dan logistik.",
   path: "/malaysia/worker-categories/ms",
   keywords: ["kategori pekerja Malaysia", "pembekalan tenaga kerja"],
 });
@@ -16,7 +16,6 @@ const categories = [
   { title: "Pekerja Pembinaan", description: "Tenaga mahir dan am untuk operasi tapak dan keperluan projek pembinaan." },
   { title: "Pekerja Am", description: "Sokongan tapak, pengendalian bahan dan tugasan operasi harian." },
   { title: "Pekerja Perkilangan", description: "Pekerja pengeluaran untuk operasi kilang dan persekitaran perhimpunan." },
-  { title: "Pegawai Keselamatan", description: "Kakitangan kawalan dan sokongan untuk operasi keselamatan premis." },
   { title: "Kakitangan Pembersihan", description: "Pekerja kebersihan dan penyelenggaraan untuk premis komersial dan kediaman." },
   { title: "Pekerja Hospitaliti", description: "Sokongan perkhidmatan untuk hotel dan persekitaran layanan pelanggan." },
   { title: "Kakitangan Logistik", description: "Peranan gudang dan sokongan pergerakan untuk aliran operasi." },

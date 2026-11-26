@@ -31,7 +31,7 @@ const faqItems = [
   },
   {
     question: "Kategori pekerjaan biasa?",
-    answer: "Pembinaan, pembuatan, pembersihan, keselamatan, logistik dan sokongan hospitaliti。",
+    answer: "Pembinaan, pembuatan, pembersihan, logistik dan sokongan hospitaliti。",
   },
 ];
 

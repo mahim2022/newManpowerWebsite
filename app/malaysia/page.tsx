@@ -26,7 +26,6 @@ const malaysiaWorkforceAreas = [
   "Construction workers",
   "General labourers",
   "Manufacturing workers",
-  "Security personnel",
   "Cleaning staff",
   "Hospitality workers",
   "Food processing workers",
@@ -66,7 +65,7 @@ const malaysiaFaqs = [
   {
     question: "Which workers are commonly supplied to Malaysia from Bangladesh?",
     answer:
-      "Common categories include construction workers, general labourers, manufacturing workers, cleaners, security personnel, logistics staff, and hospitality support workers.",
+      "Common categories include construction workers, general labourers, manufacturing workers, cleaners, logistics staff, and hospitality support workers.",
   },
   {
     question: "How does your Malaysia recruitment process work?",

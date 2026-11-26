@@ -22,7 +22,6 @@ const malaysiaWorkforceAreas = [
   "Pekerja pembinaan",
   "Buruh am",
   "Pekerja pembuatan",
-  "Petugas keselamatan",
   "Kakitangan pembersihan",
   "Kakitangan hospitaliti",
   "Pekerja pemprosesan makanan",
@@ -62,7 +61,7 @@ const malaysiaFaqs = [
   {
     question: "Pekerja jenis apakah yang biasa dibekalkan ke Malaysia dari Bangladesh?",
     answer:
-      "Kategori biasa termasuk pekerja pembinaan, buruh am, pekerja pembuatan, pekerja pembersihan, petugas keselamatan, kakitangan logistik dan sokongan hospitaliti.",
+      "Kategori biasa termasuk pekerja pembinaan, buruh am, pekerja pembuatan, pekerja pembersihan, kakitangan logistik dan sokongan hospitaliti.",
   },
   {
     question: "Bagaimanakah proses pengambilan Malaysia anda berfungsi?",
@@ -170,7 +169,7 @@ export default function MalaysiaMsPage() {
           </article>
           <article className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6">
             <h3 className="font-serif text-2xl text-[#0B1F3A]">Perkhidmatan & Sokongan</h3>
-            <p className="mt-3 text-sm leading-7 text-neutral-700">Pembersihan, keselamatan, logistik dan kerja sokongan diliputi melalui saringan calon dan perancangan penempatan yang tersusun.</p>
+            <p className="mt-3 text-sm leading-7 text-neutral-700">Pembersihan, logistik dan kerja sokongan diliputi melalui saringan calon dan perancangan penempatan yang tersusun.</p>
           </article>
         </div>
       </SectionWrapper>

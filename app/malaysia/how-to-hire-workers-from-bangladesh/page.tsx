@@ -41,7 +41,7 @@ const faqItems = [
   {
     question: "What workers are commonly recruited from Bangladesh for Malaysia?",
     answer:
-      "Construction workers, general labourers, manufacturing workers, cleaning staff, security personnel, logistics staff, and hospitality support workers are common categories.",
+      "Construction workers, general labourers, manufacturing workers, cleaning staff, logistics staff, and hospitality support workers are common categories.",
   },
 ];
 

@@ -15,7 +15,6 @@ const categories = [
   { title: "建筑工人", description: "用于工地作业、结构工作和项目性人力需求的熟练与普通工人。" },
   { title: "普通工人", description: "现场支持、物料搬运与日常运营任务的人力。" },
   { title: "制造业工人", description: "工厂生产、装配与加工岗位的员工。" },
-  { title: "保安人员", description: "负责物业、设施和工地安全的守卫与支持人员。" },
   { title: "清洁人员", description: "商业与住宅环境的家政与清洁维护人员。" },
   { title: "酒店服務人員", description: "酒店與服務環境的後勤與支持人員。" },
   { title: "物流人員", description: "倉儲、庫存處理與配送支持的操作人員。" },
