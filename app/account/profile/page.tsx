@@ -97,7 +97,7 @@ export default async function ProfilePage({ searchParams }: { searchParams: Prom
                   <input className="market-input" name="languages" defaultValue={(worker.languages ?? []).join(", ")} maxLength={500} placeholder="e.g. Bengali, English" />
                 </label>
                 <label className="market-label">Preferred destinations
-                  <input className="market-input" name="preferred_destinations" defaultValue={(worker.preferred_destinations ?? ["Malaysia"]).join(", ")} maxLength={500} placeholder="Add countries separated by commas" />
+                  <input className="market-input" name="preferred_destinations" defaultValue={(worker.preferred_destinations ?? []).join(", ")} maxLength={500} placeholder="Add countries separated by commas" />
                 </label>
                 <label className="market-label sm:col-span-2">Experience summary
                   <textarea className="market-input min-h-32 resize-y" name="summary" defaultValue={worker.summary} maxLength={1500} placeholder="Summarise relevant tasks, industries and experience. Do not include your address, phone number or passport details." />

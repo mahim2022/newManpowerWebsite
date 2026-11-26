@@ -21,7 +21,7 @@ There are no demonstration listings or seeded worker records. Employer accounts 
 
 ## Database and deployment
 
-The schema, private candidate-document bucket, row-level security policies, triggers, and indexes are versioned under `supabase/migrations/`. No worker, employer, or job rows were added during setup. The country and currency expansion is tracked in `20261126024300_worldwide_job_marketplace.sql`.
+The schema, private candidate-document bucket, row-level security policies, triggers, and indexes are versioned under `supabase/migrations/`. No worker, employer, or job rows were added during setup. Worldwide country/currency support and open worker destination preferences are tracked in `20261126024300_worldwide_job_marketplace.sql` and `20261126024902_global_worker_destination_default.sql`.
 
 The two `NEXT_PUBLIC_SUPABASE_*` values are configured in **Preview** for branch `codex/malaysia-marketplace`. Vercel captures environment values per deployment, so a new preview build is needed after changing a variable. The stable preview callback URL is already in Supabase's Auth redirect allowlist. Before moving the marketplace to production, add `https://recruitfrombangladesh.me/auth/callback` and `https://www.recruitfrombangladesh.me/auth/callback` to the allowlist, then set the Supabase Site URL to the production domain after the production deployment is ready. Do not configure a service-role key for the website; the app uses user sessions plus database row-level security.
 
