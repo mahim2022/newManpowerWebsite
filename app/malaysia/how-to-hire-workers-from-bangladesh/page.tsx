@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -33,9 +34,9 @@ const faqItems = [
       "You need a clear hiring requirement, role specifications, candidate screening workflow, and a recruitment partner with documentation and deployment support.",
   },
   {
-    question: "Can a Malaysian employer directly hire from Bangladesh?",
+    question: "Can a Malaysian employer hire workers from Bangladesh?",
     answer:
-      "Yes, through a structured recruitment process that includes sourcing, worker screening, documentation, and coordination for legal and operational readiness.",
+      "Malaysian employers may apply to recruit eligible workers from Bangladesh, subject to current employer approval, quota, sector and immigration requirements and the applicable Bangladesh-side recruitment procedures. Confirm the current route and any channel restrictions before sourcing or committing to a start date.",
   },
   {
     question: "What workers are commonly recruited from Bangladesh for Malaysia?",
@@ -120,6 +121,15 @@ export default function HowToHireWorkersFromBangladeshPage() {
             <p className="mt-3 text-sm leading-7 text-neutral-700">Workers are more likely to be deployment-ready when the process is organized and transparent.</p>
           </article>
         </div>
+      </SectionWrapper>
+
+      <SectionWrapper eyebrow="Official guidance" title="Confirm the current approval route">
+        <p className="text-base leading-8 text-neutral-700">
+          Before sourcing, check employer approval and quota requirements with the authorities. Malaysia&apos;s{" "}
+          <a href="https://jtksm.mohr.gov.my/ms/soalan-lazim/penggajian-pekerja-asing/adakah-semua-majikan-yang-ingin-menggajikan-pekerja-asing" className="font-medium text-[#8A6420] underline underline-offset-4">Labour Department guidance</a> explains prior approval, and{" "}
+          <a href="https://www.imi.gov.my/index.php/en/main-services/foreign-worker/" className="font-medium text-[#8A6420] underline underline-offset-4">Immigration guidance</a> lists Bangladesh among permitted source countries and describes quota approval. Requirements and recruitment channels may change. See our{" "}
+          <Link href="/malaysia/application-approval-process" className="font-medium text-[#8A6420] underline underline-offset-4">Malaysia approval guide</Link> for preparation steps.
+        </p>
       </SectionWrapper>
 
       <SectionWrapper
