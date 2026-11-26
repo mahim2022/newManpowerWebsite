@@ -17,5 +17,6 @@ export default function BruneiNews() {
       <p>For the steps and documents involved, see our <Link className="underline" href="/brunei/how-to-hire-workers-from-bangladesh">Brunei employer hiring guide</Link>.</p>
       <p>Official sources: <a className="underline" href="https://www.oep.gov.bd/job-circulars/srkarivabe-brunai-er-suzana-guru-contractor-kompanite-ovijng-krmee-nizog-bijngpti">Suzana Guru notice</a> and <a className="underline" href="https://www.oep.gov.bd/job-circulars/srkarivabe-brunai-er-bru-spark-technology-kompanite-sadharn-srmik-nizog-bijngpti">Bru Spark notice</a>, accessed 23 November 2026. Check the official notices for requirements, fees and updates.</p>
     </div>
-  </article>;
+    <Link href="/news" className="mt-8 inline-block font-medium text-[#0B1F3A] underline">All recruitment news</Link>
+    </article>;
 }

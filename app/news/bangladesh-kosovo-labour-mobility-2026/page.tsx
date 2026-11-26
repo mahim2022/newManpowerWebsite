@@ -13,5 +13,6 @@ export default function KosovoNews() {
       <p>We will monitor official announcements for a concrete framework, eligibility and next steps. Employers interested in future recruitment can <Link className="underline" href="/contact">contact us</Link> to discuss their workforce needs.</p>
       <p>Source: <a className="underline" href="https://mofa.gov.bd/pages/press-releases/joint-communiqu-on-the-second-foreign-office-consultations-between-the-ministry-of-foreign-affairs-of-the-peoples-republic-of-bangladesh-and-the-ministry-of-foreign-affairs-and-diaspora-of-the-republic-of-kosovo-1kinmx-6a7e91ff6b7338af9272cde4">Bangladesh Ministry of Foreign Affairs joint communiqué</a>, issued 13 August and published 14 August 2026.</p>
     </div>
-  </article>;
+    <Link href="/news" className="mt-8 inline-block font-medium text-[#0B1F3A] underline">All recruitment news</Link>
+    </article>;
 }

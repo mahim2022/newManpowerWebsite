@@ -23,5 +23,6 @@ export default function MalaysiaRecruitmentNews() {
       <h2 className="font-serif text-3xl text-[#0B1F3A]">Sources and status</h2>
       <p><a className="underline" href="https://probashi.gov.bd/pages/notices/%E0%A6%B8%E0%A6%B0%E0%A6%95%E0%A6%BE%E0%A6%B0%E0%A6%BF%E0%A6%AD%E0%A6%BE%E0%A6%AC%E0%A7%87-%E0%A6%B6%E0%A7%82%E0%A6%A8%E0%A7%8D%E0%A6%AF-%E0%A6%85%E0%A6%AD%E0%A6%BF%E0%A6%AC%E0%A6%BE%E0%A6%B8%E0%A6%A8-%E0%A6%AC%E0%A7%8D%E0%A6%AF%E0%A7%9F%E0%A7%87-%E0%A6%AE%E0%A6%BE%E0%A6%B2%E0%A7%9F%E0%A7%87%E0%A6%B6%E0%A6%BF%E0%A7%9F%E0%A6%BE%E0%A7%9F-%E0%A6%A6%E0%A6%95%E0%A7%8D%E0%A6%B7-%E0%A6%95%E0%A6%B0%E0%A7%8D%E0%A6%AE%E0%A7%80-%E0%A6%A8%E0%A6%BF%E0%A7%9F%E0%A7%8B%E0%A6%97-%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%AA%E0%A7%8D%E0%A6%A4%E0%A6%BF-y3ci05-6aecb65b05b08a529905dbd0">Bangladesh Ministry: BOESL notice, 5 November 2026</a>; <a className="underline" href="https://www.imi.gov.my/index.php/en/main-services/foreign-worker/">Malaysia Immigration: foreign-worker requirements</a>. Information checked 24 November 2026. Requirements and schedules can change.</p>
     </div>
-  </article>;
+    <Link href="/news" className="mt-8 inline-block font-medium text-[#0B1F3A] underline">All recruitment news</Link>
+    </article>;
 }

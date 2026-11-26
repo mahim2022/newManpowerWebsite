@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { BRAND, LOCALIZED_ROUTE_LANGUAGES, normalizeCanonicalUrl } from "@/lib/constants";
 
+import { recruitmentNews } from "@/lib/recruitment-news";
+
 const ENGLISH_ROUTES = [
   { path: "/", priority: 1 },
   { path: "/about", priority: 0.65 },
@@ -21,9 +23,8 @@ const ENGLISH_ROUTES = [
   { path: "/malaysia/recruitment-process", priority: 0.85 },
   { path: "/malaysia/skilled-workers", priority: 0.75 },
   { path: "/malaysia/worker-categories", priority: 0.75 },
-  { path: "/news/bangladesh-kosovo-labour-mobility-2026", priority: 0.6 },
-  { path: "/news/brunei-bangladesh-recruitment-november-2026", priority: 0.6 },
-  { path: "/news/malaysia-bangladesh-recruitment-november-2026", priority: 0.7 },
+  { path: "/news", priority: 0.7 },
+  ...recruitmentNews.map(({ path }) => ({ path, priority: 0.6 })),
   { path: "/process", priority: 0.75 },
   { path: "/services", priority: 0.8 },
 ] as const;

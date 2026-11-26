@@ -132,6 +132,12 @@ export default function HowToHireWorkersFromBangladeshPage() {
         </p>
       </SectionWrapper>
 
+      <SectionWrapper eyebrow="Recruitment news" title="Malaysia recruitment updates">
+        <p className="text-base leading-8 text-neutral-700">
+          Read the <Link className="font-medium text-[#0B1F3A] underline" href="/news/malaysia-bangladesh-recruitment-november-2026">November 2026 Malaysia recruitment update</Link> for the BOESL notice and its implications for employers.
+        </p>
+      </SectionWrapper>
+
       <SectionWrapper
         eyebrow="FAQ"
         title="Quick answers for Malaysia employers"

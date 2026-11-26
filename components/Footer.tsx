@@ -16,6 +16,7 @@ export function Footer() {
             <nav aria-label="Footer">
               <ul className="grid gap-1 text-sm text-[#DBE1E7]">
                 {NAV_LINKS.map((link) => <li key={link.href}><Link href={link.href} className="inline-flex min-h-9 items-center transition-colors hover:text-[#D8BC77]">{link.label}</Link></li>)}
+                <li><Link href="/news" className="inline-flex min-h-9 items-center transition-colors hover:text-[#D8BC77]">Recruitment news</Link></li>
                 <li><Link href="/about" className="inline-flex min-h-9 items-center transition-colors hover:text-[#D8BC77]">About the network</Link></li>
                 <li><Link href="/compliance" className="inline-flex min-h-9 items-center transition-colors hover:text-[#D8BC77]">Our approach to compliance</Link></li>
               </ul>

@@ -52,7 +52,7 @@ export default function ProcessPage() {
           </article>
         </div>
         <p className="mt-8 text-sm leading-7 text-neutral-700">
-          Hiring in Malaysia? See our practical <Link href="/malaysia/application-approval-process" className="font-medium text-[#8A6420] underline underline-offset-4">Malaysia application and approval guide</Link> for the current route examples and employer preparation points.
+          Hiring in Malaysia? Start with the <Link href="/malaysia/how-to-hire-workers-from-bangladesh" className="font-medium text-[#8A6420] underline underline-offset-4">Malaysia employer guide to hiring from Bangladesh</Link> for the country-specific approvals, documents and recruitment steps.
         </p>
       </SectionWrapper>
     </>
