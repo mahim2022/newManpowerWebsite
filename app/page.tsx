@@ -12,7 +12,7 @@ import { buildBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Bangladesh Recruitment Network for Global Employers",
-  description: "Hire workers from Bangladesh through our licensed agency network. We support employers in Europe, Canada, Australia, the Middle East, Southeast Asia, and other markets.",
+  description: "Hire workers from Bangladesh through our licensed agency network. Browse international job openings or post a vacancy for employers in Europe, Canada, Australia, the Middle East, Southeast Asia, and other markets.",
   path: "/",
 });
 
@@ -24,6 +24,23 @@ export default function Home() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Hero heading={SITE_COPY.heroTitle} supportingText={SITE_COPY.heroBody} />
+
+      <SectionWrapper id="marketplace" eyebrow="Worldwide job marketplace" title="A place for employers and workers to connect." subtitle="Employers can publish genuine vacancies for jobs in any destination. Workers can browse opportunities, apply, and keep their contact details private.">
+        <div className="grid gap-5 md:grid-cols-2">
+          <article className="flex flex-col items-start rounded-xl bg-[#0B1F3A] p-7 text-white sm:p-9">
+            <p className="eyebrow text-[#D8BC77]">For employers</p>
+            <h3 className="mt-4 font-serif text-2xl leading-snug text-white sm:text-3xl">Hiring for a role anywhere in the world?</h3>
+            <p className="mt-3 max-w-lg text-sm leading-7 text-white/75">Create an employer account and post the destination, duties, pay, and requirements. Your vacancy appears on the job board as soon as you publish it.</p>
+            <Link href="/account/register?type=employer" className="mt-6 inline-flex min-h-11 items-center rounded-md bg-[#E2CB91] px-5 text-sm font-semibold text-[#0B1F3A] transition-colors hover:bg-[#F0DCA8]">Post a vacancy <span aria-hidden="true" className="ml-3">→</span></Link>
+          </article>
+          <article className="flex flex-col items-start rounded-xl border border-[#0B1F3A]/12 bg-[#F4F2EB] p-7 sm:p-9">
+            <p className="eyebrow text-[#8A6420]">For workers</p>
+            <h3 className="mt-4 font-serif text-2xl leading-snug text-[#0B1F3A] sm:text-3xl">Looking for work abroad?</h3>
+            <p className="mt-3 max-w-lg text-sm leading-7 text-neutral-600">Search current vacancies by role, category, location, and destination. Create a worker account to apply; your phone number and CV stay private from employers.</p>
+            <Link href="/jobs" className="text-link mt-6 inline-flex min-h-11 items-center">Search current jobs <span aria-hidden="true" className="ml-3">→</span></Link>
+          </article>
+        </div>
+      </SectionWrapper>
 
       <section className="mx-auto max-w-7xl px-6 py-8 lg:px-10" aria-label="Labour mobility news">
         <p className="text-sm font-semibold text-[#8A6420]">Labour mobility news · 23 November 2026</p>
