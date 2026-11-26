@@ -22,7 +22,10 @@ function startAnalytics(id: string) {
   (window as unknown as Record<string, unknown>)[`ga-disable-${id}`] = false;
   if (window.analyticsTagId === id) return;
   window.dataLayer = window.dataLayer || [];
-  window.gtag = (...args: unknown[]) => { window.dataLayer?.push(args); };
+  window.gtag = function () {
+    // eslint-disable-next-line prefer-rest-params -- Google expects its gtag queue to receive an Arguments object.
+    window.dataLayer?.push(arguments);
+  };
   window.gtag("js", new Date());
   window.gtag("config", id, { send_page_view: false, allow_google_signals: false });
   const script = document.createElement("script");
@@ -77,8 +80,8 @@ export function Analytics({ measurementId }: { measurementId?: string }) {
         if (url.hostname === "wa.me" || url.hostname === "api.whatsapp.com") track("whatsapp_click", window.location.pathname);
       } catch { /* Ignore invalid URLs. */ }
     }
-    document.addEventListener("click", onClick);
-    return () => document.removeEventListener("click", onClick);
+    document.addEventListener("click", onClick, true);
+    return () => document.removeEventListener("click", onClick, true);
   }, [id, consent]);
 
   function choose(value: "granted" | "denied") {
