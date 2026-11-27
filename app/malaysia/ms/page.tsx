@@ -335,7 +335,7 @@ export default function MalaysiaMsPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Panduan</p>
             <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Cara mengupah pekerja</h3>
           </a>
-          <a href="/malaysia/worker-categories" className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5">
+          <a href="/malaysia/worker-categories/ms" className="rounded-sm border border-[#0B1F3A]/10 bg-white p-6 transition-all duration-200 hover:-translate-y-0.5">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Kategori</p>
             <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Kategori pekerja</h3>
           </a>

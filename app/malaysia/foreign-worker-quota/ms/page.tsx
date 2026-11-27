@@ -162,7 +162,7 @@ export default function ForeignWorkerQuotaMs() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C6A969]">Kategori</p>
             <h3 className="mt-4 font-serif text-2xl text-[#0B1F3A]">Kategori pekerja</h3>
             <p className="mt-3 text-sm leading-7 text-neutral-700">Terokai kumpulan pekerja utama yang biasa dicari oleh majikan Malaysia.</p>
-            <a href="/malaysia/worker-categories" className="mt-4 inline-block text-sm font-semibold text-[#0B1F3A] underline underline-offset-4">Semak kategori</a>
+            <a href="/malaysia/worker-categories/ms" className="mt-4 inline-block text-sm font-semibold text-[#0B1F3A] underline underline-offset-4">Semak kategori</a>
           </article>
         </div>
       </SectionWrapper>
